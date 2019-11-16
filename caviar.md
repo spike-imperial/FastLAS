@@ -1,3 +1,5 @@
+# CAVIAR Experiments
+
 This experiment was based on the CAVIAR video dataset from:
 
 > Fisher, R.; Santos-Victor, J.; and Crowley, J. 2004. CAVIAR: Context
