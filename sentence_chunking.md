@@ -22,11 +22,11 @@ of facts as an example, and learning rules for whether to split the
 sentence between each pair of tags.
 
 
-In our AAAI 2020 paper, we also ran the [ILASP](http://www.ilasp.com)
+In our AAAI 2020 paper, we also ran the [ILASP](http://www.ilasp.com/)
 (Inductive Learning of Answer Set Programs) system on the same dataset.
 The ILASP and FastLAS input files, together with scripts for running the
 experiments are available
-[here](https://github.com/spike-imperial/FastLAS/data/sentence_chunking/).
+[here](https://github.com/spike-imperial/FastLAS/tree/master/data/sentence_chunking).
 
 To run the learning, run:
 
@@ -46,5 +46,5 @@ You can view a summary of the results by running:
 ```
 
 Note that if the experiments are interrupted for any reason, when you
-rerun the learning command, it will resume from the last experiments.
+rerun the learning command, it will resume from the last experiment.
 For a full restart, you need to empty the results folder.
