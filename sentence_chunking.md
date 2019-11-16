@@ -1,6 +1,6 @@
 # Sentence Chunking Experiments
 
-This data is based on a sentence chunking dataset from:
+This experiment was based on a sentence chunking dataset from:
 
 >  Agirre, E.; Gonzalez Agirre, A.; Lopez-Gazpio, I.; Maritxalar, M.;
 >  Rigau Claramunt, G.; and Uria, L. 2016. Semeval-2016 task 2:

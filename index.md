@@ -7,10 +7,6 @@ has several restrictions, which mean that it is not nearly as general as
 ILASP, but it is significantly more scalable, and allows a user to
 express their own optimisation criteria.
 
-## Note
-
-This documentation page is under construction.
-
 
 ## Table of Contents
 
@@ -19,3 +15,7 @@ This documentation page is under construction.
     1. [Sentence Chunking](sentence_chunking.md)
     2. [CAVIAR](caviar.md)
     3. [Policy Learning](policy_learning.md)
+
+
+Any questions about the FastLAS system should be directed to Mark Law
+(mark.law09@imperial.ac.uk).
