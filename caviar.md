@@ -2,7 +2,7 @@ This experiment was based on the CAVIAR video dataset from:
 
 > Fisher, R.; Santos-Victor, J.; and Crowley, J. 2004. CAVIAR: Context
 > aware vision using image-based active recognition.
-> [http://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/]. Accessed: 2019-08-28
+> [http://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/](http://homepages.inf.ed.ac.uk/rbf/CAVIARDATA1/).
 
 We used the version of the dataset as used by the authors of the
 OLED system:
