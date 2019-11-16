@@ -1,17 +1,17 @@
 This data is based on a sentence chunking dataset from:
 
-  Agirre, E.; Gonzalez Agirre, A.; Lopez-Gazpio, I.; Maritxalar, M.; Rigau
-  Claramunt, G.; and Uria, L. 2016. Semeval-2016 task 2: Interpretable
-  semantic textual similarity. In SemEval-2016. 10th International
-  Workshop on Semantic Evaluation. ACL
+>  Agirre, E.; Gonzalez Agirre, A.; Lopez-Gazpio, I.; Maritxalar, M.;
+>  Rigau Claramunt, G.; and Uria, L. 2016. Semeval-2016 task 2:
+>  Interpretable semantic textual similarity. In SemEval-2016. 10th
+>  International Workshop on Semantic Evaluation. ACL
 
 The goal is to learn to split a sentence into short phrases called
 chunks. The paper:
 
 
-  Kazmi, M.; Schüller, P.; and Saygın, Y. 2017. Improving scalability of
-  inductive logic programming via pruning and best-effort optimisation.
-  Expert Systems with Applications 87:291–303.
+>  Kazmi, M.; Schüller, P.; and Saygın, Y. 2017. Improving scalability
+>  of inductive logic programming via pruning and best-effort
+>  optimisation. Expert Systems with Applications 87:291–303.
 
 describes how to transform each sentence into a set of facts consisting of part
 of speech (POS) tags, forming a pre-processing step. In the above paper,
