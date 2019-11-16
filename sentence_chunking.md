@@ -14,36 +14,37 @@ chunks. The paper:
   Expert Systems with Applications 87:291–303.
 
 describes how to transform each sentence into a set of facts consisting of part
-of speech (POS) tags, forming a pre-processing step. These facts were
-then used as part of the input to the INSPIRE system. We have run
-FastLAS on this pre-processed version of the dataset (which we have
-translated into FastLAS input format) using each
-of these sets of facts as an example, and learning rules for whether to
-split the sentence between each pair of tags.
+of speech (POS) tags, forming a pre-processing step. In the above paper,
+these facts were then used as part of the input to the INSPIRE system.
+We have run FastLAS on this pre-processed version of the dataset (which
+we have translated into FastLAS input format) using each of these sets
+of facts as an example, and learning rules for whether to split the
+sentence between each pair of tags.
 
 
-In our AAAI 2020 paper, we also ran the [www.ilasp.com](ILASP) (Inductive Learning
-of Answer Set Programs) system on the same dataset. The FastLAS input files,
-together with scripts for running the experiments can be found at
-[https://github.com/spike-imperial/FastLAS/data/sentence_chunking/].
+In our AAAI 2020 paper, we also ran the [ILASP](http://www.ilasp.com)
+(Inductive Learning of Answer Set Programs) system on the same dataset.
+The ILASP and FastLAS input files, together with scripts for running the
+experiments are available
+[here](https://github.com/spike-imperial/FastLAS/data/sentence_chunking/).
 
 To run the learning, run:
 
 ```
-./run_learning.rb {{system_name}} > results_{{system_name}}.json
+mkdir results
+./run_learning.rb *system_name*
 ```
 
-Where `{{system_name}}` should be replaced with either `FastLAS` or `ILASP`.
-
-After running the learning, run:
-
-```
-./compute_results.rb {{system_name}}
-```
+Where `*system_name*` should be replaced with either `FastLAS` or
+`ILASP`. To run the ILASP experiments, you will need to install ILASP.
 
 You can view a summary of the results by running:
 
 
 ```
-./print_results.rb {{system_name}}
+./print_results.rb *system_name*
 ```
+
+Note that if the experiments are interrupted for any reason, when you
+rerun the learning command, it will resume from the last experiments.
+For a full restart, you need to empty the results folder.
