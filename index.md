@@ -17,5 +17,8 @@ express their own optimisation criteria.
     3. [Policy Learning](policy_learning.md)
 
 
+For the document with the proofs omitted from the main paper, please see
+[https://github.com/spike-imperial/FastLAS/blob/master/proofs_document.pdf](https://github.com/spike-imperial/FastLAS/blob/master/proofs_document.pdf).
+
 Any questions about the FastLAS system should be directed to Mark Law
 (mark.law09@imperial.ac.uk).
