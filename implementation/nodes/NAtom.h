@@ -58,7 +58,7 @@ class NAtom : public NRuleHead {
       } else {
         ss << predicate_name;
         for(int i = 0; i < arguments.size(); i++) {
-          ss << (i == 0 ? "(" : ", ");
+          ss << (i == 0 ? "(" : ",");
           ss << arguments[i]->to_string();
         }
         if(arguments.size() > 0) {

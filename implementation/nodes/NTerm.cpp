@@ -33,7 +33,7 @@ string NTerm::to_string() const {
   stringstream ss;
   ss << function_name;
   for(int i = 0; i < arguments.size(); i++) {
-    ss << (i == 0 ? "(" : ", ");
+    ss << (i == 0 ? "(" : ",");
     ss << arguments[i]->to_string();
   }
   if(arguments.size() > 0) {

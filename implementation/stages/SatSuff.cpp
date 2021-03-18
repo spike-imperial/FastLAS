@@ -179,10 +179,14 @@ void SM_Utils::compute_sat_sufficient() {
       }
     }
 
-    for(auto p : partial_disjs) {
-      mtx.lock();
-      rule_disjunctions[eg->id].insert(p.second);
-      mtx.unlock();
+    if(partial_disjs.size() == eg->inclusions.size()) {
+      for(auto p : partial_disjs) {
+        mtx.lock();
+        rule_disjunctions[eg->id].insert(p.second);
+        mtx.unlock();
+      }
+    } else {
+      rule_disjunctions[eg->id].insert(set<int>());
     }
     proc.close();
     remove(inpipe.c_str());
