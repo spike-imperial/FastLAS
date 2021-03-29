@@ -45,6 +45,16 @@ string meta_sat_suff = R"(
   target_exc(EG, A) : ctx(EG, exclusion(A))
 } 1.
 :- not head(_).
+occurs_in_head(X) :- occurs_in_head(X, _).
+:- var(V1), var(V2), V1 < V2, occurs_in_head(V2, I); #false : occurs_in_head(V1, I2), I2 < I.
+
+ord_check(V1, V2, lt) :- var(V1), var(V2), V1 < V2.
+ord_check(V1, V2, lte) :- var(V1), var(V2), V1 <= V2.
+
+ord_check(V1, V2, lt) :- var(V1), var(V2), occurs_in_head(V1).
+ord_check(V1, V2, lt) :- var(V1), var(V2), occurs_in_head(V2).
+ord_check(V1, V2, lte) :- var(V1), var(V2), occurs_in_head(V1).
+ord_check(V1, V2, lte) :- var(V1), var(V2), occurs_in_head(V2).
 
 
 target_atom(EG, A) :- target_inc(EG, A).

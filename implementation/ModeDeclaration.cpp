@@ -38,6 +38,13 @@ string ModeDeclaration::head_representation() const {
   stringstream ss;
   ss << "head(" << atom.generalise("ARG") << ") :- target_atom(EG_ID, " << atom.generalise("ARG_VAL") << ")" << atom.link_arguments(true) << "." << endl;
   //ss << "{ abduce(" << atom.generalise("ARG") << ") } :- #true" << atom.ground_arguments() << "." << endl;
+
+  int index = 0;
+  int i = 0;
+  for(auto arg : atom.arguments) {
+    ss << "occurs_in_head(" << arg->generalise("ARG", index) << ", " << i << ") :- head(" << atom.generalise("ARG") << ")." << endl;
+    i++;
+  }
   return ss.str();
 }
 
