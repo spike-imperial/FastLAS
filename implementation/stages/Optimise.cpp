@@ -151,14 +151,19 @@ void SM_Utils::optimise() {
   set<int> all_violations;
   map<int, set<string>> schema_violates_example;
 
+  set<int> v_ids;
+
   for(auto violations : rule_violations) {
     for(int schema_id : violations.second) {
       all_violations.insert(schema_id);
       if(violations.first.compare("__extra__prediction__") != 0 && penalties[violations.first] <= 0) {
-        global_file << ":- violated(" << schema_id << ")." << endl;
+        v_ids.insert(schema_id);
       }
       schema_violates_example[schema_id].insert(violations.first);
     }
+  }
+  for(int v_id : v_ids) {
+    global_file << ":- violated(" << v_id << ")." << endl;
   }
   for(int schema_id : all_violations) {
     global_file << "v_head(" << schemas[schema_id].first << ", " << schema_id << ")." << endl;
@@ -201,8 +206,10 @@ void SM_Utils::optimise() {
     infile.close();
 
     auto ret = system(string("clingo " + inpipe + " " + global_pipe + " --outf=3 > " + outpipe + " 2> /dev/null").c_str());
-   // cout << string("clingo " + inpipe + " " + global_pipe + " --outf=3 > " + outpipe + " 2> /dev/null") << endl;
-   // exit(2);
+    //static mutex mtx;
+    //mtx.lock();
+    //cout << string("clingo " + inpipe + " " + global_pipe + " --outf=3 > " + outpipe + " 2> /dev/null") << endl;
+    //exit(2);
 
     string buffer;
     int head;

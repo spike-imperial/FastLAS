@@ -67,6 +67,19 @@ string ModeDeclaration::body_representation() const {
     ss << ")";
   }
   ss << atom.link_arguments(false) << ".";
+
+  index = 0;
+  int i = 0;
+  for(auto arg : atom.arguments) {
+    ss << "occurs_in_body(" << arg->generalise("ARG", index) << ", ";
+    if(positive) {
+      ss << "pos";
+    } else {
+      ss << "neg";
+    }
+    ss << "," << atom.predicate_name << "," << i << ") :- in(" << atom.generalise("ARG") << ")." << endl;
+    i++;
+  }
   return ss.str();
 }
 

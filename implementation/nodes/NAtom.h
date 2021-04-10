@@ -123,24 +123,24 @@ class NAtom : public NRuleHead {
       for(int i = 0; i < arguments.size(); i++) {
         ss << arguments[i]->link_arguments(index, types);
       }
-      if(!head) {
-        for(int i = 0; i < types.size(); i++) {
-          if(types[i].compare("const") != 0) {
-            for(int j = i + 1; j < types.size(); j++) {
-              if(types[j].compare("const") != 0) {
-                int comp = types[i].compare(types[j]);
-                if(comp < 0) {
-                  ss << ", ord_check(ARG" << i << ", ARG" << j << ", lt)";
-                } else if(comp > 0) {
-                  ss << ", ord_check(ARG" << j << ", ARG" << i << ", lt)";
-                } else {
-                  ss << ", ord_check(ARG" << i << ", ARG" << j << ", lte)";
-                }
-              }
-            }
-          }
-        }
-      }
+      //if(!head) {
+      //  for(int i = 0; i < types.size(); i++) {
+      //    if(types[i].compare("const") != 0) {
+      //      for(int j = i + 1; j < types.size(); j++) {
+      //        if(types[j].compare("const") != 0) {
+      //          int comp = types[i].compare(types[j]);
+      //          if(comp < 0) {
+      //            ss << ", ord_check(ARG" << i << ", ARG" << j << ", lt)";
+      //          } else if(comp > 0) {
+      //            ss << ", ord_check(ARG" << j << ", ARG" << i << ", lt)";
+      //          } else {
+      //            ss << ", ord_check(ARG" << i << ", ARG" << j << ", lte)";
+      //          }
+      //        }
+      //      }
+      //    }
+      //  }
+      //}
 
       return ss.str();
     }
