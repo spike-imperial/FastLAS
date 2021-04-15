@@ -83,6 +83,11 @@
      yylval.string = new std::string(yylval.string->substr(1, yylval.string->length() - 2));
      return T_STRING;
 }
+\'([^\'\\]|\\.)*\'              {
+     yylval.string = new std::string(yytext, yyleng);
+     yylval.string = new std::string(yylval.string->substr(1, yylval.string->length() - 2));
+     return T_STRING;
+}
 .                       std::cerr << "Unknown token: '" << yytext << "'" << std::endl; exit(1);
 
 %%

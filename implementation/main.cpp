@@ -34,7 +34,7 @@ extern FILE* yyin;
 extern bool prediction_task;
 
 std::string usage_str = "ERROR: usage:  FastLAS file_name";
-std::string version_info = R"ESC(FastLAS version 1.0.1.
+std::string version_info = R"ESC(FastLAS version 1.0.4.
 
 For updates and information on FastLAS, please see https://spike-imperial.github.io/FastLAS/.)ESC";
 
