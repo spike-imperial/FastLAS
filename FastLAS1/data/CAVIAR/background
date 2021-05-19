@@ -1,0 +1,14 @@
+holdsAt(F,Te) :- fluent(F), initiatedAt(F,Ts), next_time(Ts, Te), time(Ts).
+holdsAt(F,Te) :- fluent(F), holdsAt(F,Ts), not terminatedAt(F,Ts), next_time(Ts, Te), time(Ts).
+
+fluent(meeting(X,Y)) :- person(X), person(Y).
+
+happensAt(close(Id1,Id2,Threshold),Time) :- dist(Id1,Id2,Time,Distance), dist(Threshold), Distance <= Threshold.
+happensAt(far(Id1,Id2,Threshold),Time) :- dist(Id1,Id2,Time,Distance), dist(Threshold), Distance > Threshold.
+
+dist(24).
+dist(25).
+dist(27).
+dist(34).
+dist(40).
+
