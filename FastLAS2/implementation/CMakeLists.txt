@@ -42,7 +42,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 ADD_DEFINITIONS(
   -std=c++17
-  -o3
+  -O3
   #-g
 )
 

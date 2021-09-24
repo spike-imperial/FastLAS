@@ -28,6 +28,7 @@
 #include <set>
 #include <vector>
 #include <map>
+#include <string>
 
 /*
  * To optimise performance, these classes are designed to avoid duplicate
