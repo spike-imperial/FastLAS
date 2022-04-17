@@ -93,6 +93,7 @@ namespace FastLAS {
   extern bool space_size;
   extern bool separate_abduction;
   extern bool any_cache;
+  extern bool categorical_contexts;
   extern int sample_size, max_conditions;
 
   template<typename T, typename F> void parallel_exec(const T& jobs, int number_of_workers, F p) {

@@ -65,7 +65,11 @@ string FastLAS::get_bottom_representation(const set<pair<string, int>>& hyp_depe
   for(int id = 0; id < background.size(); id++) ss << background[id].meta_representation();
   for(int id = 0; id < ctx.size(); id++)  ss << ctx[id].meta_representation();
 
-  ss << abduce_as << endl;
+  if(FastLAS::categorical_contexts) {
+    ss << categorical_abduce_as << endl;
+  } else {
+    ss << abduce_as << endl;
+  }
 
   return ss.str();
 }
@@ -313,20 +317,31 @@ void FastLAS::abduce() {
 
     map<set<int>, set<set<int>>> ctx_to_incs;
 
-    //cout << get_bottom_representation(eg) << endl;
+    //static mutex mtx;
+    //mtx.lock();
+    //cout << get_bottom_representation(hyp_dependent_predictates, eg) << endl;
     //exit(2);
+
     set<int> ctx, incs;
+    set<set<int>> all_incs;
     Clingo(get_bottom_representation(hyp_dependent_predictates, eg), "--enum-mode=domrec --heuristic=domain --dom-mod=5,16 -n 0")
       ('i', [&](const string& atom) {
         ctx.insert(get_language_index(atom));
       }) ('t', [&](const string& atom) {
         incs.insert(get_language_index(atom));
       }) ([&]() {
-        ctx_to_incs[ctx].insert(incs);
+        if(FastLAS::categorical_contexts) {
+          all_incs.insert(incs);
+        } else {
+          ctx_to_incs[ctx].insert(incs);
+          ctx.clear();
+        }
         incs.clear();
-        ctx.clear();
       }
     );
+    if(FastLAS::categorical_contexts) {
+      ctx_to_incs[ctx] = all_incs;
+    }
 
     for(auto starting_point : ctx_to_incs) {
       set<pair<set<int>, set<int>>> possibilities, partial_possibilities;

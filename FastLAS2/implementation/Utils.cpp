@@ -48,6 +48,7 @@ namespace FastLAS {
   bool score_only = false;
   bool space_size = false;
   bool separate_abduction = false;
+  bool categorical_contexts = false;
   bool any_cache = false;
 
   vector<string> language({"f_triv___"});

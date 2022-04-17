@@ -54,6 +54,7 @@ int main(int argc, char **argv) {
   desc.add_options()
     ("help", "produce this help message.")
     ("version", "output version information.")
+    ("categorical-contexts", "speeds up abduction if the \"bottom\" parts of all programs are known to have exactly one answer set.")
     ("debug", "verbose output.")
     ("nopl", "run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("opl", "do not run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
@@ -104,6 +105,7 @@ int main(int argc, char **argv) {
   // set config
 
   if(vm.count("space-size")) FastLAS::space_size = true;
+  if(vm.count("categorical-contexts")) FastLAS::categorical_contexts = true;
   if(vm.count("output-solve-program")) FastLAS::output_solve_program = true;
   if(vm.count("debug")) debug = true;
   if(vm.count("threads")) FastLAS::thread_num = vm["threads"].as<int>();

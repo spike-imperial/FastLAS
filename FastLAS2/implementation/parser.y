@@ -124,10 +124,11 @@ void yyerror (std::string s) {
 %type <ints> ints;
 %type <term_list> term_list;
 
-%left T_PLUS T_MINUS
-%left T_MULT T_DIV
 %left T_MOD
 %left T_DOUBLE_DOT
+%left T_PLUS T_MINUS
+%left T_MULT T_DIV
+%left T_POW
 
 %start start_node
 

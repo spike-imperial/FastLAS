@@ -106,7 +106,7 @@ function main(prg)
 end
 #end.
 
-type(Var, Type) :- eq(Var, Type, _).
+type(Var, Type) :- eq(Var, Type, _), var(Var).
 
 :- var(V), type(V, T1), type(V, T2), T1 < T2.
 

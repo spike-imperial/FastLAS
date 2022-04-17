@@ -8,8 +8,6 @@ include_directories(/usr/local/include)
 
 
 if(${APPLE})
-  set(FLEX_EXECUTABLE "/usr/local/opt/flex/bin/flex")
-  set(BISON_EXECUTABLE "/usr/local/opt/bison/bin/bison")
 else()
   set(THREADS_PREFER_PTHREAD_FLAG ON)
   set(CMAKE_CXX_FLAGS -pthread)

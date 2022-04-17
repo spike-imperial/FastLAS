@@ -68,6 +68,65 @@ bottom2(A) :- bottom(A).
 
 )";
 
+
+std::string categorical_abduce_as = R"(
+
+{ abduce(A) } :- abducible(A).
+ctx(EG, A) :- pos(EG), abduce(A).
+ctx(EG, A) :- pos(EG), bottom(A).
+
+#script (lua)
+function onModel(m)
+  atoms = m:symbols{shown=true}
+  new_model = ""
+
+  bottom_as = false
+
+  for i, atom in ipairs(atoms) do
+    atom_name = tostring(atom):match('([^(]+)')
+    if atom_name == "bottom2" then
+      new_model = new_model.." i"..tostring(atom):sub(9,-2).."|"
+    elseif atom_name == "show_b" then
+      bottom_as = true
+    elseif atom_name == "abduce2" then
+      new_model = new_model.." t"..tostring(atom):sub(9,-2).."|"
+    end
+  end
+
+  if bottom_as then
+    bot_sol = new_model
+  else
+    sol = sol..new_model.." ;|"
+  end
+end
+
+function main(prg)
+  sol = ""
+  bot_sol = ""
+  prg:ground({{"base", {}}})
+  prg:solve{on_model=onModel}
+  print(bot_sol..sol)
+end
+#end.
+
+bottom2(A) :- bottom(A), show_b.
+abduce2(A) :- abduce(A), show_a.
+
+#show show_a/0.
+#show show_b/0.
+#show abduce2/1.
+#show bottom2/1.
+
+1 { show_a; show_b } 1.
+
+#heuristic show_a.[1@1, true]
+#heuristic show_b.[1@1, true]
+
+#heuristic bottom2(A).[1@1, true]
+#heuristic abduce2(A).[1@1, false]
+
+)";
+
 std::string repair_sat_suff = R"(
 pos(eg).
 
@@ -312,5 +371,6 @@ function main(prg)
 end
 #end.
 )";
+
 
 #endif

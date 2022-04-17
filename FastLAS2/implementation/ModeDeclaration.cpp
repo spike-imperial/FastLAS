@@ -60,6 +60,9 @@ string ModeDeclaration::head_representation() const {
       ss << "numeric_assignment(@concat(ARG" << i << ", " << vars[i].second << "), ARG_VAL" << i << ") :- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << ")." << endl;
     } else {
       ss << ":- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << "), ARG" << i << " != ARG_VAL" << i << "." << endl;
+      if(vars[i].first.compare("const") == 0) {
+        ss << "eq(C, " << vars[i].second << ", C) :- pos(EG), ctx(EG, " << vars[i].second << "(C))." << endl;
+      }
     }
   }
 
