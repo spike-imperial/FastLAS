@@ -1,5 +1,4 @@
 /*
-
  * MIT License
  *
  * Copyright (c) 2021 Imperial College London
@@ -42,7 +41,7 @@ extern bool prediction_task, cache;
 extern std::set<Example*> examples;
 
 std::string usage_str = "ERROR: usage:  FastLAS [ --opl | --nopl ] file_name";
-std::string version_info = "FastLAS version 2.0.0 (release built on " + std::string(__DATE__) + ")." + R"ESC(
+std::string version_info = "FastLAS version 2.1.0 (release built on " + std::string(__DATE__) + ")." + R"ESC(
 
 For updates and information on FastLAS, please see https://spike-imperial.github.io/FastLAS/.)ESC";
 
