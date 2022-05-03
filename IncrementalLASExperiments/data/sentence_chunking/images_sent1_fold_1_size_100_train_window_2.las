@@ -1,0 +1,4516 @@
+
+
+
+prevpos(P,X) :- pos(P,X+1).
+
+
+prevprevpos(P,X) :- pos(P,X+2).
+postype(c_DT).
+postype(c_NN).
+postype(c_IN).
+postype(c_VBG).
+postype(c_PRP).
+postype(c_p).
+postype(c_JJ).
+postype(c_VBZ).
+postype(c_CD).
+postype(c_NNS).
+postype(c_PRPd).
+postype(c_VBN).
+postype(c_CC).
+postype(c_RP).
+postype(c_VBP).
+postype(c_NNP).
+postype(c_VBD).
+postype(c_RB).
+postype(c_TO).
+postype(c_EX).
+token(0).
+token(1).
+token(2).
+token(3).
+token(4).
+token(5).
+token(6).
+token(7).
+token(8).
+token(9).
+token(10).
+token(11).
+token(12).
+token(13).
+token(14).
+token(15).
+token(16).
+token(17).
+token(18).
+token(19).
+token(20).
+token(21).
+token(22).
+token(23).
+token(24).
+token(25).
+token(26).
+token(27).
+token(28).
+token(29).
+token(30).
+token(31).
+token(32).
+token(33).
+token(34).
+token(35).
+token(36).
+token(37).
+token(38).
+token(39).
+token(40).
+token(41).
+token(42).
+token(43).
+token(44).
+token(45).
+token(46).
+token(47).
+token(48).
+token(49).
+token(50).
+token(51).
+token(52).
+token(53).
+token(54).
+token(55).
+token(56).
+token(57).
+token(58).
+token(59).
+token(60).
+token(61).
+token(62).
+token(63).
+token(64).
+token(65).
+token(66).
+token(67).
+token(68).
+token(69).
+token(70).
+token(71).
+token(72).
+token(73).
+token(74).
+token(75).
+token(76).
+token(77).
+token(78).
+token(79).
+token(80).
+token(81).
+token(82).
+token(83).
+token(84).
+token(85).
+token(86).
+token(87).
+token(88).
+token(89).
+token(90).
+token(91).
+token(92).
+token(93).
+token(94).
+token(95).
+token(96).
+token(97).
+token(98).
+token(99).
+token(100).
+#modeh(split(var(token))).
+#maxv(1).
+#modeb(1, pos(const(postype),var(token))).
+#modeb(1, prevpos(const(postype),var(token))).
+#bias("penalty(2, head(X)) :- in_head(X).").
+#bias("penalty(1, body(X)) :- in_body(X).").
+#pos(eg1@2, {split(2)}, {split(1)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg2@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg3@2, {split(5), split(4)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(5).  test_split(4).}).
+
+
+#pos(eg4@2, {split(5), split(8)}, {split(6), split(7)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(5).  test_split(8).  test_split(6).  test_split(7).}).
+
+
+#pos(eg5@2, {split(8), split(10)}, {split(9)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(8).  test_split(10).  test_split(9).}).
+
+
+#pos(eg6@2, {split(10), split(12)}, {split(11)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(10).  test_split(12).  test_split(11).}).
+
+
+#pos(eg7@2, {split(13), split(12)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"group").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NN,4).
+  head(3,4).
+  rel(c_PMOD,4).
+  form(4,"people").
+  pos(c_VBG,5).
+  head(2,5).
+  rel(c_APPO,5).
+  form(5,"sitting").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"around").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"table").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"with").
+  pos(c_NN,10).
+  head(9,10).
+  rel(c_PMOD,10).
+  form(10,"food").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"on").
+  pos(c_PRP,12).
+  head(11,12).
+  rel(c_PMOD,12).
+  form(12,"it").
+  pos(c_p,13).
+  head(2,13).
+  rel(c_P,13).
+  form(13,".").  test_split(13).  test_split(12).}).
+
+
+#pos(eg8@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(10).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"brown").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"horse").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(9,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"lush").
+  pos(c_JJ,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"green").
+  pos(c_NN,9).
+  head(5,9).
+  rel(c_PMOD,9).
+  form(9,"field").
+  pos(c_p,10).
+  head(4,10).
+  rel(c_P,10).
+  form(10,".").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg9@2, {split(4), split(3)}, {}, {  first(1).
+  last(10).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"brown").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"horse").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(9,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"lush").
+  pos(c_JJ,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"green").
+  pos(c_NN,9).
+  head(5,9).
+  rel(c_PMOD,9).
+  form(9,"field").
+  pos(c_p,10).
+  head(4,10).
+  rel(c_P,10).
+  form(10,".").  test_split(4).  test_split(3).}).
+
+
+#pos(eg10@2, {split(4), split(9)}, {split(5), split(6), split(7), split(8)}, {  first(1).
+  last(10).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"brown").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"horse").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(9,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"lush").
+  pos(c_JJ,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"green").
+  pos(c_NN,9).
+  head(5,9).
+  rel(c_PMOD,9).
+  form(9,"field").
+  pos(c_p,10).
+  head(4,10).
+  rel(c_P,10).
+  form(10,".").  test_split(4).  test_split(9).  test_split(5).  test_split(6).  test_split(7).  test_split(8).}).
+
+
+#pos(eg11@2, {split(10), split(9)}, {}, {  first(1).
+  last(10).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"brown").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"horse").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(9,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"lush").
+  pos(c_JJ,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"green").
+  pos(c_NN,9).
+  head(5,9).
+  rel(c_PMOD,9).
+  form(9,"field").
+  pos(c_p,10).
+  head(4,10).
+  rel(c_P,10).
+  form(10,".").  test_split(10).  test_split(9).}).
+
+
+#pos(eg12@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg13@2, {split(4), split(3)}, {}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(4).  test_split(3).}).
+
+
+#pos(eg14@2, {split(4), split(7)}, {split(5), split(6)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(4).  test_split(7).  test_split(5).  test_split(6).}).
+
+
+#pos(eg15@2, {split(7), split(10)}, {split(8), split(9)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(7).  test_split(10).  test_split(8).  test_split(9).}).
+
+
+#pos(eg16@2, {split(10), split(13)}, {split(11), split(12)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(10).  test_split(13).  test_split(11).  test_split(12).}).
+
+
+#pos(eg17@2, {split(14), split(13)}, {}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"An").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"elderly").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"woman").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"stands").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"kitchen").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"with").
+  pos(c_CD,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"two").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"cats").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_LOC,11).
+  form(11,"at").
+  pos(c_PRPd,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"her").
+  pos(c_NNS,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"feet").
+  pos(c_p,14).
+  head(4,14).
+  rel(c_P,14).
+  form(14,".").  test_split(14).  test_split(13).}).
+
+
+#pos(eg18@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(9).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Red").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"double").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"decker").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"bus").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"driving").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"through").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"streets").
+  pos(c_p,9).
+  head(4,9).
+  rel(c_P,9).
+  form(9,".").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg19@2, {split(5), split(4)}, {}, {  first(1).
+  last(9).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Red").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"double").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"decker").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"bus").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"driving").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"through").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"streets").
+  pos(c_p,9).
+  head(4,9).
+  rel(c_P,9).
+  form(9,".").  test_split(5).  test_split(4).}).
+
+
+#pos(eg20@2, {split(5), split(8)}, {split(6), split(7)}, {  first(1).
+  last(9).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Red").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"double").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"decker").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"bus").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"driving").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"through").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"streets").
+  pos(c_p,9).
+  head(4,9).
+  rel(c_P,9).
+  form(9,".").  test_split(5).  test_split(8).  test_split(6).  test_split(7).}).
+
+
+#pos(eg21@2, {split(9), split(8)}, {}, {  first(1).
+  last(9).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Red").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"double").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"decker").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"bus").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"driving").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"through").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"streets").
+  pos(c_p,9).
+  head(4,9).
+  rel(c_P,9).
+  form(9,".").  test_split(9).  test_split(8).}).
+
+
+#pos(eg22@2, {split(2)}, {split(1)}, {  first(1).
+  last(8).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"man").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"sitting").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"in").
+  pos(c_DT,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_VBN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"cluttered").
+  pos(c_NN,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"room").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg23@2, {split(3), split(2)}, {}, {  first(1).
+  last(8).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"man").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"sitting").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"in").
+  pos(c_DT,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_VBN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"cluttered").
+  pos(c_NN,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"room").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg24@2, {split(3), split(7)}, {split(4), split(5), split(6)}, {  first(1).
+  last(8).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"man").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"sitting").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"in").
+  pos(c_DT,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_VBN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"cluttered").
+  pos(c_NN,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"room").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(3).  test_split(7).  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg25@2, {split(8), split(7)}, {}, {  first(1).
+  last(8).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"man").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"sitting").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"in").
+  pos(c_DT,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_VBN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"cluttered").
+  pos(c_NN,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"room").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(8).  test_split(7).}).
+
+
+#pos(eg26@2, {split(2)}, {split(1)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Black").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"cow").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"walking").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"under").
+  pos(c_NNS,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"trees").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"pasture").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg27@2, {split(3), split(2)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Black").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"cow").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"walking").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"under").
+  pos(c_NNS,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"trees").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"pasture").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg28@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Black").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"cow").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"walking").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"under").
+  pos(c_NNS,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"trees").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"pasture").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg29@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Black").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"cow").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"walking").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"under").
+  pos(c_NNS,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"trees").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"pasture").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg30@2, {split(8), split(7)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Black").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"cow").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"walking").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LOC,4).
+  form(4,"under").
+  pos(c_NNS,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"trees").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"pasture").
+  pos(c_p,8).
+  head(2,8).
+  rel(c_P,8).
+  form(8,".").  test_split(8).  test_split(7).}).
+
+
+#pos(eg31@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg32@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg33@2, {split(7), split(6)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(7).  test_split(6).}).
+
+
+#pos(eg34@2, {split(8), split(7)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(8).  test_split(7).}).
+
+
+#pos(eg35@2, {split(8), split(12)}, {split(9), split(10), split(11)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(8).  test_split(12).  test_split(9).  test_split(10).  test_split(11).}).
+
+
+#pos(eg36@2, {split(13), split(12)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBG,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"smiling").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"woman").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"with").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"beer").
+  pos(c_VBG,7).
+  head(6,7).
+  rel(c_APPO,7).
+  form(7,"sitting").
+  pos(c_JJ,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"outside").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_AMOD,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"another").
+  pos(c_VBG,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"smiling").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"woman").
+  pos(c_p,13).
+  head(3,13).
+  rel(c_P,13).
+  form(13,".").  test_split(13).  test_split(12).}).
+
+
+#pos(eg37@2, {split(2)}, {split(1)}, {  first(1).
+  last(7).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"a").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"with").
+  pos(c_DT,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"big").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"necklace").
+  pos(c_p,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg38@2, {split(2), split(6)}, {split(3), split(4), split(5)}, {  first(1).
+  last(7).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"a").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"with").
+  pos(c_DT,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"big").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"necklace").
+  pos(c_p,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,".").  test_split(2).  test_split(6).  test_split(3).  test_split(4).  test_split(5).}).
+
+
+#pos(eg39@2, {split(7), split(6)}, {}, {  first(1).
+  last(7).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"a").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"with").
+  pos(c_DT,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"big").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"necklace").
+  pos(c_p,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,".").  test_split(7).  test_split(6).}).
+
+
+#pos(eg40@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg41@2, {split(5), split(4)}, {}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(5).  test_split(4).}).
+
+
+#pos(eg42@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg43@2, {split(7), split(9)}, {split(8)}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(7).  test_split(9).  test_split(8).}).
+
+
+#pos(eg44@2, {split(9), split(11)}, {split(10)}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(9).  test_split(11).  test_split(10).}).
+
+
+#pos(eg45@2, {split(12), split(11)}, {}, {  first(1).
+  last(12).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Brown").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"white").
+  pos(c_NN,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"cow").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"standing").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"in").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"grass").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"at").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"side").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"road").
+  pos(c_p,12).
+  head(4,12).
+  rel(c_P,12).
+  form(12,".").  test_split(12).  test_split(11).}).
+
+
+#pos(eg46@2, {split(2)}, {split(1)}, {  first(1).
+  last(9).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"jockey").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"riding").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"horse").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"pen").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg47@2, {split(3), split(2)}, {}, {  first(1).
+  last(9).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"jockey").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"riding").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"horse").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"pen").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg48@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(9).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"jockey").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"riding").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"horse").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"pen").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg49@2, {split(5), split(8)}, {split(6), split(7)}, {  first(1).
+  last(9).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"jockey").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"riding").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"horse").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"pen").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(5).  test_split(8).  test_split(6).  test_split(7).}).
+
+
+#pos(eg50@2, {split(9), split(8)}, {}, {  first(1).
+  last(9).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"jockey").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"riding").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"horse").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"pen").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(9).  test_split(8).}).
+
+
+#pos(eg51@2, {split(2)}, {split(1)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg52@2, {split(3), split(2)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg53@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg54@2, {split(6), split(5)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(6).  test_split(5).}).
+
+
+#pos(eg55@2, {split(6), split(8)}, {split(7)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(6).  test_split(8).  test_split(7).}).
+
+
+#pos(eg56@2, {split(8), split(12)}, {split(9), split(10), split(11)}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(8).  test_split(12).  test_split(9).  test_split(10).  test_split(11).}).
+
+
+#pos(eg57@2, {split(13), split(12)}, {}, {  first(1).
+  last(13).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"person").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"wearing").
+  pos(c_DT,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"a").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"helmet").
+  pos(c_VBZ,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"rides").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_OBJ,8).
+  form(8,"bike").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"near").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"white").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"structure").
+  pos(c_p,13).
+  head(6,13).
+  rel(c_P,13).
+  form(13,".").  test_split(13).  test_split(12).}).
+
+
+#pos(eg58@2, {split(1)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Group").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"of").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"horses").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"grazing").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"grassy").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"field").
+  pos(c_p,8).
+  head(1,8).
+  rel(c_P,8).
+  form(8,".").  test_split(1).}).
+
+
+#pos(eg59@2, {split(1), split(3)}, {split(2)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Group").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"of").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"horses").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"grazing").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"grassy").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"field").
+  pos(c_p,8).
+  head(1,8).
+  rel(c_P,8).
+  form(8,".").  test_split(1).  test_split(3).  test_split(2).}).
+
+
+#pos(eg60@2, {split(4), split(3)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Group").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"of").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"horses").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"grazing").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"grassy").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"field").
+  pos(c_p,8).
+  head(1,8).
+  rel(c_P,8).
+  form(8,".").  test_split(4).  test_split(3).}).
+
+
+#pos(eg61@2, {split(4), split(7)}, {split(5), split(6)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Group").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"of").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"horses").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"grazing").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"grassy").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"field").
+  pos(c_p,8).
+  head(1,8).
+  rel(c_P,8).
+  form(8,".").  test_split(4).  test_split(7).  test_split(5).  test_split(6).}).
+
+
+#pos(eg62@2, {split(8), split(7)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Group").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"of").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"horses").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"grazing").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"grassy").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"field").
+  pos(c_p,8).
+  head(1,8).
+  rel(c_P,8).
+  form(8,".").  test_split(8).  test_split(7).}).
+
+
+#pos(eg63@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg64@2, {split(5), split(4)}, {}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(5).  test_split(4).}).
+
+
+#pos(eg65@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg66@2, {split(8), split(7)}, {}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(8).  test_split(7).}).
+
+
+#pos(eg67@2, {split(8), split(12)}, {split(9), split(10), split(11)}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(8).  test_split(12).  test_split(9).  test_split(10).  test_split(11).}).
+
+
+#pos(eg68@2, {split(12), split(14)}, {split(13)}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(12).  test_split(14).  test_split(13).}).
+
+
+#pos(eg69@2, {split(15), split(14)}, {}, {  first(1).
+  last(15).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"young").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"blonde").
+  pos(c_NN,4).
+  head(8,4).
+  rel(c_SBJ,4).
+  form(4,"girl").
+  pos(c_VBG,5).
+  head(4,5).
+  rel(c_APPO,5).
+  form(5,"wearing").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_OBJ,7).
+  form(7,"helmet").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"sits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_ADV,9).
+  form(9,"with").
+  pos(c_DT,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"a").
+  pos(c_JJ,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"red").
+  pos(c_NN,12).
+  head(9,12).
+  rel(c_PMOD,12).
+  form(12,"bicycle").
+  pos(c_IN,13).
+  head(12,13).
+  rel(c_LOC,13).
+  form(13,"behind").
+  pos(c_PRP,14).
+  head(13,14).
+  rel(c_PMOD,14).
+  form(14,"her").
+  pos(c_p,15).
+  head(8,15).
+  rel(c_P,15).
+  form(15,".").  test_split(15).  test_split(14).}).
+
+
+#pos(eg70@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"striped").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"cat").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"laying").
+  pos(c_RP,5).
+  head(4,5).
+  rel(c_PRT,5).
+  form(5,"down").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"on").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"bag").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"of").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"cat").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"litter").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg71@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"striped").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"cat").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"laying").
+  pos(c_RP,5).
+  head(4,5).
+  rel(c_PRT,5).
+  form(5,"down").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"on").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"bag").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"of").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"cat").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"litter").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg72@2, {split(5), split(8)}, {split(6), split(7)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"striped").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"cat").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"laying").
+  pos(c_RP,5).
+  head(4,5).
+  rel(c_PRT,5).
+  form(5,"down").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"on").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"bag").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"of").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"cat").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"litter").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(5).  test_split(8).  test_split(6).  test_split(7).}).
+
+
+#pos(eg73@2, {split(8), split(11)}, {split(9), split(10)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"striped").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"cat").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"laying").
+  pos(c_RP,5).
+  head(4,5).
+  rel(c_PRT,5).
+  form(5,"down").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"on").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"bag").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"of").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"cat").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"litter").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(8).  test_split(11).  test_split(9).  test_split(10).}).
+
+
+#pos(eg74@2, {split(12), split(11)}, {}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_VBN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"striped").
+  pos(c_NN,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"cat").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"laying").
+  pos(c_RP,5).
+  head(4,5).
+  rel(c_PRT,5).
+  form(5,"down").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"on").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_NN,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"bag").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"of").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"cat").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"litter").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(12).  test_split(11).}).
+
+
+#pos(eg75@2, {split(2)}, {split(1)}, {  first(1).
+  last(7).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Five").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"birds").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"stand").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"on").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"the").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"snow").
+  pos(c_p,7).
+  head(3,7).
+  rel(c_P,7).
+  form(7,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg76@2, {split(3), split(2)}, {}, {  first(1).
+  last(7).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Five").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"birds").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"stand").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"on").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"the").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"snow").
+  pos(c_p,7).
+  head(3,7).
+  rel(c_P,7).
+  form(7,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg77@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(7).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Five").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"birds").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"stand").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"on").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"the").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"snow").
+  pos(c_p,7).
+  head(3,7).
+  rel(c_P,7).
+  form(7,".").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg78@2, {split(7), split(6)}, {}, {  first(1).
+  last(7).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Five").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"birds").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"stand").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"on").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"the").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"snow").
+  pos(c_p,7).
+  head(3,7).
+  rel(c_P,7).
+  form(7,".").  test_split(7).  test_split(6).}).
+
+
+#pos(eg79@2, {split(2)}, {split(1)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"posing").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LGS,4).
+  form(4,"by").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"pillar").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"with").
+  pos(c_DT,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NNP,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"U-14998").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"sign").
+  pos(c_p,11).
+  head(2,11).
+  rel(c_P,11).
+  form(11,".").  test_split(2).  test_split(1).}).
+
+
+#pos(eg80@2, {split(3), split(2)}, {}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"posing").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LGS,4).
+  form(4,"by").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"pillar").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"with").
+  pos(c_DT,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NNP,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"U-14998").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"sign").
+  pos(c_p,11).
+  head(2,11).
+  rel(c_P,11).
+  form(11,".").  test_split(3).  test_split(2).}).
+
+
+#pos(eg81@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"posing").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LGS,4).
+  form(4,"by").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"pillar").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"with").
+  pos(c_DT,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NNP,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"U-14998").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"sign").
+  pos(c_p,11).
+  head(2,11).
+  rel(c_P,11).
+  form(11,".").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg82@2, {split(6), split(10)}, {split(7), split(8), split(9)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"posing").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LGS,4).
+  form(4,"by").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"pillar").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"with").
+  pos(c_DT,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NNP,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"U-14998").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"sign").
+  pos(c_p,11).
+  head(2,11).
+  rel(c_P,11).
+  form(11,".").  test_split(6).  test_split(10).  test_split(7).  test_split(8).  test_split(9).}).
+
+
+#pos(eg83@2, {split(11), split(10)}, {}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"woman").
+  pos(c_VBG,3).
+  head(2,3).
+  rel(c_APPO,3).
+  form(3,"posing").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_LGS,4).
+  form(4,"by").
+  pos(c_DT,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"a").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"pillar").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"with").
+  pos(c_DT,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NNP,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"U-14998").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"sign").
+  pos(c_p,11).
+  head(2,11).
+  rel(c_P,11).
+  form(11,".").  test_split(11).  test_split(10).}).
+
+
+#pos(eg84@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"red").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"moped").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"parked").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"on").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"sidewalk").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"front").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"graffiti").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg85@2, {split(4), split(3)}, {}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"red").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"moped").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"parked").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"on").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"sidewalk").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"front").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"graffiti").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(4).  test_split(3).}).
+
+
+#pos(eg86@2, {split(4), split(7)}, {split(5), split(6)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"red").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"moped").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"parked").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"on").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"sidewalk").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"front").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"graffiti").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(4).  test_split(7).  test_split(5).  test_split(6).}).
+
+
+#pos(eg87@2, {split(7), split(11)}, {split(8), split(9), split(10)}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"red").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"moped").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"parked").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"on").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"sidewalk").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"front").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"graffiti").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(7).  test_split(11).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg88@2, {split(12), split(11)}, {}, {  first(1).
+  last(12).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"A").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"red").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"moped").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"parked").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"on").
+  pos(c_DT,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"a").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"sidewalk").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_PMOD,9).
+  form(9,"front").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"graffiti").
+  pos(c_p,12).
+  head(3,12).
+  rel(c_P,12).
+  form(12,".").  test_split(12).  test_split(11).}).
+
+
+#pos(eg89@2, {split(5)}, {split(1), split(2), split(3), split(4)}, {  first(1).
+  last(9).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_NNS,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"dogs").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"one").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_CONJ,5).
+  form(5,"cat").
+  pos(c_VBG,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"sitting").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"couch").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(5).  test_split(1).  test_split(2).  test_split(3).  test_split(4).}).
+
+
+#pos(eg90@2, {split(6), split(5)}, {}, {  first(1).
+  last(9).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_NNS,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"dogs").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"one").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_CONJ,5).
+  form(5,"cat").
+  pos(c_VBG,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"sitting").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"couch").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(6).  test_split(5).}).
+
+
+#pos(eg91@2, {split(6), split(8)}, {split(7)}, {  first(1).
+  last(9).
+  pos(c_CD,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_NNS,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"dogs").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"one").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_CONJ,5).
+  form(5,"cat").
+  pos(c_VBG,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"sitting").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"couch").
+  pos(c_p,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,".").  test_split(6).  test_split(8).  test_split(7).}).

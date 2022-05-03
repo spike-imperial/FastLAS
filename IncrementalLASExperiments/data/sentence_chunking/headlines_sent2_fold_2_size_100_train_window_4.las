@@ -1,0 +1,7735 @@
+
+
+
+prevpos(P,X) :- pos(P,X+1).
+
+
+prevprevpos(P,X) :- pos(P,X+2).
+postype(c_NNP).
+postype(c_c).
+postype(c_VBN).
+postype(c_JJ).
+postype(c_NN).
+postype(c_VBZ).
+postype(c_CD).
+postype(c_VBD).
+postype(c_IN).
+postype(c_NNPS).
+postype(c_NNS).
+postype(c_VBP).
+postype(c_JJR).
+postype(c_qq).
+postype(c_DT).
+postype(c_WRB).
+postype(c_TO).
+postype(c_VB).
+postype(c_CC).
+postype(c_VBG).
+postype(c_PRP).
+postype(c_RBR).
+postype(c_RB).
+postype(c_p).
+postype(c_POS).
+postype(c_RP).
+postype(c_MD).
+postype(c_WP).
+postype(c_JJS).
+postype(c_d).
+postype(c_PRPd).
+token(0).
+token(1).
+token(2).
+token(3).
+token(4).
+token(5).
+token(6).
+token(7).
+token(8).
+token(9).
+token(10).
+token(11).
+token(12).
+token(13).
+token(14).
+token(15).
+token(16).
+token(17).
+token(18).
+token(19).
+token(20).
+token(21).
+token(22).
+token(23).
+token(24).
+token(25).
+token(26).
+token(27).
+token(28).
+token(29).
+token(30).
+token(31).
+token(32).
+token(33).
+token(34).
+token(35).
+token(36).
+token(37).
+token(38).
+token(39).
+token(40).
+token(41).
+token(42).
+token(43).
+token(44).
+token(45).
+token(46).
+token(47).
+token(48).
+token(49).
+token(50).
+token(51).
+token(52).
+token(53).
+token(54).
+token(55).
+token(56).
+token(57).
+token(58).
+token(59).
+token(60).
+token(61).
+token(62).
+token(63).
+token(64).
+token(65).
+token(66).
+token(67).
+token(68).
+token(69).
+token(70).
+token(71).
+token(72).
+token(73).
+token(74).
+token(75).
+token(76).
+token(77).
+token(78).
+token(79).
+token(80).
+token(81).
+token(82).
+token(83).
+token(84).
+token(85).
+token(86).
+token(87).
+token(88).
+token(89).
+token(90).
+token(91).
+token(92).
+token(93).
+token(94).
+token(95).
+token(96).
+token(97).
+token(98).
+token(99).
+token(100).
+#modeh(split(var(token))).
+#maxv(1).
+#modeb(1, pos(const(postype),var(token))).
+#modeb(1, prevpos(const(postype),var(token))).
+#bias("penalty(2, head(X)) :- in_head(X).").
+#bias("penalty(1, body(X)) :- in_body(X).").
+#pos(eg1@2, {split(2)}, {split(1)}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(2).  test_split(1).}).
+
+
+#pos(eg2@2, {split(3), split(2)}, {}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(3).  test_split(2).}).
+
+
+#pos(eg3@2, {split(3), split(8)}, {split(4), split(5), split(6), split(7)}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(3).  test_split(8).  test_split(4).  test_split(5).  test_split(6).  test_split(7).}).
+
+
+#pos(eg4@2, {split(9), split(8)}, {}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(9).  test_split(8).}).
+
+
+#pos(eg5@2, {split(10), split(9)}, {}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(10).  test_split(9).}).
+
+
+#pos(eg6@2, {split(10)}, {split(11)}, {  first(1).
+  last(12).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"John").
+  pos(c_NNP,2).
+  head(10,2).
+  rel(c_SBJ,2).
+  form(2,"Demjanjuk").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_VBN,4).
+  head(8,4).
+  rel(c_NMOD,4).
+  form(4,"convicted").
+  pos(c_JJ,5).
+  head(8,5).
+  rel(c_NMOD,5).
+  form(5,"Nazi").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"death").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"camp").
+  pos(c_NN,8).
+  head(2,8).
+  rel(c_APPO,8).
+  form(8,"guard").
+  pos(c_c,9).
+  head(2,9).
+  rel(c_P,9).
+  form(9,",").
+  pos(c_VBZ,10).
+  head(root,10).
+  rel(c_ROOT,10).
+  form(10,"dies").
+  pos(c_VBN,11).
+  head(10,11).
+  rel(c_VC,11).
+  form(11,"aged").
+  pos(c_CD,12).
+  head(11,12).
+  rel(c_OBJ,12).
+  form(12,"91").  test_split(10).  test_split(11).}).
+
+
+#pos(eg7@2, {split(2)}, {split(1)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Saudi").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"Women").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"Allowed").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NAME,4).
+  form(4,"To").
+  pos(c_NNP,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"Compete").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_ADV,6).
+  form(6,"At").
+  pos(c_NNPS,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Olympics").  test_split(2).  test_split(1).}).
+
+
+#pos(eg8@2, {split(3), split(2)}, {}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Saudi").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"Women").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"Allowed").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NAME,4).
+  form(4,"To").
+  pos(c_NNP,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"Compete").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_ADV,6).
+  form(6,"At").
+  pos(c_NNPS,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Olympics").  test_split(3).  test_split(2).}).
+
+
+#pos(eg9@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Saudi").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"Women").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"Allowed").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NAME,4).
+  form(4,"To").
+  pos(c_NNP,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"Compete").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_ADV,6).
+  form(6,"At").
+  pos(c_NNPS,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Olympics").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg10@2, {split(5)}, {split(6)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Saudi").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"Women").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"Allowed").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NAME,4).
+  form(4,"To").
+  pos(c_NNP,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"Compete").
+  pos(c_IN,6).
+  head(3,6).
+  rel(c_ADV,6).
+  form(6,"At").
+  pos(c_NNPS,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Olympics").  test_split(5).  test_split(6).}).
+
+
+#pos(eg11@2, {split(2)}, {split(1)}, {  first(1).
+  last(8).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Drone").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"strike").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"kills").
+  pos(c_CD,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"four").
+  pos(c_VBN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"suspected").
+  pos(c_NNS,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"militants").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LOC,7).
+  form(7,"in").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(2).  test_split(1).}).
+
+
+#pos(eg12@2, {split(3), split(2)}, {}, {  first(1).
+  last(8).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Drone").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"strike").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"kills").
+  pos(c_CD,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"four").
+  pos(c_VBN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"suspected").
+  pos(c_NNS,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"militants").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LOC,7).
+  form(7,"in").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(3).  test_split(2).}).
+
+
+#pos(eg13@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(8).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Drone").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"strike").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"kills").
+  pos(c_CD,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"four").
+  pos(c_VBN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"suspected").
+  pos(c_NNS,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"militants").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LOC,7).
+  form(7,"in").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg14@2, {split(6)}, {split(7)}, {  first(1).
+  last(8).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Drone").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"strike").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"kills").
+  pos(c_CD,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"four").
+  pos(c_VBN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"suspected").
+  pos(c_NNS,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"militants").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LOC,7).
+  form(7,"in").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(6).  test_split(7).}).
+
+
+#pos(eg15@2, {split(2)}, {split(1)}, {  first(1).
+  last(6).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Syria").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"peace").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"dashed").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"as").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"deadline").
+  pos(c_NNS,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"passes").  test_split(2).  test_split(1).}).
+
+
+#pos(eg16@2, {split(3), split(2)}, {}, {  first(1).
+  last(6).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Syria").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"peace").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"dashed").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"as").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"deadline").
+  pos(c_NNS,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"passes").  test_split(3).  test_split(2).}).
+
+
+#pos(eg17@2, {split(3)}, {split(4), split(5)}, {  first(1).
+  last(6).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Syria").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"peace").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"dashed").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"as").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"deadline").
+  pos(c_NNS,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"passes").  test_split(3).  test_split(4).  test_split(5).}).
+
+
+#pos(eg18@2, {split(1)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Syria").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"blames").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"rebels").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"for").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Houla").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"massacre").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"of").
+  pos(c_IN,8).
+  head(9,8).
+  rel(c_DEP,8).
+  form(8,"over").
+  pos(c_CD,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"-3900").  test_split(1).}).
+
+
+#pos(eg19@2, {split(2), split(1)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Syria").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"blames").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"rebels").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"for").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Houla").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"massacre").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"of").
+  pos(c_IN,8).
+  head(9,8).
+  rel(c_DEP,8).
+  form(8,"over").
+  pos(c_CD,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"-3900").  test_split(2).  test_split(1).}).
+
+
+#pos(eg20@2, {split(3), split(2)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Syria").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"blames").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"rebels").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"for").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Houla").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"massacre").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"of").
+  pos(c_IN,8).
+  head(9,8).
+  rel(c_DEP,8).
+  form(8,"over").
+  pos(c_CD,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"-3900").  test_split(3).  test_split(2).}).
+
+
+#pos(eg21@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Syria").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"blames").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"rebels").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"for").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Houla").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"massacre").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"of").
+  pos(c_IN,8).
+  head(9,8).
+  rel(c_DEP,8).
+  form(8,"over").
+  pos(c_CD,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"-3900").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg22@2, {split(6)}, {split(7), split(8)}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Syria").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"blames").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"rebels").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"for").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Houla").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"massacre").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"of").
+  pos(c_IN,8).
+  head(9,8).
+  rel(c_DEP,8).
+  form(8,"over").
+  pos(c_CD,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"-3900").  test_split(6).  test_split(7).  test_split(8).}).
+
+
+#pos(eg23@2, {split(2)}, {split(1)}, {  first(1).
+  last(6).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Chinese").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_JJR,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"higher").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"midday").
+  pos(c_NNP,6).
+  head(3,6).
+  rel(c_TMP,6).
+  form(6,"Friday").  test_split(2).  test_split(1).}).
+
+
+#pos(eg24@2, {split(3), split(2)}, {}, {  first(1).
+  last(6).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Chinese").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_JJR,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"higher").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"midday").
+  pos(c_NNP,6).
+  head(3,6).
+  rel(c_TMP,6).
+  form(6,"Friday").  test_split(3).  test_split(2).}).
+
+
+#pos(eg25@2, {split(4), split(3)}, {}, {  first(1).
+  last(6).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Chinese").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_JJR,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"higher").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"midday").
+  pos(c_NNP,6).
+  head(3,6).
+  rel(c_TMP,6).
+  form(6,"Friday").  test_split(4).  test_split(3).}).
+
+
+#pos(eg26@2, {split(4)}, {split(5)}, {  first(1).
+  last(6).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Chinese").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_JJR,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"higher").
+  pos(c_NN,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"midday").
+  pos(c_NNP,6).
+  head(3,6).
+  rel(c_TMP,6).
+  form(6,"Friday").  test_split(4).  test_split(5).}).
+
+
+#pos(eg27@2, {split(2)}, {split(1)}, {  first(1).
+  last(11).
+  pos(c_IN,1).
+  head(5,1).
+  rel(c_TMP,1).
+  form(1,"In").
+  pos(c_NNP,2).
+  head(1,2).
+  rel(c_PMOD,2).
+  form(2,"Kenya").
+  pos(c_c,3).
+  head(5,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_NNS,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"attackers").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"used").
+  pos(c_qq,6).
+  head(5,6).
+  rel(c_P,6).
+  form(6,"`").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_SBJ,7).
+  form(7,"less").
+  pos(c_VBZ,8).
+  head(5,8).
+  rel(c_OBJ,8).
+  form(8,"is").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"more").
+  pos(c_qq,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"'").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_OBJ,11).
+  form(11,"strategy").  test_split(2).  test_split(1).}).
+
+
+#pos(eg28@2, {split(3), split(2)}, {}, {  first(1).
+  last(11).
+  pos(c_IN,1).
+  head(5,1).
+  rel(c_TMP,1).
+  form(1,"In").
+  pos(c_NNP,2).
+  head(1,2).
+  rel(c_PMOD,2).
+  form(2,"Kenya").
+  pos(c_c,3).
+  head(5,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_NNS,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"attackers").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"used").
+  pos(c_qq,6).
+  head(5,6).
+  rel(c_P,6).
+  form(6,"`").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_SBJ,7).
+  form(7,"less").
+  pos(c_VBZ,8).
+  head(5,8).
+  rel(c_OBJ,8).
+  form(8,"is").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"more").
+  pos(c_qq,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"'").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_OBJ,11).
+  form(11,"strategy").  test_split(3).  test_split(2).}).
+
+
+#pos(eg29@2, {split(4), split(3)}, {}, {  first(1).
+  last(11).
+  pos(c_IN,1).
+  head(5,1).
+  rel(c_TMP,1).
+  form(1,"In").
+  pos(c_NNP,2).
+  head(1,2).
+  rel(c_PMOD,2).
+  form(2,"Kenya").
+  pos(c_c,3).
+  head(5,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_NNS,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"attackers").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"used").
+  pos(c_qq,6).
+  head(5,6).
+  rel(c_P,6).
+  form(6,"`").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_SBJ,7).
+  form(7,"less").
+  pos(c_VBZ,8).
+  head(5,8).
+  rel(c_OBJ,8).
+  form(8,"is").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"more").
+  pos(c_qq,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"'").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_OBJ,11).
+  form(11,"strategy").  test_split(4).  test_split(3).}).
+
+
+#pos(eg30@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_IN,1).
+  head(5,1).
+  rel(c_TMP,1).
+  form(1,"In").
+  pos(c_NNP,2).
+  head(1,2).
+  rel(c_PMOD,2).
+  form(2,"Kenya").
+  pos(c_c,3).
+  head(5,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_NNS,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"attackers").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"used").
+  pos(c_qq,6).
+  head(5,6).
+  rel(c_P,6).
+  form(6,"`").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_SBJ,7).
+  form(7,"less").
+  pos(c_VBZ,8).
+  head(5,8).
+  rel(c_OBJ,8).
+  form(8,"is").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"more").
+  pos(c_qq,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"'").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_OBJ,11).
+  form(11,"strategy").  test_split(5).  test_split(4).}).
+
+
+#pos(eg31@2, {split(5)}, {split(6), split(7), split(8), split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_IN,1).
+  head(5,1).
+  rel(c_TMP,1).
+  form(1,"In").
+  pos(c_NNP,2).
+  head(1,2).
+  rel(c_PMOD,2).
+  form(2,"Kenya").
+  pos(c_c,3).
+  head(5,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_NNS,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"attackers").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"used").
+  pos(c_qq,6).
+  head(5,6).
+  rel(c_P,6).
+  form(6,"`").
+  pos(c_DT,7).
+  head(8,7).
+  rel(c_SBJ,7).
+  form(7,"less").
+  pos(c_VBZ,8).
+  head(5,8).
+  rel(c_OBJ,8).
+  form(8,"is").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"more").
+  pos(c_qq,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"'").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_OBJ,11).
+  form(11,"strategy").  test_split(5).  test_split(6).  test_split(7).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg32@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Magnitude").
+  pos(c_CD,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"-6994.-6997").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"quake").
+  pos(c_NNS,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"strikes").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"off").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NAME,6).
+  form(6,"Solomon").
+  pos(c_NNPS,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Islands").
+  pos(c_c,8).
+  head(4,8).
+  rel(c_P,8).
+  form(8,":").
+  pos(c_NNS,9).
+  head(4,9).
+  rel(c_NMOD,9).
+  form(9,"USGS").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg33@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Magnitude").
+  pos(c_CD,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"-6994.-6997").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"quake").
+  pos(c_NNS,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"strikes").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"off").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NAME,6).
+  form(6,"Solomon").
+  pos(c_NNPS,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Islands").
+  pos(c_c,8).
+  head(4,8).
+  rel(c_P,8).
+  form(8,":").
+  pos(c_NNS,9).
+  head(4,9).
+  rel(c_NMOD,9).
+  form(9,"USGS").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg34@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Magnitude").
+  pos(c_CD,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"-6994.-6997").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"quake").
+  pos(c_NNS,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"strikes").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"off").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NAME,6).
+  form(6,"Solomon").
+  pos(c_NNPS,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Islands").
+  pos(c_c,8).
+  head(4,8).
+  rel(c_P,8).
+  form(8,":").
+  pos(c_NNS,9).
+  head(4,9).
+  rel(c_NMOD,9).
+  form(9,"USGS").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg35@2, {split(8), split(7)}, {}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Magnitude").
+  pos(c_CD,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"-6994.-6997").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"quake").
+  pos(c_NNS,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"strikes").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"off").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NAME,6).
+  form(6,"Solomon").
+  pos(c_NNPS,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Islands").
+  pos(c_c,8).
+  head(4,8).
+  rel(c_P,8).
+  form(8,":").
+  pos(c_NNS,9).
+  head(4,9).
+  rel(c_NMOD,9).
+  form(9,"USGS").  test_split(8).  test_split(7).}).
+
+
+#pos(eg36@2, {split(9), split(8)}, {}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Magnitude").
+  pos(c_CD,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"-6994.-6997").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"quake").
+  pos(c_NNS,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"strikes").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"off").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NAME,6).
+  form(6,"Solomon").
+  pos(c_NNPS,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Islands").
+  pos(c_c,8).
+  head(4,8).
+  rel(c_P,8).
+  form(8,":").
+  pos(c_NNS,9).
+  head(4,9).
+  rel(c_NMOD,9).
+  form(9,"USGS").  test_split(9).  test_split(8).}).
+
+
+#pos(eg37@2, {split(1)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(1).}).
+
+
+#pos(eg38@2, {split(2), split(1)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(2).  test_split(1).}).
+
+
+#pos(eg39@2, {split(3), split(2)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(3).  test_split(2).}).
+
+
+#pos(eg40@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg41@2, {split(6), split(5)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(6).  test_split(5).}).
+
+
+#pos(eg42@2, {split(7), split(6)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(7).  test_split(6).}).
+
+
+#pos(eg43@2, {split(7)}, {split(8), split(9)}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"U.S.").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,",").
+  pos(c_NNS,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"Friends").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"of").
+  pos(c_NNP,5).
+  head(4,5).
+  rel(c_PMOD,5).
+  form(5,"Syria").
+  pos(c_VBP,6).
+  head(1,6).
+  rel(c_NMOD,6).
+  form(6,"recognize").
+  pos(c_NN,7).
+  head(6,7).
+  rel(c_OBJ,7).
+  form(7,"opposition").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"as").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"sole").
+  pos(c_NN,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"representative").  test_split(7).  test_split(8).  test_split(9).}).
+
+
+#pos(eg44@2, {split(1)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"China").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"detains").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"-8993").
+  pos(c_IN,4).
+  head(2,4).
+  rel(c_ADV,4).
+  form(4,"for").
+  pos(c_qq,5).
+  head(7,5).
+  rel(c_P,5).
+  form(5,"``").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"house").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"sister").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"''").
+  pos(c_NN,9).
+  head(4,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(1).}).
+
+
+#pos(eg45@2, {split(2), split(1)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"China").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"detains").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"-8993").
+  pos(c_IN,4).
+  head(2,4).
+  rel(c_ADV,4).
+  form(4,"for").
+  pos(c_qq,5).
+  head(7,5).
+  rel(c_P,5).
+  form(5,"``").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"house").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"sister").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"''").
+  pos(c_NN,9).
+  head(4,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(2).  test_split(1).}).
+
+
+#pos(eg46@2, {split(3), split(2)}, {}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"China").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"detains").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"-8993").
+  pos(c_IN,4).
+  head(2,4).
+  rel(c_ADV,4).
+  form(4,"for").
+  pos(c_qq,5).
+  head(7,5).
+  rel(c_P,5).
+  form(5,"``").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"house").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"sister").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"''").
+  pos(c_NN,9).
+  head(4,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(3).  test_split(2).}).
+
+
+#pos(eg47@2, {split(3)}, {split(4), split(5), split(6), split(7), split(8)}, {  first(1).
+  last(9).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"China").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"detains").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"-8993").
+  pos(c_IN,4).
+  head(2,4).
+  rel(c_ADV,4).
+  form(4,"for").
+  pos(c_qq,5).
+  head(7,5).
+  rel(c_P,5).
+  form(5,"``").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"house").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"sister").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"''").
+  pos(c_NN,9).
+  head(4,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(3).  test_split(4).  test_split(5).  test_split(6).  test_split(7).  test_split(8).}).
+
+
+#pos(eg48@2, {split(2)}, {split(1)}, {  first(1).
+  last(9).
+  pos(c_WRB,1).
+  head(3,1).
+  rel(c_TMP,1).
+  form(1,"EU").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"ministers").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"hold").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"crisis").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"talks").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_NMOD,6).
+  form(6,"over").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"horse").
+  pos(c_NN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"meat").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(2).  test_split(1).}).
+
+
+#pos(eg49@2, {split(3), split(2)}, {}, {  first(1).
+  last(9).
+  pos(c_WRB,1).
+  head(3,1).
+  rel(c_TMP,1).
+  form(1,"EU").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"ministers").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"hold").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"crisis").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"talks").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_NMOD,6).
+  form(6,"over").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"horse").
+  pos(c_NN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"meat").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(3).  test_split(2).}).
+
+
+#pos(eg50@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(9).
+  pos(c_WRB,1).
+  head(3,1).
+  rel(c_TMP,1).
+  form(1,"EU").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"ministers").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"hold").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"crisis").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"talks").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_NMOD,6).
+  form(6,"over").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"horse").
+  pos(c_NN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"meat").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg51@2, {split(5)}, {split(6), split(7), split(8)}, {  first(1).
+  last(9).
+  pos(c_WRB,1).
+  head(3,1).
+  rel(c_TMP,1).
+  form(1,"EU").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"ministers").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"hold").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"crisis").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_OBJ,5).
+  form(5,"talks").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_NMOD,6).
+  form(6,"over").
+  pos(c_NN,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"horse").
+  pos(c_NN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"meat").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"scandal").  test_split(5).  test_split(6).  test_split(7).  test_split(8).}).
+
+
+#pos(eg52@2, {split(2)}, {split(1)}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Thai").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"opposition").
+  pos(c_NNS,3).
+  head(5,3).
+  rel(c_NMOD,3).
+  form(3,"announces").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"election").
+  pos(c_NN,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"boycott").  test_split(2).  test_split(1).}).
+
+
+#pos(eg53@2, {split(3), split(2)}, {}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Thai").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"opposition").
+  pos(c_NNS,3).
+  head(5,3).
+  rel(c_NMOD,3).
+  form(3,"announces").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"election").
+  pos(c_NN,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"boycott").  test_split(3).  test_split(2).}).
+
+
+#pos(eg54@2, {split(3)}, {split(4)}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Thai").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"opposition").
+  pos(c_NNS,3).
+  head(5,3).
+  rel(c_NMOD,3).
+  form(3,"announces").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"election").
+  pos(c_NN,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"boycott").  test_split(3).  test_split(4).}).
+
+
+#pos(eg55@2, {split(1)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(1).}).
+
+
+#pos(eg56@2, {split(2), split(1)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(2).  test_split(1).}).
+
+
+#pos(eg57@2, {split(3), split(2)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(3).  test_split(2).}).
+
+
+#pos(eg58@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg59@2, {split(6), split(5)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(6).  test_split(5).}).
+
+
+#pos(eg60@2, {split(6), split(8)}, {split(7)}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(6).  test_split(8).  test_split(7).}).
+
+
+#pos(eg61@2, {split(9), split(8)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(9).  test_split(8).}).
+
+
+#pos(eg62@2, {split(10), split(9)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(10).  test_split(9).}).
+
+
+#pos(eg63@2, {split(11), split(10)}, {}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(11).  test_split(10).}).
+
+
+#pos(eg64@2, {split(11)}, {split(12)}, {  first(1).
+  last(13).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Telangana").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NNP,3).
+  head(1,3).
+  rel(c_APPO,3).
+  form(3,"Jagan").
+  pos(c_TO,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"to").
+  pos(c_VB,5).
+  head(4,5).
+  rel(c_IM,5).
+  form(5,"spend").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_OBJ,6).
+  form(6,"Thursday").
+  pos(c_IN,7).
+  head(5,7).
+  rel(c_ADV,7).
+  form(7,"in").
+  pos(c_NN,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"hospital").
+  pos(c_c,9).
+  head(1,9).
+  rel(c_P,9).
+  form(9,";").
+  pos(c_JJ,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"blackout").
+  pos(c_VBZ,11).
+  head(1,11).
+  rel(c_NMOD,11).
+  form(11,"continues").
+  pos(c_IN,12).
+  head(11,12).
+  rel(c_LOC,12).
+  form(12,"in").
+  pos(c_NNP,13).
+  head(12,13).
+  rel(c_PMOD,13).
+  form(13,"Seemandhra").  test_split(11).  test_split(12).}).
+
+
+#pos(eg65@2, {split(1)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Brazil").
+  pos(c_VBD,2).
+  head(8,2).
+  rel(c_OBJ,2).
+  form(2,"held").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_TMP,3).
+  form(3,"by").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"England").
+  pos(c_CD,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"-12998--12998").
+  pos(c_IN,6).
+  head(2,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NNP,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Maracana").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"re-opens").  test_split(1).}).
+
+
+#pos(eg66@2, {split(2), split(1)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Brazil").
+  pos(c_VBD,2).
+  head(8,2).
+  rel(c_OBJ,2).
+  form(2,"held").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_TMP,3).
+  form(3,"by").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"England").
+  pos(c_CD,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"-12998--12998").
+  pos(c_IN,6).
+  head(2,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NNP,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Maracana").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"re-opens").  test_split(2).  test_split(1).}).
+
+
+#pos(eg67@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Brazil").
+  pos(c_VBD,2).
+  head(8,2).
+  rel(c_OBJ,2).
+  form(2,"held").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_TMP,3).
+  form(3,"by").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"England").
+  pos(c_CD,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"-12998--12998").
+  pos(c_IN,6).
+  head(2,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NNP,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Maracana").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"re-opens").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg68@2, {split(5), split(4)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Brazil").
+  pos(c_VBD,2).
+  head(8,2).
+  rel(c_OBJ,2).
+  form(2,"held").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_TMP,3).
+  form(3,"by").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"England").
+  pos(c_CD,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"-12998--12998").
+  pos(c_IN,6).
+  head(2,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NNP,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Maracana").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"re-opens").  test_split(5).  test_split(4).}).
+
+
+#pos(eg69@2, {split(5)}, {split(6), split(7)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Brazil").
+  pos(c_VBD,2).
+  head(8,2).
+  rel(c_OBJ,2).
+  form(2,"held").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_TMP,3).
+  form(3,"by").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"England").
+  pos(c_CD,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"-12998--12998").
+  pos(c_IN,6).
+  head(2,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NNP,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"Maracana").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"re-opens").  test_split(5).  test_split(6).  test_split(7).}).
+
+
+#pos(eg70@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NAME,1).
+  form(1,"George").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_NAME,2).
+  form(2,"W").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Bush").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"weighs").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_ADV,5).
+  form(5,"into").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"immigration").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"debate").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg71@2, {split(3), split(5)}, {split(4)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NAME,1).
+  form(1,"George").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_NAME,2).
+  form(2,"W").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Bush").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"weighs").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_ADV,5).
+  form(5,"into").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"immigration").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"debate").  test_split(3).  test_split(5).  test_split(4).}).
+
+
+#pos(eg72@2, {split(5)}, {split(6)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NAME,1).
+  form(1,"George").
+  pos(c_NNP,2).
+  head(3,2).
+  rel(c_NAME,2).
+  form(2,"W").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Bush").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"weighs").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_ADV,5).
+  form(5,"into").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"immigration").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"debate").  test_split(5).  test_split(6).}).
+
+
+#pos(eg73@2, {split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"fall").
+  pos(c_NN,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"sick").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"in").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Bangladesh").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"factory").  test_split(1).}).
+
+
+#pos(eg74@2, {split(2), split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"fall").
+  pos(c_NN,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"sick").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"in").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Bangladesh").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"factory").  test_split(2).  test_split(1).}).
+
+
+#pos(eg75@2, {split(3), split(2)}, {}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"fall").
+  pos(c_NN,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"sick").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"in").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Bangladesh").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"factory").  test_split(3).  test_split(2).}).
+
+
+#pos(eg76@2, {split(3)}, {split(4), split(5)}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"fall").
+  pos(c_NN,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"sick").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"in").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Bangladesh").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_PMOD,6).
+  form(6,"factory").  test_split(3).  test_split(4).  test_split(5).}).
+
+
+#pos(eg77@2, {split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Israel").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"launches").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"new").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"airstrike").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_NMOD,5).
+  form(5,"against").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Syria").  test_split(1).}).
+
+
+#pos(eg78@2, {split(2), split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Israel").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"launches").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"new").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"airstrike").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_NMOD,5).
+  form(5,"against").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Syria").  test_split(2).  test_split(1).}).
+
+
+#pos(eg79@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Israel").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"launches").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"new").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"airstrike").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_NMOD,5).
+  form(5,"against").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Syria").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg80@2, {split(4)}, {split(5)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Israel").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"launches").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"new").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"airstrike").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_NMOD,5).
+  form(5,"against").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Syria").  test_split(4).  test_split(5).}).
+
+
+#pos(eg81@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(7).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_JJ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"dead").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"or").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"injured").
+  pos(c_IN,5).
+  head(2,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"China").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"quake").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg82@2, {split(4)}, {split(5), split(6)}, {  first(1).
+  last(7).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Hundreds").
+  pos(c_JJ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"dead").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"or").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"injured").
+  pos(c_IN,5).
+  head(2,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"China").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"quake").  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg83@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(6).
+  pos(c_CD,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"French").
+  pos(c_NNS,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"journalists").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"killed").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Mali").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg84@2, {split(4), split(3)}, {}, {  first(1).
+  last(6).
+  pos(c_CD,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"French").
+  pos(c_NNS,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"journalists").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"killed").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Mali").  test_split(4).  test_split(3).}).
+
+
+#pos(eg85@2, {split(4)}, {split(5)}, {  first(1).
+  last(6).
+  pos(c_CD,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"Two").
+  pos(c_JJ,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"French").
+  pos(c_NNS,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"journalists").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_APPO,4).
+  form(4,"killed").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Mali").  test_split(4).  test_split(5).}).
+
+
+#pos(eg86@2, {split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(1).}).
+
+
+#pos(eg87@2, {split(2), split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(2).  test_split(1).}).
+
+
+#pos(eg88@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg89@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(5).  test_split(4).}).
+
+
+#pos(eg90@2, {split(5), split(8)}, {split(6), split(7)}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(5).  test_split(8).  test_split(6).  test_split(7).}).
+
+
+#pos(eg91@2, {split(8)}, {split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_NNS,1).
+  head(3,1).
+  rel(c_SBJ,1).
+  form(1,"Vehicles").
+  pos(c_qq,2).
+  head(3,2).
+  rel(c_P,2).
+  form(2,"`").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"left").
+  pos(c_VBG,4).
+  head(3,4).
+  rel(c_OPRD,4).
+  form(4,"burning").
+  pos(c_qq,5).
+  head(4,5).
+  rel(c_P,5).
+  form(5,"'").
+  pos(c_IN,6).
+  head(4,6).
+  rel(c_ADV,6).
+  form(6,"as").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"smoke").
+  pos(c_NNS,8).
+  head(6,8).
+  rel(c_PMOD,8).
+  form(8,"emits").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_NMOD,9).
+  form(9,"from").
+  pos(c_NNP,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"Japan").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"tunnel").  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg92@2, {split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Islamists").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"attack").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Malian").
+  pos(c_NNS,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"troops").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Gao").  test_split(1).}).
+
+
+#pos(eg93@2, {split(2), split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Islamists").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"attack").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Malian").
+  pos(c_NNS,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"troops").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Gao").  test_split(2).  test_split(1).}).
+
+
+#pos(eg94@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Islamists").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"attack").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Malian").
+  pos(c_NNS,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"troops").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Gao").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg95@2, {split(4)}, {split(5)}, {  first(1).
+  last(6).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Islamists").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"attack").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Malian").
+  pos(c_NNS,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"troops").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Gao").  test_split(4).  test_split(5).}).
+
+
+#pos(eg96@2, {split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(1).}).
+
+
+#pos(eg97@2, {split(2), split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(2).  test_split(1).}).
+
+
+#pos(eg98@2, {split(3), split(2)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(3).  test_split(2).}).
+
+
+#pos(eg99@2, {split(4), split(3)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(4).  test_split(3).}).
+
+
+#pos(eg100@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(5).  test_split(4).}).
+
+
+#pos(eg101@2, {split(6), split(5)}, {}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(6).  test_split(5).}).
+
+
+#pos(eg102@2, {split(6)}, {split(7), split(8), split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_PRP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"It").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"'s").
+  pos(c_JJ,3).
+  head(2,3).
+  rel(c_PRD,3).
+  form(3,"official").
+  pos(c_c,4).
+  head(2,4).
+  rel(c_P,4).
+  form(4,":").
+  pos(c_NN,5).
+  head(2,5).
+  rel(c_DEP,5).
+  form(5,"Deal").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_APPO,6).
+  form(6,"reached").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_qq,8).
+  head(7,8).
+  rel(c_P,8).
+  form(8,"``").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"fiscal").
+  pos(c_NN,10).
+  head(7,10).
+  rel(c_PMOD,10).
+  form(10,"cliff").
+  pos(c_qq,11).
+  head(7,11).
+  rel(c_P,11).
+  form(11,"''").  test_split(6).  test_split(7).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg103@2, {split(2)}, {split(1)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"China").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_RBR,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"higher").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"on").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Wednesday").  test_split(2).  test_split(1).}).
+
+
+#pos(eg104@2, {split(3), split(2)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"China").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_RBR,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"higher").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"on").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Wednesday").  test_split(3).  test_split(2).}).
+
+
+#pos(eg105@2, {split(4), split(3)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"China").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_RBR,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"higher").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"on").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Wednesday").  test_split(4).  test_split(3).}).
+
+
+#pos(eg106@2, {split(4)}, {split(5)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"China").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBP,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_RBR,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"higher").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"on").
+  pos(c_NNP,6).
+  head(5,6).
+  rel(c_PMOD,6).
+  form(6,"Wednesday").  test_split(4).  test_split(5).}).
+
+
+#pos(eg107@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"Dolce").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Gabbana").
+  pos(c_VBD,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"Fined").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"Italian").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Tax").
+  pos(c_NNP,8).
+  head(4,8).
+  rel(c_TMP,8).
+  form(8,"Case").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg108@2, {split(4), split(3)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"Dolce").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Gabbana").
+  pos(c_VBD,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"Fined").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"Italian").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Tax").
+  pos(c_NNP,8).
+  head(4,8).
+  rel(c_TMP,8).
+  form(8,"Case").  test_split(4).  test_split(3).}).
+
+
+#pos(eg109@2, {split(4)}, {split(5), split(6), split(7)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"Dolce").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Gabbana").
+  pos(c_VBD,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"Fined").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC,5).
+  form(5,"in").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"Italian").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"Tax").
+  pos(c_NNP,8).
+  head(4,8).
+  rel(c_TMP,8).
+  form(8,"Case").  test_split(4).  test_split(5).  test_split(6).  test_split(7).}).
+
+
+#pos(eg110@2, {split(1)}, {}, {  first(1).
+  last(7).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"West").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"raises").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"stakes").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"over").
+  pos(c_NNP,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"Syria").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"chemical").
+  pos(c_NNS,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"claims").  test_split(1).}).
+
+
+#pos(eg111@2, {split(2), split(1)}, {}, {  first(1).
+  last(7).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"West").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"raises").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"stakes").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"over").
+  pos(c_NNP,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"Syria").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"chemical").
+  pos(c_NNS,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"claims").  test_split(2).  test_split(1).}).
+
+
+#pos(eg112@2, {split(3), split(2)}, {}, {  first(1).
+  last(7).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"West").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"raises").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"stakes").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"over").
+  pos(c_NNP,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"Syria").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"chemical").
+  pos(c_NNS,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"claims").  test_split(3).  test_split(2).}).
+
+
+#pos(eg113@2, {split(3)}, {split(4), split(5), split(6)}, {  first(1).
+  last(7).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"West").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"raises").
+  pos(c_NNS,3).
+  head(2,3).
+  rel(c_OBJ,3).
+  form(3,"stakes").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"over").
+  pos(c_NNP,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"Syria").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"chemical").
+  pos(c_NNS,7).
+  head(4,7).
+  rel(c_PMOD,7).
+  form(7,"claims").  test_split(3).  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg114@2, {split(2)}, {split(1)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(2).  test_split(1).}).
+
+
+#pos(eg115@2, {split(3), split(2)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(3).  test_split(2).}).
+
+
+#pos(eg116@2, {split(3), split(6)}, {split(4), split(5)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(3).  test_split(6).  test_split(4).  test_split(5).}).
+
+
+#pos(eg117@2, {split(7), split(6)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(7).  test_split(6).}).
+
+
+#pos(eg118@2, {split(8), split(7)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(8).  test_split(7).}).
+
+
+#pos(eg119@2, {split(8)}, {split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Jenni").
+  pos(c_NNP,2).
+  head(8,2).
+  rel(c_SBJ,2).
+  form(2,"Rivera").
+  pos(c_c,3).
+  head(2,3).
+  rel(c_P,3).
+  form(3,",").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"Mexican").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"music").
+  pos(c_NN,6).
+  head(2,6).
+  rel(c_APPO,6).
+  form(6,"star").
+  pos(c_c,7).
+  head(2,7).
+  rel(c_P,7).
+  form(7,",").
+  pos(c_VBZ,8).
+  head(root,8).
+  rel(c_ROOT,8).
+  form(8,"dies").
+  pos(c_IN,9).
+  head(8,9).
+  rel(c_LOC,9).
+  form(9,"in").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"plane").
+  pos(c_NN,11).
+  head(9,11).
+  rel(c_PMOD,11).
+  form(11,"crash").  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg120@2, {split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(1).}).
+
+
+#pos(eg121@2, {split(2), split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(2).  test_split(1).}).
+
+
+#pos(eg122@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg123@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(5).  test_split(4).}).
+
+
+#pos(eg124@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg125@2, {split(7)}, {split(8), split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Indonesia").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"Death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(1,5).
+  rel(c_NMOD,5).
+  form(5,"rises").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-25989").
+  pos(c_IN,8).
+  head(5,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NNP,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"Indonesia").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"boat").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"capsize").  test_split(7).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg126@2, {split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Rouhani").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"leads").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_ADV,3).
+  form(3,"in").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"initial").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Iran").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"count").  test_split(1).}).
+
+
+#pos(eg127@2, {split(2), split(1)}, {}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Rouhani").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"leads").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_ADV,3).
+  form(3,"in").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"initial").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Iran").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"count").  test_split(2).  test_split(1).}).
+
+
+#pos(eg128@2, {split(2)}, {split(3), split(4), split(5)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Rouhani").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"leads").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_ADV,3).
+  form(3,"in").
+  pos(c_JJ,4).
+  head(6,4).
+  rel(c_NMOD,4).
+  form(4,"initial").
+  pos(c_NNP,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"Iran").
+  pos(c_NN,6).
+  head(3,6).
+  rel(c_PMOD,6).
+  form(6,"count").  test_split(2).  test_split(3).  test_split(4).  test_split(5).}).
+
+
+#pos(eg129@2, {split(1)}, {}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Egypt").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"bracing").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"for").
+  pos(c_JJ,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"massive").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"protests").  test_split(1).}).
+
+
+#pos(eg130@2, {split(2), split(1)}, {}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Egypt").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"bracing").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"for").
+  pos(c_JJ,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"massive").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"protests").  test_split(2).  test_split(1).}).
+
+
+#pos(eg131@2, {split(2)}, {split(3), split(4)}, {  first(1).
+  last(5).
+  pos(c_JJ,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Egypt").
+  pos(c_NN,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"bracing").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"for").
+  pos(c_JJ,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"massive").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"protests").  test_split(2).  test_split(3).  test_split(4).}).
+
+
+#pos(eg132@2, {split(2)}, {split(1)}, {  first(1).
+  last(7).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Bangladesh").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"building-collapse").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"climbs").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-28420").  test_split(2).  test_split(1).}).
+
+
+#pos(eg133@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(7).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Bangladesh").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"building-collapse").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"climbs").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-28420").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg134@2, {split(5), split(4)}, {}, {  first(1).
+  last(7).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Bangladesh").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"building-collapse").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"climbs").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-28420").  test_split(5).  test_split(4).}).
+
+
+#pos(eg135@2, {split(5)}, {split(6)}, {  first(1).
+  last(7).
+  pos(c_JJ,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"Bangladesh").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"building-collapse").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"death").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"toll").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"climbs").
+  pos(c_TO,6).
+  head(5,6).
+  rel(c_DIR,6).
+  form(6,"to").
+  pos(c_CD,7).
+  head(6,7).
+  rel(c_PMOD,7).
+  form(7,"-28420").  test_split(5).  test_split(6).}).
+
+
+#pos(eg136@2, {split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(1).}).
+
+
+#pos(eg137@2, {split(2), split(1)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(2).  test_split(1).}).
+
+
+#pos(eg138@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg139@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(5).  test_split(4).}).
+
+
+#pos(eg140@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg141@2, {split(7)}, {split(8), split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Nevada").
+  pos(c_c,2).
+  head(1,2).
+  rel(c_P,2).
+  form(2,":").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-29998").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_c,5).
+  head(3,5).
+  rel(c_P,5).
+  form(5,",").
+  pos(c_CD,6).
+  head(3,6).
+  rel(c_NMOD,6).
+  form(6,"-29998").
+  pos(c_VBN,7).
+  head(3,7).
+  rel(c_APPO,7).
+  form(7,"hurt").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_NN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"middle").
+  pos(c_NN,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"school").
+  pos(c_NN,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"shooting").  test_split(7).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg142@2, {split(1)}, {}, {  first(1).
+  last(7).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Hamas").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_LOC,2).
+  form(2,"in").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"mixed-sex").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_PMOD,4).
+  form(4,"school").
+  pos(c_qq,5).
+  head(6,5).
+  rel(c_P,5).
+  form(5,"`").
+  pos(c_NN,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"ban").
+  pos(c_qq,7).
+  head(6,7).
+  rel(c_P,7).
+  form(7,"'").  test_split(1).}).
+
+
+#pos(eg143@2, {split(1)}, {split(2), split(3), split(4), split(5), split(6)}, {  first(1).
+  last(7).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Hamas").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_LOC,2).
+  form(2,"in").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"mixed-sex").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_PMOD,4).
+  form(4,"school").
+  pos(c_qq,5).
+  head(6,5).
+  rel(c_P,5).
+  form(5,"`").
+  pos(c_NN,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"ban").
+  pos(c_qq,7).
+  head(6,7).
+  rel(c_P,7).
+  form(7,"'").  test_split(1).  test_split(2).  test_split(3).  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg144@2, {split(1)}, {}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Russia").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"gives").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"initial").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"approval").
+  pos(c_TO,5).
+  head(2,5).
+  rel(c_ADV,5).
+  form(5,"to").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"adoption").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"ban").  test_split(1).}).
+
+
+#pos(eg145@2, {split(2), split(1)}, {}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Russia").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"gives").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"initial").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"approval").
+  pos(c_TO,5).
+  head(2,5).
+  rel(c_ADV,5).
+  form(5,"to").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"adoption").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"ban").  test_split(2).  test_split(1).}).
+
+
+#pos(eg146@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Russia").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"gives").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"initial").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"approval").
+  pos(c_TO,5).
+  head(2,5).
+  rel(c_ADV,5).
+  form(5,"to").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"adoption").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"ban").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg147@2, {split(4)}, {split(5), split(6)}, {  first(1).
+  last(7).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"Russia").
+  pos(c_VBZ,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"gives").
+  pos(c_JJ,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"initial").
+  pos(c_NN,4).
+  head(2,4).
+  rel(c_OBJ,4).
+  form(4,"approval").
+  pos(c_TO,5).
+  head(2,5).
+  rel(c_ADV,5).
+  form(5,"to").
+  pos(c_NN,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"adoption").
+  pos(c_NN,7).
+  head(5,7).
+  rel(c_PMOD,7).
+  form(7,"ban").  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg148@2, {split(1)}, {}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Gunman").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"among").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"-32993").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"after").
+  pos(c_NNP,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"Fla.").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"apartment").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"shootout").  test_split(1).}).
+
+
+#pos(eg149@2, {split(1), split(4)}, {split(2), split(3)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Gunman").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"among").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"-32993").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"after").
+  pos(c_NNP,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"Fla.").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"apartment").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"shootout").  test_split(1).  test_split(4).  test_split(2).  test_split(3).}).
+
+
+#pos(eg150@2, {split(4)}, {split(5), split(6), split(7)}, {  first(1).
+  last(8).
+  pos(c_NN,1).
+  head(root,1).
+  rel(c_ROOT,1).
+  form(1,"Gunman").
+  pos(c_IN,2).
+  head(1,2).
+  rel(c_NMOD,2).
+  form(2,"among").
+  pos(c_CD,3).
+  head(2,3).
+  rel(c_PMOD,3).
+  form(3,"-32993").
+  pos(c_JJ,4).
+  head(3,4).
+  rel(c_NMOD,4).
+  form(4,"dead").
+  pos(c_IN,5).
+  head(3,5).
+  rel(c_TMP,5).
+  form(5,"after").
+  pos(c_NNP,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"Fla.").
+  pos(c_NN,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"apartment").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"shootout").  test_split(4).  test_split(5).  test_split(6).  test_split(7).}).
+
+
+#pos(eg151@2, {split(5)}, {split(1), split(2), split(3), split(4)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(5).  test_split(1).  test_split(2).  test_split(3).  test_split(4).}).
+
+
+#pos(eg152@2, {split(6), split(5)}, {}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(6).  test_split(5).}).
+
+
+#pos(eg153@2, {split(7), split(6)}, {}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(7).  test_split(6).}).
+
+
+#pos(eg154@2, {split(7), split(9)}, {split(8)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(7).  test_split(9).  test_split(8).}).
+
+
+#pos(eg155@2, {split(9), split(16)}, {split(10), split(11), split(12), split(13), split(14), split(15)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(9).  test_split(16).  test_split(10).  test_split(11).  test_split(12).  test_split(13).  test_split(14).  test_split(15).}).
+
+
+#pos(eg156@2, {split(16), split(20)}, {split(17), split(18), split(19)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(16).  test_split(20).  test_split(17).  test_split(18).  test_split(19).}).
+
+
+#pos(eg157@2, {split(21), split(20)}, {}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(21).  test_split(20).}).
+
+
+#pos(eg158@2, {split(21), split(23)}, {split(22)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(21).  test_split(23).  test_split(22).}).
+
+
+#pos(eg159@2, {split(23), split(27)}, {split(24), split(25), split(26)}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(23).  test_split(27).  test_split(24).  test_split(25).  test_split(26).}).
+
+
+#pos(eg160@2, {split(28), split(27)}, {}, {  first(1).
+  last(28).
+  pos(c_NNP,1).
+  head(5,1).
+  rel(c_NMOD,1).
+  form(1,"Diana").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"Fayed").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"death").
+  pos(c_NN,5).
+  head(6,5).
+  rel(c_SBJ,5).
+  form(5,"info").
+  pos(c_VBD,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"received").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"new").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"The").
+  pos(c_NNS,9).
+  head(17,9).
+  rel(c_SBJ,9).
+  form(9,"deaths").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"of").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_TITLE,11).
+  form(11,"Princess").
+  pos(c_NNP,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"Diana").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_NNP,14).
+  head(16,14).
+  rel(c_NAME,14).
+  form(14,"Dodi").
+  pos(c_NNP,15).
+  head(16,15).
+  rel(c_NAME,15).
+  form(15,"Al").
+  pos(c_NNP,16).
+  head(13,16).
+  rel(c_CONJ,16).
+  form(16,"Fayed").
+  pos(c_VBP,17).
+  head(6,17).
+  rel(c_OBJ,17).
+  form(17,"are").
+  pos(c_VBG,18).
+  head(17,18).
+  rel(c_VC,18).
+  form(18,"being").
+  pos(c_VBD,19).
+  head(18,19).
+  rel(c_VC,19).
+  form(19,"looked").
+  pos(c_IN,20).
+  head(19,20).
+  rel(c_ADV,20).
+  form(20,"at").
+  pos(c_RB,21).
+  head(20,21).
+  rel(c_PMOD,21).
+  form(21,"again").
+  pos(c_IN,22).
+  head(19,22).
+  rel(c_MNR,22).
+  form(22,"by").
+  pos(c_NN,23).
+  head(22,23).
+  rel(c_PMOD,23).
+  form(23,"police").
+  pos(c_IN,24).
+  head(19,24).
+  rel(c_TMP,24).
+  form(24,"after").
+  pos(c_PRP,25).
+  head(26,25).
+  rel(c_SBJ,25).
+  form(25,"they").
+  pos(c_VBD,26).
+  head(24,26).
+  rel(c_SUB,26).
+  form(26,"received").
+  pos(c_NN,27).
+  head(26,27).
+  rel(c_OBJ,27).
+  form(27,"information").
+  pos(c_p,28).
+  head(6,28).
+  rel(c_P,28).
+  form(28,".").  test_split(28).  test_split(27).}).
+
+
+#pos(eg161@2, {split(1)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"India").
+  pos(c_POS,2).
+  head(1,2).
+  rel(c_SUFFIX,2).
+  form(2,"'s").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Modi").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"promises").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"tough").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_OBJ,6).
+  form(6,"stance").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"against").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(1).}).
+
+
+#pos(eg162@2, {split(1), split(3)}, {split(2)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"India").
+  pos(c_POS,2).
+  head(1,2).
+  rel(c_SUFFIX,2).
+  form(2,"'s").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Modi").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"promises").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"tough").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_OBJ,6).
+  form(6,"stance").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"against").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(1).  test_split(3).  test_split(2).}).
+
+
+#pos(eg163@2, {split(4), split(3)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"India").
+  pos(c_POS,2).
+  head(1,2).
+  rel(c_SUFFIX,2).
+  form(2,"'s").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Modi").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"promises").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"tough").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_OBJ,6).
+  form(6,"stance").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"against").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(4).  test_split(3).}).
+
+
+#pos(eg164@2, {split(4), split(6)}, {split(5)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"India").
+  pos(c_POS,2).
+  head(1,2).
+  rel(c_SUFFIX,2).
+  form(2,"'s").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Modi").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"promises").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"tough").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_OBJ,6).
+  form(6,"stance").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"against").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(4).  test_split(6).  test_split(5).}).
+
+
+#pos(eg165@2, {split(6)}, {split(7)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(3,1).
+  rel(c_NMOD,1).
+  form(1,"India").
+  pos(c_POS,2).
+  head(1,2).
+  rel(c_SUFFIX,2).
+  form(2,"'s").
+  pos(c_NNP,3).
+  head(4,3).
+  rel(c_SBJ,3).
+  form(3,"Modi").
+  pos(c_VBZ,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"promises").
+  pos(c_JJ,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"tough").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_OBJ,6).
+  form(6,"stance").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_NMOD,7).
+  form(7,"against").
+  pos(c_NNP,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"Pakistan").  test_split(6).  test_split(7).}).
+
+
+#pos(eg166@2, {split(2)}, {split(1)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(2).  test_split(1).}).
+
+
+#pos(eg167@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(2).  test_split(4).  test_split(3).}).
+
+
+#pos(eg168@2, {split(5), split(4)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(5).  test_split(4).}).
+
+
+#pos(eg169@2, {split(6), split(5)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(6).  test_split(5).}).
+
+
+#pos(eg170@2, {split(6), split(8)}, {split(7)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(6).  test_split(8).  test_split(7).}).
+
+
+#pos(eg171@2, {split(9), split(8)}, {}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(9).  test_split(8).}).
+
+
+#pos(eg172@2, {split(9)}, {split(10)}, {  first(1).
+  last(11).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Boy").
+  pos(c_NNPS,2).
+  head(6,2).
+  rel(c_SBJ,2).
+  form(2,"Scouts").
+  pos(c_IN,3).
+  head(2,3).
+  rel(c_NMOD,3).
+  form(3,"of").
+  pos(c_NNP,4).
+  head(5,4).
+  rel(c_NMOD,4).
+  form(4,"America").
+  pos(c_NNS,5).
+  head(3,5).
+  rel(c_PMOD,5).
+  form(5,"delays").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"vote").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_VBG,8).
+  head(7,8).
+  rel(c_PMOD,8).
+  form(8,"lifting").
+  pos(c_NN,9).
+  head(8,9).
+  rel(c_OBJ,9).
+  form(9,"ban").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"on").
+  pos(c_NNS,11).
+  head(10,11).
+  rel(c_PMOD,11).
+  form(11,"gays").  test_split(9).  test_split(10).}).
+
+
+#pos(eg173@2, {split(2)}, {split(1)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Tokyo").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"down").
+  pos(c_CD,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"-36999.-36947").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_AMOD,6).
+  form(6,"percent").  test_split(2).  test_split(1).}).
+
+
+#pos(eg174@2, {split(2), split(4)}, {split(3)}, {  first(1).
+  last(6).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Tokyo").
+  pos(c_NNS,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"stocks").
+  pos(c_VBD,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"close").
+  pos(c_IN,4).
+  head(3,4).
+  rel(c_ADV,4).
+  form(4,"down").
+  pos(c_CD,5).
+  head(6,5).
+  rel(c_NMOD,5).
+  form(5,"-36999.-36947").
+  pos(c_NN,6).
+  head(4,6).
+  rel(c_AMOD,6).
+  form(6,"percent").  test_split(2).  test_split(4).  test_split(3).}).

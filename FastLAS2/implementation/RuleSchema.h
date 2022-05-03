@@ -123,7 +123,7 @@ class Schema {
 
     // static methods
 
-    static void add_cached_schema(const int& id, const int& rule, const std::map<std::string, int>& var_assignment);
+    static void add_cached_schema(const int& id, const int& rule, const std::map<std::string, int>& var_assignment, const std::map<std::string, std::string>& types);
     static Schema* get_schema(const int& head, const std::set<int>& body, const std::map<std::string, int>& var_assignment, const std::map<std::string, std::string>& types);
     static std::map<int, std::set<RuleSchema*>> get_grouped_useful_schemas();
     static std::vector<std::pair<std::set<RuleSchema*>, std::set<RuleSchema*>>> get_implication_groups();

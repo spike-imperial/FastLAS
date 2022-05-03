@@ -114,6 +114,7 @@
 "#inc_ids"                      return TOKEN(T_INC_IDS);
 "#exc_ids"                      return TOKEN(T_EXC_IDS);
 "#ctx_ids"                      return TOKEN(T_CTX_IDS);
+"#types"                        return TOKEN(T_TYPES);
 "#ground_without_replacement"   return TOKEN(T_GWR);
 
 

@@ -86,9 +86,10 @@ void yyerror (std::string s) {
     std::vector<NRule> *program;
     std::string* str_ptr;
     std::tuple<int, int, std::set<int>, std::set<int>, int, std::set<std::string>>* r_schema;
-    std::tuple<int, int, std::map<std::string, int>, std::set<int>>* h_schema;
+    std::tuple<int, int, std::map<std::string, int>, std::map<std::string, std::string>, std::set<int>>* h_schema;
     std::set<int>* ints;
     std::map<std::string, int>* assignment;
+    std::map<std::string, std::string>* types;
     std::tuple<std::set<std::set<int>>, std::set<int>, std::set<std::set<int>>, std::set<int>>* cached_example_schemas;
     CachedPossibility* cached_possibility;
     std::tuple<std::string, int, std::set<CachedPossibility>>* cached_example;
@@ -100,7 +101,7 @@ void yyerror (std::string s) {
 %token <token> T_MODEH T_MODEB T_POS T_NEG T_BIAS T_FINAL_BIAS T_PLUS T_MINUS T_MULT T_DIV T_MOD T_POW T_PREDICT T_V_BAR
 %token <token> T_MAXV T_GWR
 %token <token> T_EQUAL T_NEQ T_LEQ T_GEQ T_GT T_LT
-%token <token> T_CACHE T_HEAD T_BODY T_RULE T_ASSIGNMENT T_LANGUAGE T_EXAMPLES T_EXTENDS T_OPTIMISATIONS T_SCORE T_INTERMEDIATE_REPRESENTATION T_PENALTY
+%token <token> T_CACHE T_HEAD T_BODY T_RULE T_ASSIGNMENT T_LANGUAGE T_EXAMPLES T_EXTENDS T_OPTIMISATIONS T_SCORE T_INTERMEDIATE_REPRESENTATION T_PENALTY T_TYPES
 %token <token> T_ID T_VIO T_DISJ T_OPT_VIO T_OPT_DISJ T_IDENTITY T_POSSIBILITY T_SCHEMA T_SCHEMAS T_ARROW
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
 
@@ -118,6 +119,7 @@ void yyerror (std::string s) {
 %type <r_schema> cached_rule_schema_statements;
 %type <h_schema> cached_hyp_schema_statements;
 %type <assignment> cached_assignment_statements;
+%type <types> cached_type_statements;
 %type <cached_example_schemas> cached_schema_statements;
 %type <cached_possibility> cached_possibility_statements;
 %type <cached_example> cached_example_statements;
@@ -397,14 +399,14 @@ cached_rule_schemas: cached_rule_schemas T_L_BRACE cached_rule_schema_statements
 
 cached_hyp_schemas: {}
 cached_hyp_schemas: cached_hyp_schemas T_L_BRACE cached_hyp_schema_statements[schema] T_R_BRACE T_SEMI_COLON {
-  Schema::add_cached_schema(std::get<0>(*$schema), std::get<1>(*$schema), std::get<2>(*$schema));
-  for(auto r : std::get<3>(*$schema)) {
+  Schema::add_cached_schema(std::get<0>(*$schema), std::get<1>(*$schema), std::get<2>(*$schema), std::get<3>(*$schema));
+  for(auto r : std::get<4>(*$schema)) {
     Schema::all_schemas[std::get<0>(*$schema)]->optimised_rules.insert(Schema::RuleSchema::all_rule_schemas[r]);
   }
   delete $schema;
 };
 
-cached_hyp_schema_statements: { $$ = new std::tuple<int, int, std::map<std::string, int>, std::set<int>>(); }
+cached_hyp_schema_statements: { $$ = new std::tuple<int, int, std::map<std::string, int>, std::map<std::string, std::string>, std::set<int>>(); }
 cached_hyp_schema_statements: cached_hyp_schema_statements T_ID T_COLON T_INT[id] T_SEMI_COLON {
   std::get<0>(*$$) = std::stoi(*$id);
   delete $id;
@@ -420,8 +422,13 @@ cached_hyp_schema_statements: cached_hyp_schema_statements T_ASSIGNMENT T_COLON 
   delete $cas;
 }
 
+cached_hyp_schema_statements: cached_hyp_schema_statements T_TYPES T_COLON T_L_BRACE cached_type_statements[cas] T_R_BRACE T_SEMI_COLON {
+  std::get<3>(*$$) = *$cas;
+  delete $cas;
+}
+
 cached_hyp_schema_statements: cached_hyp_schema_statements T_OPTIMISATIONS T_COLON T_L_BRACE ints[is] T_R_BRACE T_SEMI_COLON {
-  std::get<3>(*$$) = *$is;
+  std::get<4>(*$$) = *$is;
   delete $is;
 }
 
@@ -430,6 +437,14 @@ cached_assignment_statements: { $$ = new std::map<std::string, int>(); };
 cached_assignment_statements: cached_assignment_statements[cas] term[a] T_ARROW T_INT[b] T_SEMI_COLON {
   $$ = $cas;
   $$->insert(std::make_pair($a->to_string(), std::stoi(*$b)));
+  delete $a;
+  delete $b;
+};
+
+cached_type_statements: { $$ = new std::map<std::string, std::string>(); };
+cached_type_statements: cached_type_statements[cas] term[a] T_ARROW term[b] T_SEMI_COLON {
+  $$ = $cas;
+  $$->insert(std::make_pair($a->to_string(), $b->to_string()));
   delete $a;
   delete $b;
 };

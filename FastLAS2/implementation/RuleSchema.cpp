@@ -259,9 +259,7 @@ Schema* Schema::RuleSchema::get_schema(const map<string, int>& var_assignment, c
   return sc;
 }
 
-void Schema::add_cached_schema(const int& id, const int& rule, const std::map<string, int>& assignment) {
-  // TODO: caching does not yet work with types.
-  map<string, string> types;
+void Schema::add_cached_schema(const int& id, const int& rule, const std::map<string, int>& assignment, const std::map<string, string>& types) {
   auto sc = new Schema(RuleSchema::all_rule_schemas[rule], assignment, types);
   if(Schema::all_schemas.size() <= id)
     Schema::all_schemas.resize(id + 1);
@@ -451,6 +449,9 @@ string Schema::to_cache_string() const {
   ss << rule->id << ";";
   ss << "#assignment:{";
   for(auto p : var_assignment) ss << p.first << "=>" << p.second << ";";
+  ss << "};";
+  ss << "#types:{";
+  for(auto p : types) ss << p.first << "=>" << p.second << ";";
   ss << "};";
   ss << "#optimisations:{";
   set<int> opt_ids;

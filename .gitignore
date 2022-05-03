@@ -1,0 +1,17 @@
+*CMakeCache.txt
+*CMakeFiles
+*cmake_install*
+*Makefile
+*tokens.cpp
+*parser.cpp
+*parser.hpp
+*FastLAS
+*.a
+*.rb
+*.py
+*.json
+graph_data
+graph_script*
+*.tmp*
+*.byebug*
+

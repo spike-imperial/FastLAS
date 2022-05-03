@@ -1,0 +1,2322 @@
+
+
+
+prevpos(P,X) :- pos(P,X+1).
+
+
+prevprevpos(P,X) :- pos(P,X+2).
+postype(c_DT).
+postype(c_JJ).
+postype(c_NN).
+postype(c_VBZ).
+postype(c_VBN).
+postype(c_IN).
+postype(c_CD).
+postype(c_CC).
+postype(c_NNS).
+postype(c_VBP).
+postype(c_NNP).
+postype(c_RB).
+postype(c_VBD).
+postype(c_TO).
+postype(c_VB).
+postype(c_EX).
+postype(c_MD).
+postype(c_PRP).
+postype(c_RP).
+postype(c_PRPd).
+postype(c_WDT).
+postype(c_VBG).
+token(0).
+token(1).
+token(2).
+token(3).
+token(4).
+token(5).
+token(6).
+token(7).
+token(8).
+token(9).
+token(10).
+token(11).
+token(12).
+token(13).
+token(14).
+token(15).
+token(16).
+token(17).
+token(18).
+token(19).
+token(20).
+token(21).
+token(22).
+token(23).
+token(24).
+token(25).
+token(26).
+token(27).
+token(28).
+token(29).
+token(30).
+token(31).
+token(32).
+token(33).
+token(34).
+token(35).
+token(36).
+token(37).
+token(38).
+token(39).
+token(40).
+token(41).
+token(42).
+token(43).
+token(44).
+token(45).
+token(46).
+token(47).
+token(48).
+token(49).
+token(50).
+token(51).
+token(52).
+token(53).
+token(54).
+token(55).
+token(56).
+token(57).
+token(58).
+token(59).
+token(60).
+token(61).
+token(62).
+token(63).
+token(64).
+token(65).
+token(66).
+token(67).
+token(68).
+token(69).
+token(70).
+token(71).
+token(72).
+token(73).
+token(74).
+token(75).
+token(76).
+token(77).
+token(78).
+token(79).
+token(80).
+token(81).
+token(82).
+token(83).
+token(84).
+token(85).
+token(86).
+token(87).
+token(88).
+token(89).
+token(90).
+token(91).
+token(92).
+token(93).
+token(94).
+token(95).
+token(96).
+token(97).
+token(98).
+token(99).
+token(100).
+#modeh(split(var(token))).
+#maxv(1).
+#modeb(1, pos(const(postype),var(token))).
+#modeb(1, prevpos(const(postype),var(token))).
+#bias("penalty(2, head(X)) :- in_head(X).").
+#bias("penalty(1, body(X)) :- in_body(X).").
+#pos(eg1@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"negative").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"battery").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"terminal").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"is").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_VC,6).
+  form(6,"seperated").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LGS,7).
+  form(7,"by").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"gap").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"from").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"terminal").
+  pos(c_CD,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"1").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_CD,14).
+  head(13,14).
+  rel(c_CONJ,14).
+  form(14,"2").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg2@2, {split(4), split(6)}, {split(5)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"negative").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"battery").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"terminal").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"is").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_VC,6).
+  form(6,"seperated").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LGS,7).
+  form(7,"by").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"gap").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"from").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"terminal").
+  pos(c_CD,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"1").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_CD,14).
+  head(13,14).
+  rel(c_CONJ,14).
+  form(14,"2").  test_split(4).  test_split(6).  test_split(5).}).
+
+
+#pos(eg3@2, {split(6), split(9)}, {split(7), split(8)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"negative").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"battery").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"terminal").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"is").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_VC,6).
+  form(6,"seperated").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LGS,7).
+  form(7,"by").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"gap").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"from").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"terminal").
+  pos(c_CD,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"1").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_CD,14).
+  head(13,14).
+  rel(c_CONJ,14).
+  form(14,"2").  test_split(6).  test_split(9).  test_split(7).  test_split(8).}).
+
+
+#pos(eg4@2, {split(9)}, {split(10), split(11), split(12), split(13)}, {  first(1).
+  last(14).
+  pos(c_DT,1).
+  head(4,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_JJ,2).
+  head(4,2).
+  rel(c_NMOD,2).
+  form(2,"negative").
+  pos(c_NN,3).
+  head(4,3).
+  rel(c_NMOD,3).
+  form(3,"battery").
+  pos(c_NN,4).
+  head(5,4).
+  rel(c_SBJ,4).
+  form(4,"terminal").
+  pos(c_VBZ,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"is").
+  pos(c_VBN,6).
+  head(5,6).
+  rel(c_VC,6).
+  form(6,"seperated").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_LGS,7).
+  form(7,"by").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"gap").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"from").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"terminal").
+  pos(c_CD,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"1").
+  pos(c_CC,13).
+  head(12,13).
+  rel(c_COORD,13).
+  form(13,"and").
+  pos(c_CD,14).
+  head(13,14).
+  rel(c_CONJ,14).
+  form(14,"2").  test_split(9).  test_split(10).  test_split(11).  test_split(12).  test_split(13).}).
+
+
+#pos(eg5@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(10).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"-999").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"-998").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(10,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_JJ,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"same").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"electrical").
+  pos(c_NN,10).
+  head(6,10).
+  rel(c_PMOD,10).
+  form(10,"state").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg6@2, {split(5), split(4)}, {}, {  first(1).
+  last(10).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"-999").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"-998").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(10,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_JJ,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"same").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"electrical").
+  pos(c_NN,10).
+  head(6,10).
+  rel(c_PMOD,10).
+  form(10,"state").  test_split(5).  test_split(4).}).
+
+
+#pos(eg7@2, {split(5)}, {split(6), split(7), split(8), split(9)}, {  first(1).
+  last(10).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"-999").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_CD,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"-998").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_LOC,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(10,7).
+  rel(c_NMOD,7).
+  form(7,"the").
+  pos(c_JJ,8).
+  head(10,8).
+  rel(c_NMOD,8).
+  form(8,"same").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"electrical").
+  pos(c_NN,10).
+  head(6,10).
+  rel(c_PMOD,10).
+  form(10,"state").  test_split(5).  test_split(6).  test_split(7).  test_split(8).  test_split(9).}).
+
+
+#pos(eg8@2, {split(2)}, {split(1)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"voltage").
+  pos(c_VBZ,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"has").
+  pos(c_DT,4).
+  head(7,4).
+  rel(c_NMOD,4).
+  form(4,"the").
+  pos(c_JJ,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"same").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"electrical").
+  pos(c_NN,7).
+  head(3,7).
+  rel(c_OBJ,7).
+  form(7,"state").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"between").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"any").
+  pos(c_CD,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"two").
+  pos(c_NNS,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"terminals.").  test_split(2).  test_split(1).}).
+
+
+#pos(eg9@2, {split(3), split(2)}, {}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"voltage").
+  pos(c_VBZ,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"has").
+  pos(c_DT,4).
+  head(7,4).
+  rel(c_NMOD,4).
+  form(4,"the").
+  pos(c_JJ,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"same").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"electrical").
+  pos(c_NN,7).
+  head(3,7).
+  rel(c_OBJ,7).
+  form(7,"state").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"between").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"any").
+  pos(c_CD,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"two").
+  pos(c_NNS,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"terminals.").  test_split(3).  test_split(2).}).
+
+
+#pos(eg10@2, {split(3), split(7)}, {split(4), split(5), split(6)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"voltage").
+  pos(c_VBZ,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"has").
+  pos(c_DT,4).
+  head(7,4).
+  rel(c_NMOD,4).
+  form(4,"the").
+  pos(c_JJ,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"same").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"electrical").
+  pos(c_NN,7).
+  head(3,7).
+  rel(c_OBJ,7).
+  form(7,"state").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"between").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"any").
+  pos(c_CD,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"two").
+  pos(c_NNS,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"terminals.").  test_split(3).  test_split(7).  test_split(4).  test_split(5).  test_split(6).}).
+
+
+#pos(eg11@2, {split(7)}, {split(8), split(9), split(10)}, {  first(1).
+  last(11).
+  pos(c_DT,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"The").
+  pos(c_NN,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"voltage").
+  pos(c_VBZ,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"has").
+  pos(c_DT,4).
+  head(7,4).
+  rel(c_NMOD,4).
+  form(4,"the").
+  pos(c_JJ,5).
+  head(7,5).
+  rel(c_NMOD,5).
+  form(5,"same").
+  pos(c_JJ,6).
+  head(7,6).
+  rel(c_NMOD,6).
+  form(6,"electrical").
+  pos(c_NN,7).
+  head(3,7).
+  rel(c_OBJ,7).
+  form(7,"state").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_NMOD,8).
+  form(8,"between").
+  pos(c_DT,9).
+  head(11,9).
+  rel(c_NMOD,9).
+  form(9,"any").
+  pos(c_CD,10).
+  head(11,10).
+  rel(c_NMOD,10).
+  form(10,"two").
+  pos(c_NNS,11).
+  head(8,11).
+  rel(c_PMOD,11).
+  form(11,"terminals.").  test_split(7).  test_split(8).  test_split(9).  test_split(10).}).
+
+
+#pos(eg12@2, {split(5)}, {split(1), split(2), split(3), split(4)}, {  first(1).
+  last(15).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"-2999,").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-2998").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_CD,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"-2997").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"are").
+  pos(c_VBN,7).
+  head(6,7).
+  rel(c_VC,7).
+  form(7,"separated").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"from").
+  pos(c_DT,9).
+  head(12,9).
+  rel(c_NMOD,9).
+  form(9,"the").
+  pos(c_JJ,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"positive").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"battery").
+  pos(c_NN,12).
+  head(8,12).
+  rel(c_PMOD,12).
+  form(12,"terminal").
+  pos(c_IN,13).
+  head(7,13).
+  rel(c_LGS,13).
+  form(13,"by").
+  pos(c_DT,14).
+  head(15,14).
+  rel(c_NMOD,14).
+  form(14,"a").
+  pos(c_NN,15).
+  head(13,15).
+  rel(c_PMOD,15).
+  form(15,"gap").  test_split(5).  test_split(1).  test_split(2).  test_split(3).  test_split(4).}).
+
+
+#pos(eg13@2, {split(5), split(7)}, {split(6)}, {  first(1).
+  last(15).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"-2999,").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-2998").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_CD,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"-2997").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"are").
+  pos(c_VBN,7).
+  head(6,7).
+  rel(c_VC,7).
+  form(7,"separated").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"from").
+  pos(c_DT,9).
+  head(12,9).
+  rel(c_NMOD,9).
+  form(9,"the").
+  pos(c_JJ,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"positive").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"battery").
+  pos(c_NN,12).
+  head(8,12).
+  rel(c_PMOD,12).
+  form(12,"terminal").
+  pos(c_IN,13).
+  head(7,13).
+  rel(c_LGS,13).
+  form(13,"by").
+  pos(c_DT,14).
+  head(15,14).
+  rel(c_NMOD,14).
+  form(14,"a").
+  pos(c_NN,15).
+  head(13,15).
+  rel(c_PMOD,15).
+  form(15,"gap").  test_split(5).  test_split(7).  test_split(6).}).
+
+
+#pos(eg14@2, {split(7), split(12)}, {split(8), split(9), split(10), split(11)}, {  first(1).
+  last(15).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"-2999,").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-2998").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_CD,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"-2997").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"are").
+  pos(c_VBN,7).
+  head(6,7).
+  rel(c_VC,7).
+  form(7,"separated").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"from").
+  pos(c_DT,9).
+  head(12,9).
+  rel(c_NMOD,9).
+  form(9,"the").
+  pos(c_JJ,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"positive").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"battery").
+  pos(c_NN,12).
+  head(8,12).
+  rel(c_PMOD,12).
+  form(12,"terminal").
+  pos(c_IN,13).
+  head(7,13).
+  rel(c_LGS,13).
+  form(13,"by").
+  pos(c_DT,14).
+  head(15,14).
+  rel(c_NMOD,14).
+  form(14,"a").
+  pos(c_NN,15).
+  head(13,15).
+  rel(c_PMOD,15).
+  form(15,"gap").  test_split(7).  test_split(12).  test_split(8).  test_split(9).  test_split(10).  test_split(11).}).
+
+
+#pos(eg15@2, {split(12)}, {split(13), split(14)}, {  first(1).
+  last(15).
+  pos(c_NNS,1).
+  head(6,1).
+  rel(c_SBJ,1).
+  form(1,"Terminals").
+  pos(c_CD,2).
+  head(3,2).
+  rel(c_NMOD,2).
+  form(2,"-2999,").
+  pos(c_CD,3).
+  head(1,3).
+  rel(c_NMOD,3).
+  form(3,"-2998").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_CD,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"-2997").
+  pos(c_VBP,6).
+  head(root,6).
+  rel(c_ROOT,6).
+  form(6,"are").
+  pos(c_VBN,7).
+  head(6,7).
+  rel(c_VC,7).
+  form(7,"separated").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"from").
+  pos(c_DT,9).
+  head(12,9).
+  rel(c_NMOD,9).
+  form(9,"the").
+  pos(c_JJ,10).
+  head(12,10).
+  rel(c_NMOD,10).
+  form(10,"positive").
+  pos(c_NN,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"battery").
+  pos(c_NN,12).
+  head(8,12).
+  rel(c_PMOD,12).
+  form(12,"terminal").
+  pos(c_IN,13).
+  head(7,13).
+  rel(c_LGS,13).
+  form(13,"by").
+  pos(c_DT,14).
+  head(15,14).
+  rel(c_NMOD,14).
+  form(14,"a").
+  pos(c_NN,15).
+  head(13,15).
+  rel(c_PMOD,15).
+  form(15,"gap").  test_split(12).  test_split(13).  test_split(14).}).
+
+
+#pos(eg16@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Bulb").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_TMP,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"within").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg17@2, {split(5), split(4)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Bulb").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_TMP,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"within").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").  test_split(5).  test_split(4).}).
+
+
+#pos(eg18@2, {split(6), split(5)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Bulb").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_TMP,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"within").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").  test_split(6).  test_split(5).}).
+
+
+#pos(eg19@2, {split(7), split(6)}, {}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Bulb").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_TMP,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"within").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").  test_split(7).  test_split(6).}).
+
+
+#pos(eg20@2, {split(7)}, {split(8), split(9)}, {  first(1).
+  last(10).
+  pos(c_NNP,1).
+  head(2,1).
+  rel(c_NAME,1).
+  form(1,"Bulb").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_TMP,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"within").
+  pos(c_JJ,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").  test_split(7).  test_split(8).  test_split(9).}).
+
+
+#pos(eg21@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(9).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_MNR,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_VBN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"closed").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"path").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg22@2, {split(5), split(4)}, {}, {  first(1).
+  last(9).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_MNR,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_VBN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"closed").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"path").  test_split(5).  test_split(4).}).
+
+
+#pos(eg23@2, {split(5)}, {split(6), split(7), split(8)}, {  first(1).
+  last(9).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"B").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_IN,6).
+  head(5,6).
+  rel(c_MNR,6).
+  form(6,"in").
+  pos(c_DT,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"a").
+  pos(c_VBN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"closed").
+  pos(c_NN,9).
+  head(6,9).
+  rel(c_PMOD,9).
+  form(9,"path").  test_split(5).  test_split(6).  test_split(7).  test_split(8).}).
+
+
+#pos(eg24@2, {split(5)}, {split(1), split(2), split(3), split(4)}, {  first(1).
+  last(12).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"bulbs").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"a,").
+  pos(c_NN,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"b,").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_NN,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"c").
+  pos(c_VBP,6).
+  head(2,6).
+  rel(c_OBJ,6).
+  form(6,"are").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"path").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"with").
+  pos(c_DT,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"the").
+  pos(c_NN,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"battery").  test_split(5).  test_split(1).  test_split(2).  test_split(3).  test_split(4).}).
+
+
+#pos(eg25@2, {split(6), split(5)}, {}, {  first(1).
+  last(12).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"bulbs").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"a,").
+  pos(c_NN,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"b,").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_NN,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"c").
+  pos(c_VBP,6).
+  head(2,6).
+  rel(c_OBJ,6).
+  form(6,"are").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"path").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"with").
+  pos(c_DT,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"the").
+  pos(c_NN,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"battery").  test_split(6).  test_split(5).}).
+
+
+#pos(eg26@2, {split(6), split(9)}, {split(7), split(8)}, {  first(1).
+  last(12).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"bulbs").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"a,").
+  pos(c_NN,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"b,").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_NN,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"c").
+  pos(c_VBP,6).
+  head(2,6).
+  rel(c_OBJ,6).
+  form(6,"are").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"path").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"with").
+  pos(c_DT,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"the").
+  pos(c_NN,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"battery").  test_split(6).  test_split(9).  test_split(7).  test_split(8).}).
+
+
+#pos(eg27@2, {split(9)}, {split(10), split(11)}, {  first(1).
+  last(12).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_SBJ,1).
+  form(1,"bulbs").
+  pos(c_VBP,2).
+  head(root,2).
+  rel(c_ROOT,2).
+  form(2,"a,").
+  pos(c_NN,3).
+  head(6,3).
+  rel(c_SBJ,3).
+  form(3,"b,").
+  pos(c_CC,4).
+  head(3,4).
+  rel(c_COORD,4).
+  form(4,"and").
+  pos(c_NN,5).
+  head(4,5).
+  rel(c_CONJ,5).
+  form(5,"c").
+  pos(c_VBP,6).
+  head(2,6).
+  rel(c_OBJ,6).
+  form(6,"are").
+  pos(c_IN,7).
+  head(6,7).
+  rel(c_ADV,7).
+  form(7,"on").
+  pos(c_DT,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"a").
+  pos(c_NN,9).
+  head(7,9).
+  rel(c_PMOD,9).
+  form(9,"path").
+  pos(c_IN,10).
+  head(9,10).
+  rel(c_NMOD,10).
+  form(10,"with").
+  pos(c_DT,11).
+  head(12,11).
+  rel(c_NMOD,11).
+  form(11,"the").
+  pos(c_NN,12).
+  head(10,12).
+  rel(c_PMOD,12).
+  form(12,"battery").  test_split(9).  test_split(10).  test_split(11).}).
+
+
+#pos(eg28@2, {split(3)}, {split(1), split(2)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"A").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"C").
+  pos(c_VBP,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"are").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC_PRD,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"the").
+  pos(c_JJ,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"same").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"path").  test_split(3).  test_split(1).  test_split(2).}).
+
+
+#pos(eg29@2, {split(4), split(3)}, {}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"A").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"C").
+  pos(c_VBP,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"are").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC_PRD,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"the").
+  pos(c_JJ,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"same").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"path").  test_split(4).  test_split(3).}).
+
+
+#pos(eg30@2, {split(4)}, {split(5), split(6), split(7)}, {  first(1).
+  last(8).
+  pos(c_NNP,1).
+  head(4,1).
+  rel(c_SBJ,1).
+  form(1,"A").
+  pos(c_CC,2).
+  head(1,2).
+  rel(c_COORD,2).
+  form(2,"and").
+  pos(c_NNP,3).
+  head(2,3).
+  rel(c_CONJ,3).
+  form(3,"C").
+  pos(c_VBP,4).
+  head(root,4).
+  rel(c_ROOT,4).
+  form(4,"are").
+  pos(c_IN,5).
+  head(4,5).
+  rel(c_LOC_PRD,5).
+  form(5,"in").
+  pos(c_DT,6).
+  head(8,6).
+  rel(c_NMOD,6).
+  form(6,"the").
+  pos(c_JJ,7).
+  head(8,7).
+  rel(c_NMOD,7).
+  form(7,"same").
+  pos(c_NN,8).
+  head(5,8).
+  rel(c_PMOD,8).
+  form(8,"path").  test_split(4).  test_split(5).  test_split(6).  test_split(7).}).
+
+
+#pos(eg31@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg32@2, {split(5), split(4)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(5).  test_split(4).}).
+
+
+#pos(eg33@2, {split(6), split(5)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(6).  test_split(5).}).
+
+
+#pos(eg34@2, {split(7), split(6)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(7).  test_split(6).}).
+
+
+#pos(eg35@2, {split(7), split(10)}, {split(8), split(9)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(7).  test_split(10).  test_split(8).  test_split(9).}).
+
+
+#pos(eg36@2, {split(10)}, {split(11), split(12)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBD,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"were").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_ADV,8).
+  form(8,"on").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(10,11).
+  rel(c_NMOD,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"batery").  test_split(10).  test_split(11).  test_split(12).}).
+
+
+#pos(eg37@2, {split(4)}, {split(1), split(2), split(3)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(4).  test_split(1).  test_split(2).  test_split(3).}).
+
+
+#pos(eg38@2, {split(5), split(4)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(5).  test_split(4).}).
+
+
+#pos(eg39@2, {split(6), split(5)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(6).  test_split(5).}).
+
+
+#pos(eg40@2, {split(7), split(6)}, {}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(7).  test_split(6).}).
+
+
+#pos(eg41@2, {split(7), split(10)}, {split(8), split(9)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(7).  test_split(10).  test_split(8).  test_split(9).}).
+
+
+#pos(eg42@2, {split(10)}, {split(11), split(12)}, {  first(1).
+  last(13).
+  pos(c_NNS,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Bulbs").
+  pos(c_NNP,2).
+  head(5,2).
+  rel(c_SBJ,2).
+  form(2,"A").
+  pos(c_CC,3).
+  head(2,3).
+  rel(c_COORD,3).
+  form(3,"and").
+  pos(c_NNP,4).
+  head(3,4).
+  rel(c_CONJ,4).
+  form(4,"C").
+  pos(c_VBP,5).
+  head(root,5).
+  rel(c_ROOT,5).
+  form(5,"are").
+  pos(c_RB,6).
+  head(5,6).
+  rel(c_ADV,6).
+  form(6,"still").
+  pos(c_VBN,7).
+  head(5,7).
+  rel(c_VC,7).
+  form(7,"contained").
+  pos(c_IN,8).
+  head(7,8).
+  rel(c_LOC,8).
+  form(8,"in").
+  pos(c_VBN,9).
+  head(10,9).
+  rel(c_NMOD,9).
+  form(9,"closed").
+  pos(c_NNS,10).
+  head(8,10).
+  rel(c_PMOD,10).
+  form(10,"paths").
+  pos(c_IN,11).
+  head(7,11).
+  rel(c_ADV,11).
+  form(11,"with").
+  pos(c_DT,12).
+  head(13,12).
+  rel(c_NMOD,12).
+  form(12,"the").
+  pos(c_NN,13).
+  head(11,13).
+  rel(c_PMOD,13).
+  form(13,"battery").  test_split(10).  test_split(11).  test_split(12).}).
+
+
+#pos(eg43@2, {split(2)}, {split(1)}, {  first(1).
+  last(9).
+  pos(c_NN,1).
+  head(2,1).
+  rel(c_NMOD,1).
+  form(1,"Terminal").
+  pos(c_CD,2).
+  head(3,2).
+  rel(c_SBJ,2).
+  form(2,"five").
+  pos(c_VBZ,3).
+  head(root,3).
+  rel(c_ROOT,3).
+  form(3,"is").
+  pos(c_VBN,4).
+  head(3,4).
+  rel(c_VC,4).
+  form(4,"connected").
+  pos(c_TO,5).
+  head(4,5).
+  rel(c_ADV,5).
+  form(5,"to").
+  pos(c_DT,6).
+  head(9,6).
+  rel(c_NMOD,6).
+  form(6,"the").
+  pos(c_JJ,7).
+  head(9,7).
+  rel(c_NMOD,7).
+  form(7,"positive").
+  pos(c_NN,8).
+  head(9,8).
+  rel(c_NMOD,8).
+  form(8,"battery").
+  pos(c_NN,9).
+  head(5,9).
+  rel(c_PMOD,9).
+  form(9,"terminal.").  test_split(2).  test_split(1).}).
