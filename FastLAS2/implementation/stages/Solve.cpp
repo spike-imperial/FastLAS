@@ -31,6 +31,8 @@
 #include "../meta_programs/Solve.h"
 #include "Printing.h"
 
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -154,6 +156,11 @@ void FastLAS::solve_final_task(string program) {
     cout << ss.str() << endl;
     exit(0);
   }
+
+  ofstream sat_file("final_task.log");
+  sat_file << ss.str() << endl;
+  sat_file.close();
+
 
   Clingo(ss.str(), "--opt-strat=usc,stratify")
     ('i', [&](const string& atom) {

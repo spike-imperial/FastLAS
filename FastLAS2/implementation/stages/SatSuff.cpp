@@ -33,6 +33,9 @@
 #include "../meta_programs/SatSuff.h"
 #include "../Example.h"
 
+#include <iostream>
+#include <fstream>
+
 using namespace std;
 
 extern set<Example*> examples;
@@ -114,6 +117,16 @@ void FastLAS::compute_sat_sufficient() {
       ss << mb.body_representation() << endl;
     }
 
+    if (FastLAS::final_arg_safety) {
+      for (auto& mh : bias->head_declarations) {
+        for(auto& mb : bias->body_declarations) {
+          ss << "result_in_body_result :- eq(" << mh.generalise_last_arg("RES") << ", _), in(" << mb.generalise_last_arg("RES") << ")." << endl;
+        }
+      }
+      
+      ss << ":- not result_in_body_result." << endl << endl;
+    }
+
     if(!FastLAS::run_fast_las_2) {
       for(auto r : background)                ss << r.meta_representation();
     }
@@ -141,6 +154,10 @@ void FastLAS::compute_sat_sufficient() {
     //mtx.lock();
     //cerr << ss.str() << endl;
     //exit(2);
+
+    ofstream sat_file("sat_file.log");
+    sat_file << ss.str() << endl;
+    sat_file.close();
 
     Clingo(ss.str(), "--project --enum-mode=domRec --heuristic=domain -n 0")
       ('i', [&](const std::string& atom) {

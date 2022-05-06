@@ -64,6 +64,7 @@ int main(int argc, char **argv) {
     ("write-cache", po::value<string>(), "location to write cached data to.")
     ("score-only", "only output the score of the solution.")
     ("force-safety", "enforce safety constraint on learned rules.")
+    ("final-arg-safety", "enforce that the final variable in the head rules must occur in the final argument of at least one body rule.")
     ("space-size", "output final s_m size.")
     ("threads", po::value<int>(), "number of threads.");
 
@@ -112,6 +113,7 @@ int main(int argc, char **argv) {
   if(vm.count("nopl")) FastLAS::run_fast_las_2 = true;
   if(vm.count("opl")) FastLAS::run_fast_las_2 = false;
   if(vm.count("force-safety")) FastLAS::force_safety = true;
+  if(vm.count("final-arg-safety")) FastLAS::final_arg_safety = true;
   if(vm.count("score-only")) FastLAS::score_only = true;
 
   // parse

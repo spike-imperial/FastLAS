@@ -273,3 +273,7 @@ string ModeDeclaration::abduce_body_representation() const {
 
   return ss.str();
 }
+
+string ModeDeclaration::generalise_last_arg(const std::string& var_name) const {
+  return atom.generalise_last_arg(var_name, false);
+}

@@ -47,6 +47,8 @@ class ModeDeclaration {
 
     std::string dependency_representation(const std::string&) const;
 
+    std::string generalise_last_arg(const std::string& var_name) const;
+
     bool matches_schema(const std::pair<std::string, int>& schema) const;
 
     const NAtom& get_atom() const { return atom; }

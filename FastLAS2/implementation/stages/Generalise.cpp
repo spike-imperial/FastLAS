@@ -134,8 +134,6 @@ void FastLAS::generalise() {
         }
       }
     }
-
   });
-
 };
 

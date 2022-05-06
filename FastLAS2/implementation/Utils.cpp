@@ -45,6 +45,7 @@ namespace FastLAS {
   bool run_fast_las_2 = false;
   bool limit_rules = false;
   bool force_safety = false;
+  bool final_arg_safety = false;
   bool score_only = false;
   bool space_size = false;
   bool separate_abduction = false;

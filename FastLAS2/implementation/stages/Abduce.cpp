@@ -29,6 +29,9 @@
 #include "../LanguageBias.h"
 #include "../meta_programs/Abduce.h"
 
+#include <iostream>
+#include <fstream>
+
 using namespace std;
 
 extern set<string> cached_examples;
@@ -324,6 +327,11 @@ void FastLAS::abduce() {
 
     set<int> ctx, incs;
     set<set<int>> all_incs;
+
+    ofstream abduce_file("abduce_file.log");
+    abduce_file << get_bottom_representation(hyp_dependent_predictates, eg) << endl;
+    abduce_file.close();
+
     Clingo(get_bottom_representation(hyp_dependent_predictates, eg), "--enum-mode=domrec --heuristic=domain --dom-mod=5,16 -n 0")
       ('i', [&](const string& atom) {
         ctx.insert(get_language_index(atom));

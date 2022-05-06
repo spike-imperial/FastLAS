@@ -89,6 +89,7 @@ namespace FastLAS {
   extern bool run_fast_las_2;
   extern bool limit_rules;
   extern bool force_safety;
+  extern bool final_arg_safety;
   extern bool score_only;
   extern bool space_size;
   extern bool separate_abduction;

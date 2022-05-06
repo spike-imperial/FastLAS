@@ -134,6 +134,7 @@ void write_global_file(const string& global_pipe, int head=-1) {
     ss << ":- #count { V : cond(V) } > " << FastLAS::max_conditions << "." << endl;
   }
 
+  // THEO TODO: do I need a force final arg safety constraint?
   if(FastLAS::force_safety) {
     ss << ":- occurs_head(V), not occurs_pos(V)." << endl;
     ss << ":- occurs_neg(V),  not occurs_pos(V)." << endl;
