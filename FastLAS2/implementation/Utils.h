@@ -87,6 +87,7 @@ namespace FastLAS {
   extern int thread_num;
   extern bool output_solve_program;
   extern bool run_fast_las_2;
+  extern bool debug_clingo;
   extern bool limit_rules;
   extern bool force_safety;
   extern bool final_arg_safety;

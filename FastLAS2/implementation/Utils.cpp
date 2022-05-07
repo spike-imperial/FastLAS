@@ -43,6 +43,7 @@ namespace FastLAS {
   int max_conditions = 1;
   bool output_solve_program = false;
   bool run_fast_las_2 = false;
+  bool debug_clingo = false;
   bool limit_rules = false;
   bool force_safety = false;
   bool final_arg_safety = false;

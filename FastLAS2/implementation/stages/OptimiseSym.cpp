@@ -172,6 +172,12 @@ void FastLAS::optimise_sym() {
     set<string> intermediate_sf_facts;
     map<string, string> types;
 
+    if (FastLAS::debug_clingo) {
+      ofstream sat_file("optimise.clingo");
+      sat_file << ss.str() << endl;
+      sat_file.close();
+    }
+
     Clingo(ss.str(), "")
       ('i', [&](const string& atom) {
         rule_body.insert(stoi(atom));

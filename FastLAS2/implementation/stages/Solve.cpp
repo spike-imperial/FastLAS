@@ -157,9 +157,11 @@ void FastLAS::solve_final_task(string program) {
     exit(0);
   }
 
-  ofstream sat_file("final_task.log");
-  sat_file << ss.str() << endl;
-  sat_file.close();
+  if (FastLAS::debug_clingo) {
+    ofstream sat_file("solve.clingo");
+    sat_file << ss.str() << endl;
+    sat_file.close();
+  }
 
 
   Clingo(ss.str(), "--opt-strat=usc,stratify")

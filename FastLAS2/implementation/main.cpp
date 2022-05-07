@@ -56,6 +56,7 @@ int main(int argc, char **argv) {
     ("version", "output version information.")
     ("categorical-contexts", "speeds up abduction if the \"bottom\" parts of all programs are known to have exactly one answer set.")
     ("debug", "verbose output.")
+    ("debug-clingo", "save the ASP programs ran by Clingo for important stages for debugging purposes.")
     ("nopl", "run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("opl", "do not run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("output-solve-program", "perform the main steps of the FastLAS algorithm, then write out the final ASP program used to search for an optimal solution.")
@@ -109,6 +110,7 @@ int main(int argc, char **argv) {
   if(vm.count("categorical-contexts")) FastLAS::categorical_contexts = true;
   if(vm.count("output-solve-program")) FastLAS::output_solve_program = true;
   if(vm.count("debug")) debug = true;
+  if(vm.count("debug-clingo")) FastLAS::debug_clingo = true;
   if(vm.count("threads")) FastLAS::thread_num = vm["threads"].as<int>();
   if(vm.count("nopl")) FastLAS::run_fast_las_2 = true;
   if(vm.count("opl")) FastLAS::run_fast_las_2 = false;

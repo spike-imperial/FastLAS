@@ -346,7 +346,7 @@ string Possibility::to_string() const {
   }
   ss << "}, {";
   first = true;
-  if(ctx_ids.size() <= 40) {
+  if(ctx_ids.size() <= 1000) {
     for(auto ctx : ctx_ids) {
       if(first) first = false;
       else ss << " ";

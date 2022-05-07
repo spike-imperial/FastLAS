@@ -155,9 +155,11 @@ void FastLAS::compute_sat_sufficient() {
     //cerr << ss.str() << endl;
     //exit(2);
 
-    ofstream sat_file("sat_file.log");
-    sat_file << ss.str() << endl;
-    sat_file.close();
+    if (FastLAS::debug_clingo) {
+      ofstream sat_file("sat_suff.clingo");
+      sat_file << ss.str() << endl;
+      sat_file.close();
+    }
 
     Clingo(ss.str(), "--project --enum-mode=domRec --heuristic=domain -n 0")
       ('i', [&](const std::string& atom) {
