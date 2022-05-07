@@ -46,6 +46,15 @@ Example::Example(string id, int penalty, bool positive, bool possibility)
     }
   }
 
+Example::Example(string id, int penalty, bool positive, set<string> choices, bool possibility)
+  : id(id), penalty(penalty), positive(positive), choices(choices) {
+    if(possibility) {
+      possibility_map.insert(make_pair(id, this));
+    } else {
+      example_map.insert(make_pair(id, this));
+    }
+  }
+
 Example::Example(string id, set<string>& inclusions, set<string>& exclusions, vector<NRule>& context, int penalty, bool positive, bool possibility)
   : id(id), inclusions(inclusions), exclusions(exclusions), context(context), penalty(penalty), positive(positive) {
     if(possibility) {
@@ -176,6 +185,16 @@ int Example::get_penalty() const {
   return penalty;
 }
 
+void Example::delete_sat_insufficient() {
+  for (set<Example*>::iterator iter = possibilities.begin(); iter != possibilities.end(); ) {
+    if ((*iter)->is_valid) {
+      iter++;
+    } else {
+      iter = possibilities.erase(iter);
+    }
+  }
+}
+
 const set<Schema*>& Example::get_rule_violations() const {
   //return rule_violations;
   return recursive_rule_violations;
@@ -254,10 +273,10 @@ void Example::set_unique_possibility() {
   possibilities.insert(this);
 }
 
-void Example::add_possibility(const set<int>& incs, const set<int>& excs, const set<int>& ctx) {
+void Example::add_possibility(const set<int>& incs, const set<int>& excs, const set<int>& ctx, const set<string> choices) {
   static mutex mtx;
   mtx.lock();
-  possibilities.insert(new Possibility(this, id + "_" + std::to_string(possibilities.size()), incs, excs, ctx));
+  possibilities.insert(new Possibility(this, id + "_" + std::to_string(possibilities.size()), incs, excs, ctx, choices));
   mtx.unlock();
 }
 
@@ -295,13 +314,17 @@ const vector<NRule>& Example::get_context() const {
   return context;
 }
 
+std::set<std::string> Example::get_choices() {
+  return choices;
+}
+
 Possibility::Possibility(Example* eg, const string& id)
   : Example(id, -1, eg->positive) {
   this->c_rep = eg->c_rep;
 }
 
-Possibility::Possibility(Example* eg, const string& id, const set<int>& incs, const set<int>& excs, const set<int>& ctx)
-  : Example(id, -1, eg->positive),
+Possibility::Possibility(Example* eg, const string& id, const set<int>& incs, const set<int>& excs, const set<int>& ctx, const set<string> choices)
+  : Example(id, -1, eg->positive, choices),
     inc_ids(incs),
     exc_ids(excs),
     ctx_ids(ctx) {
@@ -346,7 +369,7 @@ string Possibility::to_string() const {
   }
   ss << "}, {";
   first = true;
-  if(ctx_ids.size() <= 1000) {
+  if(ctx_ids.size() <= 40) {
     for(auto ctx : ctx_ids) {
       if(first) first = false;
       else ss << " ";
@@ -533,4 +556,3 @@ set<string> GenPossibility::get_exclusions() const {
   }
   return exc_strings;
 }
-

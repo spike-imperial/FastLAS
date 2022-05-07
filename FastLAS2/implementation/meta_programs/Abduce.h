@@ -44,6 +44,8 @@ function onModel(m)
       new_model = new_model.." i"..tostring(atom):sub(8,-2).."|"
     elseif atom_name == "abduce" then
       new_model = new_model.." t"..tostring(atom):sub(8,-2).."|"
+    elseif atom_name == "choice" then 
+      new_model = new_model.." c"..tostring(atom):sub(8,-2).."|"
     end
   end
 
@@ -61,6 +63,7 @@ bottom2(A) :- bottom(A).
 #show abduce/1.
 #show bottom/1.
 #show bottom2/1.
+#show choice/1.
 
 #heuristic bottom(A).[1@1, true]
 #heuristic bottom2(A).[1@1, false]

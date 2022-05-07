@@ -89,6 +89,8 @@
 "#modeb"                return TOKEN(T_MODEB);
 "#maxv"                 return TOKEN(T_MAXV);
 
+"#choice"               return TOKEN(T_CHOICE);
+
 
 "#cache"                        return TOKEN(T_CACHE);
 "#head"                         return TOKEN(T_HEAD);

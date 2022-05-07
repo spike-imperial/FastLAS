@@ -41,6 +41,8 @@ extern FILE* yyin;
 extern bool prediction_task, cache;
 extern std::set<Example*> examples;
 
+extern std::set<NPredicate> ctx_choices;
+
 std::string usage_str = "ERROR: usage:  FastLAS [ --opl | --nopl ] file_name";
 std::string version_info = "FastLAS version 2.0.0 (release built on " + std::string(__DATE__) + ")." + R"ESC(
 
@@ -67,6 +69,7 @@ int main(int argc, char **argv) {
     ("force-safety", "enforce safety constraint on learned rules.")
     ("final-arg-safety", "enforce that the final variable in the head rules must occur in the final argument of at least one body rule.")
     ("space-size", "output final s_m size.")
+    ("sat-suff-only", "compute the SAT sufficient possibilities only.")
     ("threads", po::value<int>(), "number of threads.");
 
   po::positional_options_description p;
@@ -117,6 +120,7 @@ int main(int argc, char **argv) {
   if(vm.count("force-safety")) FastLAS::force_safety = true;
   if(vm.count("final-arg-safety")) FastLAS::final_arg_safety = true;
   if(vm.count("score-only")) FastLAS::score_only = true;
+  if(vm.count("sat-suff-only")) FastLAS::sat_suff_only = true;
 
   // parse
 
@@ -164,6 +168,27 @@ int main(int argc, char **argv) {
   if(debug) cout << "Computing SAT-sufficient subset..." << endl << endl;
 
   FastLAS::compute_sat_sufficient();
+  FastLAS::delete_sat_insufficient_possibilities();
+
+  if (FastLAS::sat_suff_only) {
+    for (auto& example : examples) {
+      for (auto& possibility : example->get_possibilities()) {
+        cout << possibility->id << "    ";
+        
+        int i = 0;
+        for (auto& choice : possibility->get_choices()) {
+          if (i > 0) {
+            cout << ", ";
+          }
+          cout << choice;
+          i += 1;
+        }
+        cout << endl;
+      }
+    }
+
+    exit(0);
+  }
 
   if(debug) {
     cout << "C^+(T):" << endl;

@@ -97,6 +97,7 @@ namespace FastLAS {
   extern bool any_cache;
   extern bool categorical_contexts;
   extern int sample_size, max_conditions;
+  extern bool sat_suff_only;
 
   template<typename T, typename F> void parallel_exec(const T& jobs, int number_of_workers, F p) {
     std::queue<typename T::value_type> q;

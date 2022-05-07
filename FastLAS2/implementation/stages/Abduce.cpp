@@ -38,13 +38,25 @@ extern set<string> cached_examples;
 extern set<Example*> examples;
 extern LanguageBias* bias;
 extern vector<NRule> background;
+extern std::set<NPredicate> ctx_choices;
 
+struct PossibilityStruct {
+  set<int> incs;
+  set<int> ctx;
+  set<std::string> choices;
+};
+
+bool operator<(const PossibilityStruct& lhs, const PossibilityStruct& rhs)
+{
+    return make_pair(lhs.incs, lhs.ctx) < make_pair(rhs.incs, rhs.ctx);
+}
 
 namespace FastLAS {
   string get_sat_suff_representation(Example* eg, const set<int>&);
   string get_bottom_representation(const set<pair<string, int>>&, Example* eg);
-  set<pair<pair<set<int>, set<int>>, set<set<int>>>> anti_abduce(const set<pair<string, int>>&, const set<int>&, const set<pair<set<int>, set<int>>>&, Example*);
-  set<pair<set<int>, set<int>>> repair(const set<pair<string, int>>&, const set<int>&, const set<pair<pair<set<int>, set<int>>, set<set<int>>>>&, Example*);
+  set<pair<PossibilityStruct, set<set<int>>>> anti_abduce(const set<pair<string, int>>&, const set<int>&, const set<PossibilityStruct>&, Example*);
+  set<PossibilityStruct> repair(const set<pair<string, int>>&, const set<int>&, const set<pair<PossibilityStruct, set<set<int>>>>&, Example*);
+ 
   mutex sc_mtx;
 }
 
@@ -67,6 +79,10 @@ string FastLAS::get_bottom_representation(const set<pair<string, int>>& hyp_depe
   for(auto& mh : bias->head_declarations) ss << mh.abduce_head_representation() << endl;
   for(int id = 0; id < background.size(); id++) ss << background[id].meta_representation();
   for(int id = 0; id < ctx.size(); id++)  ss << ctx[id].meta_representation();
+
+  for(auto& choice : ctx_choices) {
+    ss << "choice(" << choice.generalise() << ") :- bottom(" << choice.generalise() << ").";
+  }
 
   if(FastLAS::categorical_contexts) {
     ss << categorical_abduce_as << endl;
@@ -162,7 +178,7 @@ string FastLAS::get_sat_suff_representation(Example* eg, const set<int>& bottom_
 
 
 
-set<pair<pair<set<int>, set<int>>, set<set<int>>>> FastLAS::anti_abduce(const set<pair<string, int>>& hyp_dependent_predictates, const set<int>& bottom, const set<pair<set<int>, set<int>>>& deltas, Example* eg) {
+set<pair<PossibilityStruct, set<set<int>>>> FastLAS::anti_abduce(const set<pair<string, int>>& hyp_dependent_predictates, const set<int>& bottom, const set<PossibilityStruct>& deltas, Example* eg) {
 
   stringstream ss;
 
@@ -170,13 +186,13 @@ set<pair<pair<set<int>, set<int>>, set<set<int>>>> FastLAS::anti_abduce(const se
     ss << "bottom(" << FastLAS::language[a] << ")." << endl;
   }
 
-  vector<pair<set<int>, set<int>>> delta_vec(deltas.begin(), deltas.end());
+  vector<PossibilityStruct> delta_vec(deltas.begin(), deltas.end());
 
   for(auto i = 0; i < delta_vec.size(); i++) {
-    for(int a : delta_vec[i].first) {
+    for(int a : delta_vec[i].incs) {
       ss << "abduce(" << FastLAS::language[a] << ") :- delta(" << i << ")." << endl;
     }
-    for(int a : delta_vec[i].second) {
+    for(int a : delta_vec[i].ctx) {
       ss << ":- abduce(" << FastLAS::language[a] << ") :- delta(" << i << ")." << endl;
     }
   }
@@ -212,7 +228,7 @@ set<pair<pair<set<int>, set<int>>, set<set<int>>>> FastLAS::anti_abduce(const se
     }
   );
 
-  set<pair<pair<set<int>, set<int>>, set<set<int>>>> exception_set;
+  set<pair<PossibilityStruct, set<set<int>>>> exception_set;
   for(int i = 0; i < delta_vec.size(); i++) {
     exception_set.insert(make_pair(delta_vec[i], exceptions[i]));
   }
@@ -220,7 +236,7 @@ set<pair<pair<set<int>, set<int>>, set<set<int>>>> FastLAS::anti_abduce(const se
   return exception_set;
 }
 
-set<pair<set<int>, set<int>>> FastLAS::repair(const set<pair<string, int>>& hyp_dependent_predictates, const set<int>& bottom, const set<pair<pair<set<int>, set<int>>, set<set<int>>>>& deltas, Example* eg) {
+set<PossibilityStruct> FastLAS::repair(const set<pair<string, int>>& hyp_dependent_predictates, const set<int>& bottom, const set<pair<PossibilityStruct, set<set<int>>>>& deltas, Example* eg) {
 
   stringstream ss;
 
@@ -236,15 +252,15 @@ set<pair<set<int>, set<int>>> FastLAS::repair(const set<pair<string, int>>& hyp_
     ss << "bottom(" << FastLAS::language[a] << ")." << endl;
   }
 
-  vector<pair<pair<set<int>, set<int>>, set<set<int>>>> delta_vec(deltas.begin(), deltas.end());
+  vector<pair<PossibilityStruct, set<set<int>>>> delta_vec(deltas.begin(), deltas.end());
 
   ss << "1 { delta(0.." << delta_vec.size() - 1 << ") } 1." << endl;
 
   for(int delta_count = 0; delta_count < delta_vec.size(); delta_count++) {
     int ext_count = 0;
 
-    for(int a : delta_vec[delta_count].first.first) ss << "abduce(" << FastLAS::language[a] << ") :- delta(" << delta_count << ")." << endl;
-    for(int a : delta_vec[delta_count].first.second) ss << ":- abduce(" << FastLAS::language[a] << ") :- delta(" << delta_count << ")." << endl;
+    for(int a : delta_vec[delta_count].first.incs) ss << "abduce(" << FastLAS::language[a] << ") :- delta(" << delta_count << ")." << endl;
+    for(int a : delta_vec[delta_count].first.ctx) ss << ":- abduce(" << FastLAS::language[a] << ") :- delta(" << delta_count << ")." << endl;
 
     for(auto ext : delta_vec[delta_count].second) {
       for(int a : ext) {
@@ -265,7 +281,7 @@ set<pair<set<int>, set<int>>> FastLAS::repair(const set<pair<string, int>>& hyp_
   //cout << ss.str();
   //exit(2);
 
-  set<pair<set<int>, set<int>>> repairs;
+  set<PossibilityStruct> repairs;
   set<int> rep;
   int delta;
 
@@ -276,7 +292,7 @@ set<pair<set<int>, set<int>>> FastLAS::repair(const set<pair<string, int>>& hyp_
       delta = stoi(atom);
     }) ([&]() {
       auto new_delta = delta_vec[delta].first;
-      new_delta.first = rep;
+      new_delta.incs = rep;
       repairs.insert(new_delta);
       rep.clear();
     }
@@ -318,7 +334,7 @@ void FastLAS::abduce() {
       }
     }
 
-    map<set<int>, set<set<int>>> ctx_to_incs;
+    map<set<int>, set<pair<set<int>, set<string>>>> ctx_to_incs_and_cs;
 
     //static mutex mtx;
     //mtx.lock();
@@ -327,6 +343,7 @@ void FastLAS::abduce() {
 
     set<int> ctx, incs;
     set<set<int>> all_incs;
+    set<std::string> cs;
 
     if (FastLAS::debug_clingo) {
       ofstream abduce_file("abduce_file.clingo");
@@ -339,48 +356,58 @@ void FastLAS::abduce() {
         ctx.insert(get_language_index(atom));
       }) ('t', [&](const string& atom) {
         incs.insert(get_language_index(atom));
+      }) ('c', [&](const string& atom) {
+        cs.insert(atom);
       }) ([&]() {
         if(FastLAS::categorical_contexts) {
           all_incs.insert(incs);
         } else {
-          ctx_to_incs[ctx].insert(incs);
+          ctx_to_incs_and_cs[ctx].insert(std::make_pair(incs, cs));
           ctx.clear();
         }
         incs.clear();
+        cs.clear();
       }
     );
     if(FastLAS::categorical_contexts) {
-      ctx_to_incs[ctx] = all_incs;
+      auto all_incs_with_cs = set<pair<set<int>, set<string>>>();
+      for (auto it_incs : all_incs) {
+        all_incs_with_cs.insert(make_pair(it_incs, set<string>()));
+      }
+
+      ctx_to_incs_and_cs[ctx] = all_incs_with_cs;
     }
 
-    for(auto starting_point : ctx_to_incs) {
-      set<pair<set<int>, set<int>>> possibilities, partial_possibilities;
-      for(auto incs : starting_point.second) {
-        partial_possibilities.insert(make_pair(incs, set<int>()));
+    for(auto starting_point_and_cs : ctx_to_incs_and_cs) {
+      set<PossibilityStruct> possibilities;
+      set<PossibilityStruct> partial_possibilities;
+      for(auto starting_point_and_cs_pair : starting_point_and_cs.second) {
+        PossibilityStruct ps = {starting_point_and_cs_pair.first, set<int>(), starting_point_and_cs_pair.second};
+        partial_possibilities.insert(ps);
       }
 
       int iterations = 0;
 
       while(!partial_possibilities.empty()) {
-        auto exceptions = anti_abduce(hyp_dependent_predictates, starting_point.first, partial_possibilities, eg);
+        auto exceptions = anti_abduce(hyp_dependent_predictates, starting_point_and_cs.first, partial_possibilities, eg);
         for(auto p : exceptions) {
           auto negated_exceptions = FastLAS::cnf_to_dnf(p.second);
           for(auto excs : negated_exceptions) {
             bool intersect = false;
             for(auto exc : excs) {
-              if(p.first.first.find(exc) != p.first.first.end()) {
+              if(p.first.incs.find(exc) != p.first.incs.end()) {
                 intersect = true;
                 break;
               }
             }
             if(!intersect) {
               auto new_possibility = p.first;
-              new_possibility.second.insert(excs.begin(), excs.end());
+              new_possibility.ctx.insert(excs.begin(), excs.end());
               possibilities.insert(new_possibility);
             }
           }
         }
-        partial_possibilities = repair(hyp_dependent_predictates, starting_point.first, exceptions, eg);
+        partial_possibilities = repair(hyp_dependent_predictates, starting_point_and_cs.first, exceptions, eg);
         iterations++;
         if(iterations > 10) {
           cout << eg->id << ":" << iterations << endl;
@@ -389,7 +416,7 @@ void FastLAS::abduce() {
 
 
       for(auto p : possibilities) {
-        eg->add_possibility(p.first, p.second, starting_point.first);
+        eg->add_possibility(p.incs, p.ctx, starting_point_and_cs.first, p.choices);
       }
     }
 

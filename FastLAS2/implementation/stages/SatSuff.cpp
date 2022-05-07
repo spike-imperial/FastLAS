@@ -42,6 +42,7 @@ extern set<Example*> examples;
 extern set<string> cached_examples;
 extern LanguageBias* bias;
 extern vector<NRule> background;
+extern std::set<std::pair<std::string, int>> choices;
 
 namespace {
   mutex mtx_ss;
@@ -77,6 +78,8 @@ void FastLAS::compute_sat_sufficient() {
     }
   }
   */
+
+  set<std::string> degenerate_examples;
 
   parallel_exec(grouped_possibilities, thread_num, [&](set<Example*> eg_group, int) {
     stringstream ss;
@@ -117,20 +120,14 @@ void FastLAS::compute_sat_sufficient() {
       ss << mb.body_representation() << endl;
     }
 
-    if (FastLAS::final_arg_safety) {
-      for (auto& mh : bias->head_declarations) {
-        for(auto& mb : bias->body_declarations) {
-          ss << "result_in_body_result :- eq(" << mh.generalise_last_arg("RES") << ", _), in(" << mb.generalise_last_arg("RES") << ")." << endl;
-        }
-      }
-      
-      ss << ":- not result_in_body_result." << endl << endl;
-    }
-
     if(!FastLAS::run_fast_las_2) {
       for(auto r : background)                ss << r.meta_representation();
     }
     for(int i = 0; i < bias->maxv; i++)       ss << "var(v_a_r" << i << ")." << endl;
+
+    if (FastLAS::final_arg_safety) {
+      ss << final_arg_safety_constraints;
+    }
 
     ss << meta_sat_suff;
     ss << "numeric_var(n_v_a_r_0)." << endl;
@@ -277,10 +274,18 @@ void FastLAS::compute_sat_sufficient() {
         mtx_ss.lock();
         eg->add_rule_disjunction(partial_disjs[inc]);
         mtx_ss.unlock();
+
+        if (partial_disjs[inc].size() == 0) {
+          eg->is_valid = false;
+          degenerate_examples.insert(eg->id);
+        }
       }
     }
-
-
   });
+}
 
+void FastLAS::delete_sat_insufficient_possibilities() {
+  for (auto& example : examples) {
+    example->delete_sat_insufficient();
+  }
 }

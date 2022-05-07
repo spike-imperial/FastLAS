@@ -26,9 +26,12 @@
 #ifndef SAT_SUFF__H_
 #define SAT_SUFF__H_
 
+#include "../Example.h"
+
 namespace FastLAS {
 
   void compute_sat_sufficient();
+  void delete_sat_insufficient_possibilities();
 
 };
 

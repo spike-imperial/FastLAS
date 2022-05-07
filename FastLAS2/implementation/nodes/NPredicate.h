@@ -23,34 +23,26 @@
  * IN THE SOFTWARE.
  */
 
-#ifndef NODE_H
-#define NODE_H
-
-#include <string>
+#ifndef NPREDICATE_H
+#define NPREDICATE_H
 #include <vector>
-#include <map>
-#include <iostream>
-#include <regex>
+#include <set>
+#include <string>
 
+class NPredicate {
 
+  public:
+    NPredicate(std::string function_name, int num_argments) 
+      : function_name(function_name), num_argments(num_argments) {};
 
-#include "nodes/BasicNode.h"
-#include "nodes/NTerm.h"
-#include "nodes/NString.h"
-#include "nodes/NBinOp.h"
-#include "nodes/NArithmeticExpr.h"
-#include "nodes/NComplexExpr.h"
+    std::string generalise() const;
 
-#include "nodes/NRuleHead.h"
-#include "nodes/NConstraintHead.h"
-#include "nodes/NLiteral.h"
+  protected:
 
-#include "nodes/NAtom.h"
-#include "nodes/NNafLiteral.h"
-#include "nodes/NChoice.h"
+    std::string function_name;
+    int num_argments;
+};
 
-#include "nodes/NRule.h"
-
-#include "nodes/NPredicate.h"
+bool operator<(const NPredicate& lhs, const NPredicate& rhs);
 
 #endif

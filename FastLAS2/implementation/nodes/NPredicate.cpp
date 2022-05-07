@@ -23,34 +23,31 @@
  * IN THE SOFTWARE.
  */
 
-#ifndef NODE_H
-#define NODE_H
+#include "../Node.h"
+#include "NPredicate.h"
 
-#include <string>
-#include <vector>
-#include <map>
-#include <iostream>
-#include <regex>
+using namespace std;
 
+string NPredicate::generalise() const {
+  stringstream ss;
+  int index = 0;
 
+  ss << function_name;
+  for(int i = 0; i < num_argments; i++) {
+    if(i == 0) {
+      ss << "(";
+    } else {
+      ss << ",";
+    }
+    ss << "ARG" << i;
+  }
+  if(num_argments > 0) {
+    ss << ")";
+  }
 
-#include "nodes/BasicNode.h"
-#include "nodes/NTerm.h"
-#include "nodes/NString.h"
-#include "nodes/NBinOp.h"
-#include "nodes/NArithmeticExpr.h"
-#include "nodes/NComplexExpr.h"
+  return ss.str();
+}
 
-#include "nodes/NRuleHead.h"
-#include "nodes/NConstraintHead.h"
-#include "nodes/NLiteral.h"
-
-#include "nodes/NAtom.h"
-#include "nodes/NNafLiteral.h"
-#include "nodes/NChoice.h"
-
-#include "nodes/NRule.h"
-
-#include "nodes/NPredicate.h"
-
-#endif
+bool operator<(const NPredicate& lhs, const NPredicate& rhs) {
+  return false;
+}

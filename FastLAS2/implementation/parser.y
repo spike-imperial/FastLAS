@@ -42,6 +42,7 @@ std::set<std::string> cached_examples;
 std::set<std::pair<int, int>> extensions;
 LanguageBias* bias(new LanguageBias());
 std::vector<NRule> background;
+std::set<NPredicate> ctx_choices;
 bool prediction_task = false;
 
 #ifndef YY_TYPEDEF_YY_SCANNER_T
@@ -103,6 +104,7 @@ void yyerror (std::string s) {
 %token <token> T_CACHE T_HEAD T_BODY T_RULE T_ASSIGNMENT T_LANGUAGE T_EXAMPLES T_EXTENDS T_OPTIMISATIONS T_SCORE T_INTERMEDIATE_REPRESENTATION T_PENALTY
 %token <token> T_ID T_VIO T_DISJ T_OPT_VIO T_OPT_DISJ T_IDENTITY T_POSSIBILITY T_SCHEMA T_SCHEMAS T_ARROW
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
+%token <token> T_CHOICE
 
 %type <term> term arithmetic_expr
 %type <atom> atom
@@ -334,6 +336,11 @@ mode : T_MAXV T_L_PAREN T_INT T_R_PAREN T_DOT {
        }
      ;
 
+mode : T_CHOICE T_BASIC_SYMBOL T_DIV T_INT T_DOT {
+         ctx_choices.insert(NPredicate(*$2, std::stoi(*$4))); delete $2; delete $4;
+       }
+     ; 
+
 inner_mode_dec : T_L_PAREN atom T_R_PAREN T_DOT {
          $$ = new ModeDeclaration(-1, *$2, true); delete $2;
        }
@@ -461,7 +468,7 @@ cached_examples: cached_examples T_L_BRACE cached_example_statements[ces] T_R_BR
       eg->set_unique_possibility();
       p = eg;
     } else {
-      p = new Possibility(eg, poss.id, poss.incs, poss.excs, poss.ctx);
+      p = new Possibility(eg, poss.id, poss.incs, poss.excs, poss.ctx, std::set<std::string>());
       eg->add_possibility(p);
     }
 

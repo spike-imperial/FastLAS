@@ -50,6 +50,7 @@ add_library(
   .tokens.cpp
   nodes/NTerm.cpp
   nodes/NAtom.cpp
+  nodes/NPredicate.cpp
   nodes/NRule.cpp
   nodes/NChoice.cpp
   nodes/NComplexExpr.cpp

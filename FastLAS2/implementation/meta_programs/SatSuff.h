@@ -26,6 +26,17 @@
 #ifndef META_PROGRAMS__SAT_SUFF__H__
 #define META_PROGRAMS__SAT_SUFF__H__
 
+std::string final_arg_safety_constraints = R"(
+head_input(ARG) :- sym(ARG, 1, _, N_ARGS, N, _), N < N_ARGS - 1.
+output(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N = N_ARGS - 1.
+body_input(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N < N_ARGS - 1.
+
+:- sym(ARG, 1, _, N_ARGS, N_ARGS - 1, _), not output(ARG).
+:- body_input(ARG), not head_input(ARG), not output(ARG).
+:- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM), sym(ARG, 2, _, N_ARGS, N, ATOM), N < N_ARGS - 1.
+
+)";
+
 std::string meta_sat_suff = R"(
 1 {
   target_inc(A) : example_inclusion(EG, A);
