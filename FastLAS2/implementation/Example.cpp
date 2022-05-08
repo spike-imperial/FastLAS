@@ -79,7 +79,6 @@ Example::Example(string id,
                  bool positive, 
                  bool possibility)
   : Example(id, inclusions, exclusions, context, penalty, positive, std::unordered_map<std::string, float>(), possibility) {
-
   }
 
 string Example::meta_representation() const {

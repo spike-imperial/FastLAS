@@ -143,7 +143,8 @@ class PredictionExample : public Example {
   public:
 
     PredictionExample(std::string id, std::set<std::string>& inclusions, std::set<std::string>& exclusions, std::vector<NRule>& context)
-      : Example(id, inclusions, exclusions, context, -1, true) {};
+      : Example(id, inclusions, exclusions, context, -1, true) {
+      };
 
     bool prediction() const;
 

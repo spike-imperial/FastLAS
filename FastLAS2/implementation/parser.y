@@ -164,7 +164,7 @@ identifier : atom T_COMMA { $$ = new std::pair<std::string, int>($1->to_string()
 example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_COMMA T_L_BRACE asp_program[ctx] T_R_BRACE example_choice_scores[choice_scores] T_R_PAREN T_DOT {
           std::string id = $3->first;
           id.erase(remove_if(id.begin(), id.end(), ::isspace), id.end());
-          FastLAS::add_example(id, $incs, $excs, *$ctx, $3->second, true, $choice_scores);
+          FastLAS::add_example(id, $incs, $excs, *$ctx, $3->second, true, *$choice_scores);
           delete $3;
           delete $incs;
           delete $excs;
