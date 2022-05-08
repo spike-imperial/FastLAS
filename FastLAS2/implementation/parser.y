@@ -37,6 +37,8 @@
 #include <tuple>
 #include <cassert>
 #include <algorithm>
+#include <unordered_map>
+
 std::set<Example*> examples;
 std::set<std::string> cached_examples;
 std::set<std::pair<int, int>> extensions;
@@ -94,6 +96,8 @@ void yyerror (std::string s) {
     CachedPossibility* cached_possibility;
     std::tuple<std::string, int, std::set<CachedPossibility>>* cached_example;
     std::pair<std::string, int>* identifier;
+    std::unordered_map<std::string, float>* example_choice_scores;
+    std::pair<std::string, float>* example_choice_score;
 }
 
 %token <string> T_BASIC_SYMBOL T_VAR_NAME T_INT T_NUM T_STRING T_UNDERSCORE T_AT
@@ -104,7 +108,7 @@ void yyerror (std::string s) {
 %token <token> T_CACHE T_HEAD T_BODY T_RULE T_ASSIGNMENT T_LANGUAGE T_EXAMPLES T_EXTENDS T_OPTIMISATIONS T_SCORE T_INTERMEDIATE_REPRESENTATION T_PENALTY
 %token <token> T_ID T_VIO T_DISJ T_OPT_VIO T_OPT_DISJ T_IDENTITY T_POSSIBILITY T_SCHEMA T_SCHEMAS T_ARROW
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
-%token <token> T_CHOICE
+%token <token> T_CHOICE T_DOUBLE_COLON
 
 %type <term> term arithmetic_expr
 %type <atom> atom
@@ -125,6 +129,9 @@ void yyerror (std::string s) {
 %type <cached_example> cached_example_statements;
 %type <ints> ints;
 %type <term_list> term_list;
+%type <example_choice_scores> example_choice_scores;
+%type <example_choice_score> example_choice_score;
+%type <example_choice_scores> example_choice_score_list;
 
 %left T_MOD
 %left T_DOUBLE_DOT
@@ -154,10 +161,10 @@ identifier : atom T_COMMA { $$ = new std::pair<std::string, int>($1->to_string()
            | { $$ = new std::pair<std::string, int>("eg___" + std::to_string(eg_count++), -1); }
 ;
 
-example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_COMMA T_L_BRACE asp_program[ctx] T_R_BRACE T_R_PAREN T_DOT {
+example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_COMMA T_L_BRACE asp_program[ctx] T_R_BRACE example_choice_scores[choice_scores] T_R_PAREN T_DOT {
           std::string id = $3->first;
           id.erase(remove_if(id.begin(), id.end(), ::isspace), id.end());
-          FastLAS::add_example(id, $incs, $excs, *$ctx, $3->second, true);
+          FastLAS::add_example(id, $incs, $excs, *$ctx, $3->second, true, $choice_scores);
           delete $3;
           delete $incs;
           delete $excs;
@@ -185,6 +192,23 @@ example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_COM
           delete $ctx;
         }
 ;
+
+example_choice_scores : { $$ = new std::unordered_map<std::string, float>(); }
+                      | T_COMMA T_L_BRACE example_choice_score example_choice_score_list T_R_BRACE {
+                          $$ = $4; $$->insert(*$3); 
+                        }
+                      ;
+
+example_choice_score_list : { $$ = new std::unordered_map<std::string, float>(); }
+                          | example_choice_score_list T_COMMA example_choice_score {
+                              $$ = $1; $$->insert(*$3); 
+                            }
+                          ;
+
+example_choice_score : atom T_DOUBLE_COLON T_NUM {
+                         $$ = new std::pair<std::string, float>($1->to_string(), std::stof(*$3)); delete $1; delete $3;
+                       }
+
 example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_R_PAREN T_DOT {
           std::string id = $3->first;
           std::vector<NRule> empty_prg;

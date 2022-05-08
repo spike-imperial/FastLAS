@@ -22,13 +22,14 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
-
-#include "Utils.h"
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <mutex>
 #include <shared_mutex>
 #include <fstream>
+#include <unordered_map>
+
+#include "Utils.h"
 #include "Example.h"
 
 using namespace std;
@@ -238,8 +239,12 @@ void FastLAS::Clingo::operator()(const std::function<void()>& final_fn) const {
   remove(outpipe.c_str());
 }
 
-
 void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, bool prediction) {
+  std::unordered_map<std::string, float> empty_choice_scores = std::unordered_map<std::string, float>();
+  FastLAS::add_example(id, incs, excs, ctx, penalty, positive, empty_choice_scores, prediction);
+}
+
+void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, std::unordered_map<std::string, float>& choice_scores, bool prediction) {
   if(cached_examples.find(id) == cached_examples.end()) {
     set<string> string_incs, string_excs;
     for(auto inc : *incs) string_incs.insert(inc->to_string());
@@ -265,7 +270,7 @@ void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& ex
       for(auto exc : *excs) delete exc;
     }
     if(!prediction) {
-      examples.insert(new Example(id, string_incs, string_excs, ctx, penalty, positive));
+      examples.insert(new Example(id, string_incs, string_excs, ctx, penalty, positive, choice_scores));
     } else {
       examples.insert(new PredictionExample(id, string_incs, string_excs, ctx));
     }

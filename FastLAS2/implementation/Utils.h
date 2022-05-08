@@ -41,7 +41,20 @@ namespace FastLAS {
   std::string get_tmp_file(bool fifo=true);
   int get_language_index(const std::string&);
   std::string get_language(const int&);
-  void add_example(const std::string& id, std::set<NAtom*>*& incs, std::set<NAtom*>*& excs, std::vector<NRule>& ctx, int penalty, bool positive, bool prediction=false);
+  void add_example(const std::string& id, 
+                   std::set<NAtom*>*& incs, 
+                   std::set<NAtom*>*& excs, 
+                   std::vector<NRule>& ctx, 
+                   int penalty, 
+                   bool positive, 
+                   bool prediction=false);
+  void add_example(const std::string& id, 
+                   std::set<NAtom*>*& incs, 
+                   std::set<NAtom*>*& excs, 
+                   std::vector<NRule>& ctx, 
+                   int penalty, bool positive, 
+                   std::unordered_map<std::string, float>& choice_scores, 
+                   bool prediction=false);
   std::string remove_quotes(const std::string& str);
   std::string object_level_print(const int&);
 

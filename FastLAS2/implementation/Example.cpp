@@ -55,13 +55,31 @@ Example::Example(string id, int penalty, bool positive, set<string> choices, boo
     }
   }
 
-Example::Example(string id, set<string>& inclusions, set<string>& exclusions, vector<NRule>& context, int penalty, bool positive, bool possibility)
-  : id(id), inclusions(inclusions), exclusions(exclusions), context(context), penalty(penalty), positive(positive) {
+Example::Example(string id, 
+                 set<string>& inclusions, 
+                 set<string>& exclusions, 
+                 vector<NRule>& context, 
+                 int penalty, 
+                 bool positive, 
+                 std::unordered_map<std::string, float> choice_scores, 
+                 bool possibility)
+  : id(id), inclusions(inclusions), exclusions(exclusions), context(context), penalty(penalty), positive(positive), choice_scores(choice_scores) {
     if(possibility) {
       possibility_map.insert(make_pair(id, this));
     } else {
       example_map.insert(make_pair(id, this));
     }
+  }
+
+Example::Example(string id, 
+                 set<string>& inclusions, 
+                 set<string>& exclusions, 
+                 vector<NRule>& context, 
+                 int penalty, 
+                 bool positive, 
+                 bool possibility)
+  : Example(id, inclusions, exclusions, context, penalty, positive, std::unordered_map<std::string, float>(), possibility) {
+
   }
 
 string Example::meta_representation() const {

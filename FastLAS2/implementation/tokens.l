@@ -77,6 +77,7 @@
 ">"                     return TOKEN(T_GT);
 
 ":"                     return TOKEN(T_COLON);
+"::"                    return TOKEN(T_DOUBLE_COLON);
 ";"                     return TOKEN(T_SEMI_COLON);
 
 "#possibility"          return TOKEN(T_POSSIBILITY);

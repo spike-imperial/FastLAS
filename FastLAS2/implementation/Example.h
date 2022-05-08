@@ -27,6 +27,8 @@
 #define EXAMPLE__H_
 #include <set>
 #include <vector>
+#include <unordered_map>
+
 #include "Node.h"
 #include "RuleSchema.h"
 
@@ -36,7 +38,21 @@ class Example {
 
   public:
 
-    Example(std::string id, std::set<std::string>& inclusions, std::set<std::string>& exclusions, std::vector<NRule>& context, int penalty, bool positive, bool possibility=false);
+    Example(std::string id, 
+            std::set<std::string>& inclusions, 
+            std::set<std::string>& exclusions, 
+            std::vector<NRule>& context, 
+            int penalty, 
+            bool positive,
+            bool possibility=false);
+    Example(std::string id, 
+            std::set<std::string>& inclusions, 
+            std::set<std::string>& exclusions, 
+            std::vector<NRule>& context, 
+            int penalty, 
+            bool positive,
+            std::unordered_map<std::string, float> choice_scores,
+            bool possibility=false);
     Example(std::string id, int penalty, bool positive, bool possibility=false);
     Example(std::string id, int penalty, bool positive, std::set<std::string> choices, bool possibility=false);
 
@@ -116,6 +132,7 @@ class Example {
     static std::map<std::string, Example*> possibility_map;
 
     std::set<std::string> choices;
+    std::unordered_map<std::string, float> choice_scores;
 
     friend Possibility;
 
