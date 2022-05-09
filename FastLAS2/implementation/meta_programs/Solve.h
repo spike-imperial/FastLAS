@@ -27,11 +27,17 @@
 #define META_PROGRAM_SOLVE__H__
 
 std::string final_solving_program = R"(
+eg_penalty(Eg, N) :- example(Eg), N=#min{ P : choice_penalty(Subeg, P), sub(Eg, Subeg), cov(Subeg) }.
+smallest_covered(Eg, Subeg) :- example(Eg), eg_penalty(Eg, P), choice_penalty(Subeg, P).
+
 :~ penalty(P, T).[P@0, intermediate, T]
+:~ eg_penalty(_, P).[P@0]
+
 
 #show in_h/1.
 #show penalty/2.
 #show disj/1.
+#show smallest_covered/2.
 #script (lua)
 function onModel(m)
   atoms = m:symbols{shown=true}
@@ -48,6 +54,8 @@ function onModel(m)
       new_model = new_model.." p"..tostring(atom).."|"
     elseif atom_name == "disj" then
       new_model = new_model.." d"..tostring(atom):sub(6,-2).."|"
+    elseif atom_name == "smallest_covered" then 
+      new_model = new_model.." s"..tostring(atom):sub(18, -2).."|"
     end
   end
   new_model = new_model.." b"..tostring(intermediate_penalty).."| ;|"

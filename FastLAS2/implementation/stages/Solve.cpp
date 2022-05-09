@@ -33,6 +33,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -40,7 +41,6 @@ extern LanguageBias* bias;
 extern bool prediction_task;
 extern set<Example*> examples;
 extern vector<NRule> background;
-
 
 namespace FastLAS {
   void solve_final_task(string);
@@ -61,8 +61,19 @@ void FastLAS::solve() {
   stringstream ss;
   for(auto eg : examples) {
     ss << "% " << eg->id << endl;
+    ss << "example(" << eg->id << ")." << endl;
     for(auto sub_eg : eg->get_possibilities()) {
+      float _choice_penalty = 0;
+      for (string choice : sub_eg->get_choices()) {
+        _choice_penalty += eg->get_choice_scores().at(choice);
+      }
+      // store as percentage since Clingo doesn't support floats
+      int choice_penalty = static_cast<int>(_choice_penalty * 100);
+
       ss << "% " << eg->id << " : " << sub_eg->id << endl;
+      ss << "cov(" << sub_eg->id << ") :- not n_cov(" << sub_eg->id << ")." << endl;
+      ss << "sub(" << eg->id << "," << sub_eg->id << ")." << endl;
+      ss << "choice_penalty(" << sub_eg->id << "," << choice_penalty << ")." << endl;
       for(auto disj : sub_eg->get_optimised_rule_disjunctions()) {
         int index = cached_disjs.size();
         auto it = cached_disjs.find(disj);
@@ -92,6 +103,7 @@ void FastLAS::solve() {
         index = it->second;
       }
       ss << "n_cov(" << sub_eg->id << ") :- disj(" << index << ")." << endl;
+      ss << endl;
     }
 
     if(eg->positive) {
@@ -109,6 +121,8 @@ void FastLAS::solve() {
       ss << ":~ n_cov(" << eg->id << ").[" << eg->get_penalty() << "@0, eg(" << eg->id << ")]" << endl;
     else
       ss << ":- n_cov(" << eg->id << ")." << endl;
+    
+    ss << endl;
   }
 
   for(auto d : ds) {
@@ -175,6 +189,14 @@ void FastLAS::solve_final_task(string program) {
       sat_disjs.insert(int_to_disj[stoi(atom)]);
     }) ('p', [&](const string& atom) {
       sat_intermediate_facts.insert(atom);
+    }) ('s', [&](const string& atoms) {
+      istringstream ss(atoms);
+      string eg_id;
+      string sub_id;
+      getline(ss, eg_id, ',');
+      getline(ss, sub_id);
+
+      Example::get_example(eg_id)->set_best_possibility(sub_id);
     }) ([&]() {
       sat = true;
     }

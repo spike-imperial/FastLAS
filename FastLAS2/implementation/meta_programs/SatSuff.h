@@ -28,12 +28,15 @@
 
 std::string final_arg_safety_constraints = R"(
 head_input(ARG) :- sym(ARG, 1, _, N_ARGS, N, _), N < N_ARGS - 1.
+head_output(ARG) :- sym(ARG, 1, _, N_ARGS, N_ARGS - 1, _).
 output(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N = N_ARGS - 1.
 body_input(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N < N_ARGS - 1.
 
-:- sym(ARG, 1, _, N_ARGS, N_ARGS - 1, _), not output(ARG).
+:- head_output(ARG), not output(ARG).
 :- body_input(ARG), not head_input(ARG), not output(ARG).
 :- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM), sym(ARG, 2, _, N_ARGS, N, ATOM), N < N_ARGS - 1.
+:- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM1), sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM2), ATOM1 != ATOM2.
+:- output(ARG), not head_output(ARG), not body_input(ARG).
 
 )";
 

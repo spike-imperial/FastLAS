@@ -202,6 +202,14 @@ int Example::get_penalty() const {
   return penalty;
 }
 
+std::unordered_map<std::string, float> Example::get_choice_scores() {
+  return choice_scores;
+}
+
+void Example::set_best_possibility(const std::string& subeg_id) {
+  best_possibilities.emplace_back(example_map.at(subeg_id));
+}
+
 void Example::delete_sat_insufficient() {
   for (set<Example*>::iterator iter = possibilities.begin(); iter != possibilities.end(); ) {
     if ((*iter)->is_valid) {

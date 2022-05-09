@@ -95,6 +95,10 @@ class Example {
     static std::set<Schema*> prediction_extra_violations;
 
     std::set<std::string> get_choices();
+    std::unordered_map<std::string, float> get_choice_scores();
+
+    void set_best_possibility(const std::string&);
+    virtual std::vector<Example*> get_best_possibilities() const { return best_possibilities; };
 
     virtual std::string to_cache_string() const;
     virtual std::string to_cache_sub_string() const;
@@ -133,6 +137,8 @@ class Example {
 
     std::set<std::string> choices;
     std::unordered_map<std::string, float> choice_scores;
+
+    std::vector<Example*> best_possibilities;
 
     friend Possibility;
 

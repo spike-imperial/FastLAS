@@ -238,6 +238,21 @@ int main(int argc, char **argv) {
     }
   }
 
+  for (auto& example : examples) {
+    cout << "Choice for " << example->id << endl;
+    std::vector<Example*> best_possibilities = example->get_best_possibilities();
+    if (best_possibilities.size() == 0) {
+      cout << "  COULDN'T FIND OPTIMAL POSSIBILITY??";
+    } else {
+      for (Example* best_possibility : best_possibilities) {
+        cout << "   ";
+        for (auto& choice : best_possibility->get_choices()) {
+          cout << "  " << choice;
+        }
+        cout << endl;
+      }
+    }
+  }
 
   _exit(0);
 };
