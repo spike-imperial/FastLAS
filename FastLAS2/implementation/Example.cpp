@@ -23,9 +23,11 @@
  * IN THE SOFTWARE.
  */
 
-#include "Example.h"
 #include <sstream>
 #include <algorithm>
+#include <iomanip>
+
+#include "Example.h"
 #include "LanguageBias.h"
 #include "Utils.h"
 
@@ -61,7 +63,7 @@ Example::Example(string id,
                  vector<NRule>& context, 
                  int penalty, 
                  bool positive, 
-                 std::unordered_map<std::string, float> choice_scores, 
+                 std::unordered_map<std::string, int> choice_scores, 
                  bool possibility)
   : id(id), inclusions(inclusions), exclusions(exclusions), context(context), penalty(penalty), positive(positive), choice_scores(choice_scores) {
     if(possibility) {
@@ -78,7 +80,7 @@ Example::Example(string id,
                  int penalty, 
                  bool positive, 
                  bool possibility)
-  : Example(id, inclusions, exclusions, context, penalty, positive, std::unordered_map<std::string, float>(), possibility) {
+  : Example(id, inclusions, exclusions, context, penalty, positive, std::unordered_map<std::string, int>(), possibility) {
   }
 
 string Example::meta_representation() const {
@@ -202,7 +204,7 @@ int Example::get_penalty() const {
   return penalty;
 }
 
-std::unordered_map<std::string, float> Example::get_choice_scores() {
+std::unordered_map<std::string, int> Example::get_choice_scores() {
   return choice_scores;
 }
 
@@ -411,6 +413,9 @@ string Possibility::to_string() const {
 string Example::to_cache_string() const {
   stringstream ss;
   ss << "{#id:" << id << "; #penalty: " << penalty << "; ";
+  ss << "#choice_scores: {";
+  for (auto const& [_choice, _score] : choice_scores) ss << _choice << ":" << _score << ";";
+  ss << "};";
   for(auto eg : possibilities) {
     ss << "#possibility:" << eg->to_cache_sub_string();
   }
@@ -455,6 +460,11 @@ string Possibility::to_cache_sub_string() const {
   stringstream ss;
   ss << "{";
   ss << "#id:" << id << ";";
+  // enocde choices
+  ss << "#choices:{";
+  for (string choice : choices) ss << choice << ";";
+  ss << "};";
+  // continue
   ss << "#inc_ids:{";
   for(int i : inc_ids) ss << i << ";";
   ss << "};#exc_ids:{";

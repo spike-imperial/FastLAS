@@ -38,6 +38,7 @@
 #include <cassert>
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 
 std::set<Example*> examples;
 std::set<std::string> cached_examples;
@@ -94,10 +95,10 @@ void yyerror (std::string s) {
     std::map<std::string, int>* assignment;
     std::tuple<std::set<std::set<int>>, std::set<int>, std::set<std::set<int>>, std::set<int>>* cached_example_schemas;
     CachedPossibility* cached_possibility;
-    std::tuple<std::string, int, std::set<CachedPossibility>>* cached_example;
+    std::tuple<std::string, int, std::set<CachedPossibility>, std::unordered_map<std::string, int>*>* cached_example;
     std::pair<std::string, int>* identifier;
-    std::unordered_map<std::string, float>* example_choice_scores;
-    std::pair<std::string, float>* example_choice_score;
+    std::unordered_map<std::string, int>* example_choice_scores;
+    std::pair<std::string, int>* example_choice_score;
 }
 
 %token <string> T_BASIC_SYMBOL T_VAR_NAME T_INT T_NUM T_STRING T_UNDERSCORE T_AT
@@ -109,6 +110,7 @@ void yyerror (std::string s) {
 %token <token> T_ID T_VIO T_DISJ T_OPT_VIO T_OPT_DISJ T_IDENTITY T_POSSIBILITY T_SCHEMA T_SCHEMAS T_ARROW
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
 %token <token> T_CHOICE T_DOUBLE_COLON
+%token <token> T_CHOICES T_CHOICE_SCORES
 
 %type <term> term arithmetic_expr
 %type <atom> atom
@@ -132,6 +134,8 @@ void yyerror (std::string s) {
 %type <example_choice_scores> example_choice_scores;
 %type <example_choice_score> example_choice_score;
 %type <example_choice_scores> example_choice_score_list;
+%type <example_choice_scores> cached_choices;
+%type <term_list> cached_possibility_choices;
 
 %left T_MOD
 %left T_DOUBLE_DOT
@@ -193,20 +197,20 @@ example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_COM
         }
 ;
 
-example_choice_scores : { $$ = new std::unordered_map<std::string, float>(); }
+example_choice_scores : { $$ = new std::unordered_map<std::string, int>(); }
                       | T_COMMA T_L_BRACE example_choice_score example_choice_score_list T_R_BRACE {
                           $$ = $4; $$->insert(*$3); 
                         }
                       ;
 
-example_choice_score_list : { $$ = new std::unordered_map<std::string, float>(); }
+example_choice_score_list : { $$ = new std::unordered_map<std::string, int>(); }
                           | example_choice_score_list T_COMMA example_choice_score {
                               $$ = $1; $$->insert(*$3); 
                             }
                           ;
 
-example_choice_score : atom T_DOUBLE_COLON T_NUM {
-                         $$ = new std::pair<std::string, float>($1->to_string(), std::stof(*$3)); delete $1; delete $3;
+example_choice_score : atom T_DOUBLE_COLON T_INT {
+                         $$ = new std::pair<std::string, int>($1->to_string(), std::stof(*$3)); delete $1; delete $3;
                        }
 
 example : T_POS T_L_PAREN identifier atom_set[incs] T_COMMA atom_set[excs] T_R_PAREN T_DOT {
@@ -485,14 +489,14 @@ cached_examples: {};
 cached_examples: cached_examples T_L_BRACE cached_example_statements[ces] T_R_BRACE T_SEMI_COLON {
   std::vector<NRule> empty_ctx;
   std::set<std::string> empty_set;
-  auto eg = new Example(std::get<0>(*$ces), empty_set, empty_set, empty_ctx, std::get<1>(*$ces), true, false);
+  auto eg = new Example(std::get<0>(*$ces), empty_set, empty_set, empty_ctx, std::get<1>(*$ces), true, *std::get<3>(*$ces), false);
   for(auto poss : std::get<2>(*$ces)) {
     Example* p;
     if(poss.unique) {
       eg->set_unique_possibility();
       p = eg;
     } else {
-      p = new Possibility(eg, poss.id, poss.incs, poss.excs, poss.ctx, std::set<std::string>());
+      p = new Possibility(eg, poss.id, poss.incs, poss.excs, poss.ctx, *poss.choices);
       eg->add_possibility(p);
     }
 
@@ -524,7 +528,7 @@ cached_examples: cached_examples T_L_BRACE cached_example_statements[ces] T_R_BR
   delete $ces;
 };
 
-cached_example_statements: { $$ = new std::tuple<std::string, int, std::set<CachedPossibility>>();};
+cached_example_statements: { $$ = new std::tuple<std::string, int, std::set<CachedPossibility>, std::unordered_map<std::string, int>*>();};
 cached_example_statements: cached_example_statements[ces] T_ID T_COLON term[id] T_SEMI_COLON {
   $$ = $ces;
   std::get<0>(*$$) = $id->to_string();
@@ -540,14 +544,29 @@ cached_example_statements: cached_example_statements[ces] T_PENALTY T_COLON T_MI
   std::get<1>(*$$) = -std::stoi(*$penalty);
   delete $penalty;
 };
+cached_example_statements: cached_example_statements[ces] T_CHOICE_SCORES T_COLON T_L_BRACE cached_choices[ch_scrs] T_R_BRACE T_SEMI_COLON {
+  $$ = $ces;
+  std::get<3>(*$$) = $ch_scrs;
+};
 cached_example_statements: cached_example_statements[ces] T_POSSIBILITY T_COLON T_L_BRACE cached_possibility_statements[poss] T_R_BRACE T_SEMI_COLON {
   $$ = $ces;
   std::get<2>(*$$).insert(*$poss);
   delete $poss;
 };
 
+cached_choices: { $$ = new std::unordered_map<std::string, int>(); };
+cached_choices: cached_choices atom[a] T_COLON T_INT[score] T_SEMI_COLON { $$ = $1; $1->insert({$a->to_string(), std::stof(*$score)}); delete $a; delete $score; };
+
+cached_possibility_choices : { $$ = new std::set<std::string>(); }
+cached_possibility_choices : cached_possibility_choices[cpc] atom[a] T_SEMI_COLON {
+  $$ = $cpc; $$->insert($a->to_string()); 
+}
+
 cached_possibility_statements: { $$ = new CachedPossibility(); };
 cached_possibility_statements: cached_possibility_statements[cas] T_IDENTITY T_SEMI_COLON { $$ = $cas; $$->unique = true; };
+cached_possibility_statements: cached_possibility_statements[cas] T_CHOICES   T_COLON T_L_BRACE cached_possibility_choices[chs] T_R_BRACE T_SEMI_COLON { 
+  $$ = $cas; $$->choices = $chs; 
+};
 cached_possibility_statements: cached_possibility_statements[cas] T_ID        T_COLON T_BASIC_SYMBOL[id] T_SEMI_COLON { $$ = $cas; $$->unique = false; $$->id = *$id; cached_examples.insert(*$id); delete $id; };
 cached_possibility_statements: cached_possibility_statements[cas] T_INC_IDS   T_COLON T_L_BRACE ints[is] T_R_BRACE T_SEMI_COLON { $$ = $cas; $$->incs = *$is; delete $is; };
 cached_possibility_statements: cached_possibility_statements[cas] T_EXC_IDS   T_COLON T_L_BRACE ints[is] T_R_BRACE T_SEMI_COLON { $$ = $cas; $$->excs = *$is; delete $is; };

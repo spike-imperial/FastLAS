@@ -33,6 +33,7 @@ struct CachedPossibility {
   std::string id;
   std::set<std::set<int>> disjunctions, optimised_disjunctions;
   std::set<int> violations, optimised_violations, incs, excs, ctx;
+  std::set<std::string>* choices;
 };
 
 namespace std {

@@ -53,7 +53,7 @@ namespace FastLAS {
                    std::set<NAtom*>*& excs, 
                    std::vector<NRule>& ctx, 
                    int penalty, bool positive, 
-                   std::unordered_map<std::string, float>& choice_scores, 
+                   std::unordered_map<std::string, int>& choice_scores, 
                    bool prediction=false);
   std::string remove_quotes(const std::string& str);
   std::string object_level_print(const int&);
@@ -111,6 +111,7 @@ namespace FastLAS {
   extern bool categorical_contexts;
   extern int sample_size, max_conditions;
   extern bool sat_suff_only;
+  extern int score_precision;
 
   template<typename T, typename F> void parallel_exec(const T& jobs, int number_of_workers, F p) {
     std::queue<typename T::value_type> q;

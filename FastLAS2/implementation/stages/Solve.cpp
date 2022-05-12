@@ -63,13 +63,10 @@ void FastLAS::solve() {
     ss << "% " << eg->id << endl;
     ss << "example(" << eg->id << ")." << endl;
     for(auto sub_eg : eg->get_possibilities()) {
-      float _choice_penalty = 0;
+      int choice_penalty = 0;
       for (string choice : sub_eg->get_choices()) {
-        _choice_penalty += eg->get_choice_scores().at(choice);
+        choice_penalty += eg->get_choice_scores().at(choice);
       }
-      // store as percentage since Clingo doesn't support floats
-      int choice_penalty = static_cast<int>(_choice_penalty * 100);
-
       ss << "% " << eg->id << " : " << sub_eg->id << endl;
       ss << "cov(" << sub_eg->id << ") :- not n_cov(" << sub_eg->id << ")." << endl;
       ss << "sub(" << eg->id << "," << sub_eg->id << ")." << endl;

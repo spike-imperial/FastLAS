@@ -54,6 +54,7 @@ namespace FastLAS {
   bool categorical_contexts = false;
   bool any_cache = false;
   bool sat_suff_only = false;
+  int score_precision = 2;
 
   vector<string> language({"f_triv___"});
 
@@ -240,11 +241,11 @@ void FastLAS::Clingo::operator()(const std::function<void()>& final_fn) const {
 }
 
 void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, bool prediction) {
-  std::unordered_map<std::string, float> empty_choice_scores = std::unordered_map<std::string, float>();
+  std::unordered_map<std::string, int> empty_choice_scores = std::unordered_map<std::string, int>();
   FastLAS::add_example(id, incs, excs, ctx, penalty, positive, empty_choice_scores, prediction);
 }
 
-void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, std::unordered_map<std::string, float>& choice_scores, bool prediction) {
+void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, std::unordered_map<std::string, int>& choice_scores, bool prediction) {
   if(cached_examples.find(id) == cached_examples.end()) {
     set<string> string_incs, string_excs;
     for(auto inc : *incs) string_incs.insert(inc->to_string());

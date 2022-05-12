@@ -70,6 +70,7 @@ int main(int argc, char **argv) {
     ("final-arg-safety", "enforce that the final variable in the head rules must occur in the final argument of at least one body rule.")
     ("space-size", "output final s_m size.")
     ("sat-suff-only", "compute the SAT sufficient possibilities only.")
+    ("print-choices", "print the choices made by the solver for the optimal solutions")
     ("threads", po::value<int>(), "number of threads.");
 
   po::positional_options_description p;
@@ -238,18 +239,20 @@ int main(int argc, char **argv) {
     }
   }
 
-  for (auto& example : examples) {
-    cout << "Choice for " << example->id << endl;
-    std::vector<Example*> best_possibilities = example->get_best_possibilities();
-    if (best_possibilities.size() == 0) {
-      cout << "  COULDN'T FIND OPTIMAL POSSIBILITY??";
-    } else {
-      for (Example* best_possibility : best_possibilities) {
-        cout << "   ";
-        for (auto& choice : best_possibility->get_choices()) {
-          cout << "  " << choice;
+  if (vm.count("print-choices")) {  
+    for (auto& example : examples) {
+      cout << "Choice for " << example->id << endl;
+      std::vector<Example*> best_possibilities = example->get_best_possibilities();
+      if (best_possibilities.size() == 0) {
+        cout << "  COULDN'T FIND OPTIMAL POSSIBILITY??";
+      } else {
+        for (Example* best_possibility : best_possibilities) {
+          cout << "   ";
+          for (auto& choice : best_possibility->get_choices()) {
+            cout << "  " << choice;
+          }
+          cout << endl;
         }
-        cout << endl;
       }
     }
   }

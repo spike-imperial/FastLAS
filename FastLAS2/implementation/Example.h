@@ -51,7 +51,7 @@ class Example {
             std::vector<NRule>& context, 
             int penalty, 
             bool positive,
-            std::unordered_map<std::string, float> choice_scores,
+            std::unordered_map<std::string, int> choice_scores,
             bool possibility=false);
     Example(std::string id, int penalty, bool positive, bool possibility=false);
     Example(std::string id, int penalty, bool positive, std::set<std::string> choices, bool possibility=false);
@@ -95,7 +95,7 @@ class Example {
     static std::set<Schema*> prediction_extra_violations;
 
     std::set<std::string> get_choices();
-    std::unordered_map<std::string, float> get_choice_scores();
+    std::unordered_map<std::string, int> get_choice_scores();
 
     void set_best_possibility(const std::string&);
     virtual std::vector<Example*> get_best_possibilities() const { return best_possibilities; };
@@ -136,7 +136,7 @@ class Example {
     static std::map<std::string, Example*> possibility_map;
 
     std::set<std::string> choices;
-    std::unordered_map<std::string, float> choice_scores;
+    std::unordered_map<std::string, int> choice_scores;
 
     std::vector<Example*> best_possibilities;
 

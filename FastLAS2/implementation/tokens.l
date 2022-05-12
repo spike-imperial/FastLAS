@@ -92,7 +92,6 @@
 
 "#choice"               return TOKEN(T_CHOICE);
 
-
 "#cache"                        return TOKEN(T_CACHE);
 "#head"                         return TOKEN(T_HEAD);
 "#body"                         return TOKEN(T_BODY);
@@ -118,6 +117,8 @@
 "#exc_ids"                      return TOKEN(T_EXC_IDS);
 "#ctx_ids"                      return TOKEN(T_CTX_IDS);
 "#ground_without_replacement"   return TOKEN(T_GWR);
+"#choices"                      return TOKEN(T_CHOICES);
+"#choice_scores"                return TOKEN(T_CHOICE_SCORES);
 
 
 %.*                     ;
