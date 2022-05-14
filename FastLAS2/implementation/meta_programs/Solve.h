@@ -27,11 +27,7 @@
 #define META_PROGRAM_SOLVE__H__
 
 std::string final_solving_program = R"(
-eg_penalty(Eg, N) :- example(Eg), N=#min{ P : choice_penalty(Subeg, P), sub(Eg, Subeg), cov(Subeg) }.
-smallest_covered(Eg, Subeg) :- example(Eg), eg_penalty(Eg, P), choice_penalty(Subeg, P).
-
 :~ penalty(P, T).[P@0, intermediate, T]
-:~ eg_penalty(_, P).[P@0]
 
 
 #show in_h/1.

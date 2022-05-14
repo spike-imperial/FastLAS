@@ -130,6 +130,12 @@ void FastLAS::solve() {
     cout << "% SPACE SIZE: " << ds.size() << endl;
   }
 
+  int num_examples = examples.size();
+  ss << "eg_penalty(Eg, N / " << num_examples << ") :- example(Eg), N=#min{ P : choice_penalty(Subeg, P), sub(Eg, Subeg), cov(Subeg) }." << endl;
+  ss << "smallest_covered(Eg, Subeg) :- example(Eg), eg_penalty(Eg, P), choice_penalty(Subeg, P)." << endl;
+  ss << ":~ eg_penalty(_, P).[P@0]" << endl;
+  ss << ":~ #true.[54@0]" << endl;
+
   if(prediction_task) {
     if(score_only) {
       FastLAS::solve_final_task(ss.str() + ":- prediction_false.");
