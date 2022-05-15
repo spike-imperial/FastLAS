@@ -93,6 +93,12 @@ Schema::RuleSchema* Schema::RuleSchema::get_schema(const int& rid) {
   return all_rule_schemas[rid];
 }
 
+void Schema::RuleSchema::print_rule_schemas() {
+  for (int i = 0; i < all_rule_schemas.size(); ++i) {
+    cout << "[" << i << "] " << all_rule_schemas[i]->print() << endl;
+  }
+}
+
 void Schema::RuleSchema::add_cached_schema(const int& id, const int& head, const std::set<int>& body) {
   if(all_rule_schemas.size() <= id)
     all_rule_schemas.resize(id + 1);

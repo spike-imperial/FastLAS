@@ -50,6 +50,8 @@ class Schema {
         static RuleSchema* get_schema(const int& id);
         static void add_cached_schema(const int& id, const int& head, const std::set<int>& body);
 
+        static void print_rule_schemas();
+
         // const members
         const int head;
         const int id;

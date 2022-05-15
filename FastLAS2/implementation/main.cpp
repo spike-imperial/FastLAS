@@ -219,6 +219,9 @@ int main(int argc, char **argv) {
   if(debug) {
     cout << "S_M:" << endl;
     FastLAS::print_s_m();
+
+    cout << "Rule Schemas:" << endl;
+    Schema::RuleSchema::print_rule_schemas();
   }
 
   if (vm.count("write-cache")) {
