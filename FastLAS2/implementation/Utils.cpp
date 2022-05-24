@@ -246,7 +246,9 @@ void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& ex
 }
 
 void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& excs, vector<NRule>& ctx, int penalty, bool positive, std::unordered_map<std::string, int>& choice_scores, bool prediction) {
-  if(cached_examples.find(id) == cached_examples.end()) {
+  auto cached_example_id_it = cached_examples.find(id);
+
+  if(cached_example_id_it == cached_examples.end()) {
     set<string> string_incs, string_excs;
     for(auto inc : *incs) string_incs.insert(inc->to_string());
     for(auto exc : *excs) string_excs.insert(exc->to_string());
@@ -275,6 +277,10 @@ void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& ex
     } else {
       examples.insert(new PredictionExample(id, string_incs, string_excs, ctx));
     }
+  } else {
+    auto cached_example_id = *cached_example_id_it;
+    Example* example = Example::get_example(cached_example_id);
+    example->set_choice_scores(choice_scores);
   }
 }
 

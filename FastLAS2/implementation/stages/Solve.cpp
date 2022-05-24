@@ -25,6 +25,8 @@
 
 #include "Solve.h"
 #include <boost/algorithm/string.hpp>
+#include <boost/tokenizer.hpp>
+
 #include "../Utils.h"
 #include "../LanguageBias.h"
 #include "../Example.h"
@@ -44,6 +46,7 @@ extern vector<NRule> background;
 
 namespace FastLAS {
   void solve_final_task(string);
+  void solve_final_task_multiple_sols(string);
 
   int hypothesis_length = 0;
   int penalty_paid = 0;
@@ -154,7 +157,7 @@ void FastLAS::solve() {
       print_stats();
     }
   } else {
-    FastLAS::solve_final_task(ss.str());
+    FastLAS::solve_final_task_multiple_sols(ss.str());
   }
 }
 
@@ -214,3 +217,94 @@ void FastLAS::solve_final_task(string program) {
     boost::replace_all(solution, "naf__", "not ");
   }
 }
+
+void FastLAS::solve_final_task_multiple_sols(string program) {
+  stringstream ss;
+  sat = false;
+
+  ss << program;
+  ss << bias->final_bias_constraints << endl;
+  ss << final_solving_shows << endl;
+
+  if(output_solve_program) {
+    cout << ss.str() << endl;
+    exit(0);
+  }
+
+  if (FastLAS::debug_clingo) {
+    ofstream sat_file("solve.clingo");
+    sat_file << ss.str() << endl;
+    sat_file.close();
+  }
+
+  string inpipe = get_tmp_file(false), outpipe = get_tmp_file(false);
+  ofstream infile(inpipe);
+  infile << ss.str() << endl;
+  infile.close();
+
+  string args = "-n 0 --opt-mode=optN --opt-strat=usc,stratify";
+
+  auto ret = system(string("clingo --outf=1 " + args + " " + inpipe + " > " + outpipe + " 2> /dev/null").c_str());
+
+  ifstream proc(outpipe);
+  stringstream full_string;
+
+  boost::char_separator<char> sep(" .");
+  string line;
+  string atom;
+  int i = 0;
+  stringstream solution_ss;
+
+  while (std::getline(proc, line)) {
+    if (line[0] == '%' || line == "ANSWER" || line == "OPTIMUM" || boost::starts_with(line, "COST")) {
+      continue;
+    }
+
+    cout << "SOLUTION " << ++i << ":" << endl;
+
+    sat_disjs.clear();
+    hypothesis_length = 0;
+    
+    sat = true;
+    solution_ss.str( std::string() );
+    solution_ss.clear();
+
+    boost::tokenizer<boost::char_separator<char> > tokens(line, sep);
+    for (const auto& t : tokens) {
+      int bracket_pos = t.find("(");
+      std::string fn = t.substr(0, bracket_pos);
+      std::string arg = t.substr(bracket_pos + 1, t.length() - 1);
+
+      if (fn == "in_h") {
+        auto rule = Schema::RuleSchema::get_schema(std::stoi(arg));
+        hypothesis_length += rule->get_score();
+        solution_ss << rule->print() << endl;
+      } else if (fn == "disj") {
+        sat_disjs.insert(int_to_disj[stoi(arg)]);
+      } else if (fn == "penalty") {
+        sat_intermediate_facts.insert(atom);
+      } else if (fn == "smallest_covered") {
+        istringstream ss(arg);
+        string eg_id;
+        string sub_id;
+        getline(ss, eg_id, ',');
+        getline(ss, sub_id);
+
+        Example::get_example(eg_id)->set_best_possibility(sub_id);
+      } else {
+        cout << "NOT UNDERSTOOD: " << fn << "(" << arg << ")" << endl;
+      }
+    }
+    
+    solution = solution_ss.str();
+    boost::replace_all(solution, "n_v_a_r", "V");
+    boost::replace_all(solution, "v_a_r", "V");
+    boost::replace_all(solution, "naf__", "not ");
+    FastLAS::print_solution();
+  }
+
+  proc.close();
+  remove(inpipe.c_str());
+  remove(outpipe.c_str());
+}
+

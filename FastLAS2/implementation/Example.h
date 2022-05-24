@@ -74,6 +74,8 @@ class Example {
     void add_possibility(const std::set<int>&, const std::set<std::set<int>>&);
     void add_possibility(Example*);
 
+    void set_choice_scores(std::unordered_map<std::string, int> new_choice_scores);
+
     void delete_sat_insufficient();
 
     virtual bool prediction() const;

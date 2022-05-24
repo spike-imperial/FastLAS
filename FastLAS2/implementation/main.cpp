@@ -238,7 +238,7 @@ int main(int argc, char **argv) {
     } else if(debug) {
       FastLAS::print_stats();
     } else {
-      FastLAS::print_solution();
+      // FastLAS::print_solution();
     }
   }
 

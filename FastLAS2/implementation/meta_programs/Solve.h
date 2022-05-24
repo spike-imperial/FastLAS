@@ -66,4 +66,13 @@ end
 #end.
 )";
 
+std::string final_solving_shows = R"(
+:~ penalty(P, T).[P@0, intermediate, T]
+
+#show in_h/1.
+#show penalty/2.
+#show disj/1.
+#show smallest_covered/2.
+)";
+
 #endif

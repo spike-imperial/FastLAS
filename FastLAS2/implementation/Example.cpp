@@ -279,11 +279,15 @@ void Example::clear_optimised_rule_violations() {
 }
 
 Example* Example::get_example(const std::string& id) {
-  return example_map[id];
+  return example_map.at(id);
 }
 
 Example* Example::get_possibility(const std::string& id) {
-  return possibility_map[id];
+  return possibility_map.at(id);
+}
+
+void Example::set_choice_scores(std::unordered_map<std::string, int> new_choice_scores) {
+  choice_scores = new_choice_scores;
 }
 
 bool Example::prediction() const {
