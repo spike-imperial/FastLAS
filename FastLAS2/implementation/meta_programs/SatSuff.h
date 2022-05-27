@@ -127,14 +127,14 @@ invalid_head(H) :- var(V), var_in_head(V, H, Index), var(V2), V2 < V; #false : v
 
 bottom(A) :- ctx(_, A).
 
-:- non_sym.
-
-non_sym :-
-  sym(V1, Pos1, Pred1, Ar1, VarNo1, Atom1), var(V2), V1 > V2, type(V1, T), type(V2, T),
-  #false : sym(V2, Pos2, Pred2, Ar2, VarNo2, Atom2), (Pos1, Pred1, Ar1, VarNo1, Atom1) > (Pos2, Pred2, Ar2, VarNo2, Atom2).
-
-
-#show non_sym/0.
+%:- non_sym.
+%
+%non_sym :-
+%  sym(V1, Pos1, Pred1, Ar1, VarNo1, Atom1), var(V2), V1 > V2, type(V1, T), type(V2, T),
+%  #false : sym(V2, Pos2, Pred2, Ar2, VarNo2, Atom2), (Pos1, Pred1, Ar1, VarNo1, Atom1) > (Pos2, Pred2, Ar2, VarNo2, Atom2).
+%
+%
+%#show non_sym/0.
 
 
 
