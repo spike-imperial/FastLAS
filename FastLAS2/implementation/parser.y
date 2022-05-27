@@ -99,6 +99,7 @@ void yyerror (std::string s) {
     std::pair<std::string, int>* identifier;
     std::unordered_map<std::string, int>* example_choice_scores;
     std::pair<std::string, int>* example_choice_score;
+    std::vector<int>* int_list;
 }
 
 %token <string> T_BASIC_SYMBOL T_VAR_NAME T_INT T_NUM T_STRING T_UNDERSCORE T_AT
@@ -111,6 +112,7 @@ void yyerror (std::string s) {
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
 %token <token> T_CHOICE T_DOUBLE_COLON
 %token <token> T_CHOICES T_CHOICE_SCORES
+%token <token> T_SYMMETRIC
 
 %type <term> term arithmetic_expr
 %type <atom> atom
@@ -136,6 +138,8 @@ void yyerror (std::string s) {
 %type <example_choice_scores> example_choice_score_list;
 %type <example_choice_scores> cached_choices;
 %type <term_list> cached_possibility_choices;
+%type <int_list> int_list;
+%type <int_list> mode_dec_params;
 
 %left T_MOD
 %left T_DOUBLE_DOT
@@ -369,8 +373,8 @@ mode : T_CHOICE T_BASIC_SYMBOL T_DIV T_INT T_DOT {
        }
      ; 
 
-inner_mode_dec : T_L_PAREN atom T_R_PAREN T_DOT {
-         $$ = new ModeDeclaration(-1, *$2, true); delete $2;
+inner_mode_dec : T_L_PAREN atom mode_dec_params T_R_PAREN T_DOT {
+         $$ = new ModeDeclaration(-1, *$2, true, *$3); delete $2; delete $3;
        }
      | T_L_PAREN T_NAF atom T_R_PAREN T_DOT {
          $$ = new ModeDeclaration(-1, *$3, false); delete $3;
@@ -380,6 +384,15 @@ inner_mode_dec : T_L_PAREN atom T_R_PAREN T_DOT {
        }
      ;
 
+mode_dec_params : { $$ = new std::vector<int>(); }
+                | T_COMMA T_SYMMETRIC T_L_PAREN int_list T_R_PAREN {
+                  $$ = $4;
+                } 
+
+int_list : { $$ = new std::vector<int>(); }
+         | T_INT { $$ = new std::vector<int>(); $$->push_back(std::stoi(*$1)); }
+         | int_list T_COMMA T_INT { $$ = $1; $$->push_back(std::stoi(*$3)); }
+;
 
 // CACHE
 

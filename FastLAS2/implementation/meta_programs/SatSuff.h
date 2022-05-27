@@ -32,11 +32,24 @@ head_output(ARG) :- sym(ARG, 1, _, N_ARGS, N_ARGS - 1, _).
 output(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N = N_ARGS - 1.
 body_input(ARG) :- sym(ARG, 2, _, N_ARGS, N, _), N < N_ARGS - 1.
 
+% The output of the head atom in the rule must come as an output from one of the body atoms
 :- head_output(ARG), not output(ARG).
+% The inputs for a body atom must either come as an argument from the head or a output from another body variable
 :- body_input(ARG), not head_input(ARG), not output(ARG).
-:- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM), sym(ARG, 2, _, N_ARGS, N, ATOM), N < N_ARGS - 1.
+% Two body atoms cannot have the same output
 :- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM1), sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM2), ATOM1 != ATOM2.
+% The output of a body atom cannot appear as an argument of the same atom
+% TODO: is this necessary, what about something like `second(A, B, B)`
+:- sym(ARG, 2, _, N_ARGS, N_ARGS - 1, ATOM), sym(ARG, 2, _, N_ARGS, N, ATOM), N < N_ARGS - 1.
+% Every output must be used somewhere
 :- output(ARG), not head_output(ARG), not body_input(ARG).
+
+)";
+
+std::string sat_suff_symmetric_condition = R"(
+:- symmetric(ATOM_, ARG1_IDX), sym(ARG1, _, ATOM_, _, ARG1_IDX, _), 
+   symmetric(ATOM_, ARG2_IDX), sym(ARG2, _, ATOM_, _, ARG2_IDX, _), 
+   ARG1_IDX < ARG2_IDX, var_smaller(ARG2, ARG1).
 
 )";
 

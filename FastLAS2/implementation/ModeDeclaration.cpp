@@ -162,7 +162,28 @@ string ModeDeclaration::body_representation() const {
     }
   }
 
+  stringstream ss2;
+
+  if(!atom.is_comparison()) {
+    ss2 << atom.predicate_name << "(0";
+  } else {
+    ss2 << "(\"" << atom.predicate_name << "\"";
+  }
+
+  for(int j = 0; j < vars.size(); j++) {
+    if(vars[j].first.compare("var") == 0) {
+      ss2 << ", v";
+    } else {
+      ss2 << ", n";
+    }
+  }
+  ss2 << ")";
+
   ss << sym_representation(true, false);
+
+  for (auto& symmetric_arg : _symmetries) {
+    ss << "symmetric(" << ss2.str() << "," << symmetric_arg << ")." << endl;
+  }
 
   return ss.str();
 }

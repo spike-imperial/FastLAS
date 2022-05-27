@@ -31,9 +31,11 @@ class ModeDeclaration {
 
   public:
 
-    ModeDeclaration(int recall, NAtom& atom, bool positive)
-      : recall(recall), atom(atom), positive(positive) {};
+    ModeDeclaration(int recall, NAtom& atom, bool positive, std::vector<int> symmetries)
+      : recall(recall), atom(atom), positive(positive), _symmetries(symmetries) {};
 
+    ModeDeclaration(int recall, NAtom& atom, bool positive)
+      : ModeDeclaration(recall, atom, positive, std::vector<int>()) {};
 
     std::string to_string() const;
     std::string head_representation() const;
@@ -59,6 +61,8 @@ class ModeDeclaration {
   private:
 
     NAtom atom;
+
+    std::vector<int> _symmetries;
 
 };
 
