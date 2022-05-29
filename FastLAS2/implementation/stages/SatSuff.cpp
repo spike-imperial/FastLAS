@@ -129,6 +129,10 @@ void FastLAS::compute_sat_sufficient() {
       ss << final_arg_safety_constraints;
     }
 
+    if (FastLAS::must_consume_outputs) {
+      ss << ":- output_arg(ARG), not input_arg(ARG)." << endl;
+    }
+
     ss << sat_suff_symmetric_condition;
     for(int i = 0; i < bias->maxv - 1; ++i) {
       ss << "var_smaller(v_a_r" << i << "," << "v_a_r" << i + 1 << ")." << endl;

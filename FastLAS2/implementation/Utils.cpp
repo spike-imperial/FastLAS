@@ -54,10 +54,10 @@ namespace FastLAS {
   bool categorical_contexts = false;
   bool any_cache = false;
   bool sat_suff_only = false;
+  bool must_consume_outputs = false;
   int score_precision = 2;
 
   vector<string> language({"f_triv___"});
-
 };
 
 namespace {

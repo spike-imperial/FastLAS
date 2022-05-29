@@ -202,7 +202,7 @@ void FastLAS::solve_final_task(string program) {
       getline(ss, eg_id, ',');
       getline(ss, sub_id);
 
-      Example::get_example(eg_id)->set_best_possibility(sub_id);
+      // Example::get_example(eg_id)->set_best_possibility(sub_id);
     }) ([&]() {
       sat = true;
     }
@@ -290,7 +290,7 @@ void FastLAS::solve_final_task_multiple_sols(string program) {
         getline(ss, eg_id, ',');
         getline(ss, sub_id);
 
-        Example::get_example(eg_id)->set_best_possibility(sub_id);
+        // Example::get_example(eg_id)->set_best_possibility(sub_id);
       } else {
         cout << "NOT UNDERSTOOD: " << fn << "(" << arg << ")" << endl;
       }

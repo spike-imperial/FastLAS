@@ -181,10 +181,30 @@ string ModeDeclaration::body_representation() const {
 
   ss << sym_representation(true, false);
 
-  for (auto& symmetric_arg : _symmetries) {
+  for (auto& symmetric_arg : _params.symmetries) {
     ss << "symmetric(" << ss2.str() << "," << symmetric_arg << ")." << endl;
   }
 
+  string atom_gen;
+  if (positive) {
+    atom_gen = atom.generalise("ARG", true);
+  } else {
+    atom_gen = "naf__" + atom.generalise("ARG", true);
+  }
+
+  for (auto& output_arg : _params.outputs) {
+    ss << "output_arg(ARG" << output_arg << ") :- in(" << atom_gen << ")." << endl;
+  }
+
+  for (auto& input_arg : _params.inputs) {
+    ss << ":- in(" << atom_gen << "), not output_arg(ARG" << input_arg << ")." << endl;
+    ss << "input_arg(ARG" << input_arg << ") :- in(" << atom_gen << ")." << endl;
+  }
+
+  if (_params.antireflexive.size() == 2) {
+    ss << ":- in(" << atom_gen << "), ARG" << _params.antireflexive[0] << " = ARG" << _params.antireflexive[1] << "." << endl;
+  }
+  
   return ss.str();
 }
 

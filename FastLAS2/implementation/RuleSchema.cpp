@@ -95,7 +95,7 @@ Schema::RuleSchema* Schema::RuleSchema::get_schema(const int& rid) {
 
 void Schema::RuleSchema::print_rule_schemas() {
   for (int i = 0; i < all_rule_schemas.size(); ++i) {
-    cout << "[" << i << "] " << all_rule_schemas[i]->print() << endl;
+    cout << "  [" << i << "] " << all_rule_schemas[i]->print() << endl;
   }
 }
 

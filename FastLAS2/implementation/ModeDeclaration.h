@@ -27,15 +27,22 @@
 #define MODE_DEC_H
 #include "Node.h"
 
+struct ModeDeclarationParams {
+  std::vector<int> symmetries;
+  std::vector<int> inputs;
+  std::vector<int> outputs;
+  std::vector<int> antireflexive;
+};
+
 class ModeDeclaration {
 
   public:
 
-    ModeDeclaration(int recall, NAtom& atom, bool positive, std::vector<int> symmetries)
-      : recall(recall), atom(atom), positive(positive), _symmetries(symmetries) {};
+    ModeDeclaration(int recall, NAtom& atom, bool positive, ModeDeclarationParams params)
+      : recall(recall), atom(atom), positive(positive), _params(params) {};
 
     ModeDeclaration(int recall, NAtom& atom, bool positive)
-      : ModeDeclaration(recall, atom, positive, std::vector<int>()) {};
+      : ModeDeclaration(recall, atom, positive, ModeDeclarationParams()) {};
 
     std::string to_string() const;
     std::string head_representation() const;
@@ -62,7 +69,7 @@ class ModeDeclaration {
 
     NAtom atom;
 
-    std::vector<int> _symmetries;
+    ModeDeclarationParams _params;
 
 };
 

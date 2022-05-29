@@ -70,6 +70,7 @@ int main(int argc, char **argv) {
     ("final-arg-safety", "enforce that the final variable in the head rules must occur in the final argument of at least one body rule.")
     ("space-size", "output final s_m size.")
     ("sat-suff-only", "compute the SAT sufficient possibilities only.")
+    ("must-consume-outputs", "when generating SAT sufficient subsets, any output arg must also be consumed as an input arg")
     ("print-choices", "print the choices made by the solver for the optimal solutions")
     ("threads", po::value<int>(), "number of threads.");
 
@@ -122,6 +123,7 @@ int main(int argc, char **argv) {
   if(vm.count("final-arg-safety")) FastLAS::final_arg_safety = true;
   if(vm.count("score-only")) FastLAS::score_only = true;
   if(vm.count("sat-suff-only")) FastLAS::sat_suff_only = true;
+  if(vm.count("must-consume-outputs")) FastLAS::must_consume_outputs = true;
 
   // parse
 
