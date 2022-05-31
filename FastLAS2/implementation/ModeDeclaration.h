@@ -32,6 +32,7 @@ struct ModeDeclarationParams {
   std::vector<int> inputs;
   std::vector<int> outputs;
   std::vector<int> antireflexive;
+  std::vector<int> uniques;
 };
 
 class ModeDeclaration {
@@ -53,10 +54,9 @@ class ModeDeclaration {
     std::string analyse_body_representation() const;
     std::string occurance_representation(bool head) const;
     std::string sym_representation(bool, bool) const;
+    std::string param_representation(bool) const;
 
     std::string dependency_representation(const std::string&) const;
-
-    std::string generalise_last_arg(const std::string& var_name) const;
 
     bool matches_schema(const std::pair<std::string, int>& schema) const;
 
@@ -64,6 +64,9 @@ class ModeDeclaration {
 
     const int recall;
     const bool positive;
+
+    std::vector<int> get_outputs() const { return _params.outputs; }
+
 
   private:
 

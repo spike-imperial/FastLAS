@@ -113,7 +113,7 @@ void yyerror (std::string s) {
 %token <token> T_INC_IDS T_EXC_IDS T_CTX_IDS T_RULE_SCHEMAS
 %token <token> T_CHOICE T_DOUBLE_COLON
 %token <token> T_CHOICES T_CHOICE_SCORES
-%token <token> T_SYMMETRIC T_INPUT T_OUTPUT T_ANTIREFLEXIVE
+%token <token> T_SYMMETRIC T_INPUT T_OUTPUT T_ANTIREFLEXIVE T_UNIQUE
 
 %type <term> term arithmetic_expr
 %type <atom> atom
@@ -397,6 +397,9 @@ mode_dec_params : { $$ = new ModeDeclarationParams(); }
                   }
                 | mode_dec_params T_COMMA T_ANTIREFLEXIVE T_L_PAREN int_list T_R_PAREN {
                     $$ = $1; $$->antireflexive = *$5;
+                  }
+                | mode_dec_params T_COMMA T_UNIQUE T_L_PAREN int_list T_R_PAREN {
+                    $$ = $1; $$->uniques = *$5;
                   }
                 ;
 

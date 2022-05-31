@@ -100,6 +100,35 @@ std::string NTerm::generalise(const std::string& var_name, int& index, const boo
 
 }
 
+std::string NTerm::generalise_some_args(const std::string& var_name, int& index, const std::vector<int>& args, const bool inc_index) const {
+  stringstream ss;
+
+  if(arguments.size() == 1 && (function_name.compare("num_var") == 0 || function_name.compare("var") == 0 || function_name.compare("const") == 0)) {
+      if(std::find(args.begin(), args.end(), index) != args.end()) {
+        ss << var_name;
+        if (inc_index) {
+          ss << index;
+        }
+      } else {
+        ss << "_";
+      }
+      ++index;
+  } else {
+    ss << function_name;
+    for(int i = 0; i < arguments.size(); i++) {
+      ss << (i == 0 ? "(" : ", ");
+      ss << arguments[i]->generalise_some_args(var_name, index, args, inc_index);
+    }
+    if(arguments.size() > 0) {
+      ss << ")";
+    }
+  }
+
+  return ss.str();
+
+}
+
+
 string NTerm::link_arguments(int& index, vector<string>& types) const {
   stringstream ss;
   if(arguments.size() == 1) {

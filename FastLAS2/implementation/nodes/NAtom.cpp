@@ -62,23 +62,22 @@ string NAtom::generalise(const std::string& var_name, const bool& rewrite) const
   return ss.str();
 }
 
-string NAtom::generalise_last_arg(const std::string& var_name, const bool& rewrite) const {
+string NAtom::generalise_some_args(const std::string& var_name, const std::vector<int> args, const bool inc_index) const {
   stringstream ss;
   int index = 0;
   if(is_comparison() && arguments.size() == 2) {
     throw "Branch not implemented.";
   } else {
     ss << predicate_name;
-    for(int i = 0; i < arguments.size() - 1; i++) {
-      if(i == 0) {
+    for (int i = 0; i < arguments.size(); ++i) {
+      if (index == 0) {
         ss << "(";
       } else {
         ss << ",";
       }
-      ss << "_";
+      ss << arguments[i]->generalise_some_args(var_name, index, args, inc_index);
     }
     if(arguments.size() > 0) {
-      ss << "," << var_name;
       ss << ")";
     }
   }

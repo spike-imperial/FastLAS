@@ -68,6 +68,8 @@ string ModeDeclaration::head_representation() const {
 
   ss << sym_representation(false, false);
 
+  ss << param_representation(true);
+
   return ss.str();
 }
 
@@ -185,26 +187,48 @@ string ModeDeclaration::body_representation() const {
     ss << "symmetric(" << ss2.str() << "," << symmetric_arg << ")." << endl;
   }
 
-  string atom_gen;
-  if (positive) {
-    atom_gen = atom.generalise("ARG", true);
+  ss << param_representation(false);
+  
+  return ss.str();
+}
+
+string ModeDeclaration::param_representation(bool head) const {
+  stringstream ss;
+  string atom_gen = atom.generalise("ARG", true);
+
+  if (!positive) {
+    atom_gen = "naf__" + atom_gen;
+  }
+
+  if (head) {
+    atom_gen = "head(" + atom_gen + ")";
   } else {
-    atom_gen = "naf__" + atom.generalise("ARG", true);
+    atom_gen = "in(" + atom_gen + ")";
   }
 
   for (auto& output_arg : _params.outputs) {
-    ss << "output_arg(ARG" << output_arg << ") :- in(" << atom_gen << ")." << endl;
+    ss << "output_arg(ARG" << output_arg << ") :- " << atom_gen << "." << endl;
   }
 
   for (auto& input_arg : _params.inputs) {
-    ss << ":- in(" << atom_gen << "), not output_arg(ARG" << input_arg << ")." << endl;
-    ss << "input_arg(ARG" << input_arg << ") :- in(" << atom_gen << ")." << endl;
+    ss << ":- " << atom_gen << ", not output_arg(ARG" << input_arg << ")." << endl;
+    ss << "input_arg(ARG" << input_arg << ") :- " << atom_gen << "." << endl;
   }
 
   if (_params.antireflexive.size() == 2) {
-    ss << ":- in(" << atom_gen << "), ARG" << _params.antireflexive[0] << " = ARG" << _params.antireflexive[1] << "." << endl;
+    ss << ":- " << atom_gen << ", ARG" << _params.antireflexive[0] << " = ARG" << _params.antireflexive[1] << "." << endl;
   }
-  
+
+  for (auto& output_arg : _params.outputs) {
+    for (auto& input_arg : _params.inputs) {
+      if (head) {
+        ss << ":- head(" << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
+      } else {
+        ss << ":- in(" << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
+      }
+    }
+  }
+
   return ss.str();
 }
 
@@ -313,8 +337,4 @@ string ModeDeclaration::abduce_body_representation() const {
   }
 
   return ss.str();
-}
-
-string ModeDeclaration::generalise_last_arg(const std::string& var_name) const {
-  return atom.generalise_last_arg(var_name, false);
 }

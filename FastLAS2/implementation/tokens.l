@@ -48,6 +48,7 @@
 "input"                 return TOKEN(T_INPUT);
 "output"                return TOKEN(T_OUTPUT);
 "antireflexive"         return TOKEN(T_ANTIREFLEXIVE);
+"unique"                return TOKEN(T_UNIQUE);
 [a-z][a-zA-Z0-9_]*      SAVE_TOKEN; return T_BASIC_SYMBOL;
 [A-Z][a-zA-Z0-9_]*      yylval.string = new std::string(std::string(yytext, yyleng)); return T_VAR_NAME;
 [0-9]+\.[0-9]+          SAVE_TOKEN; return T_NUM;

@@ -33,6 +33,9 @@
 #include "../Example.h"
 #include "../meta_programs/Optimise.h"
 
+#include <iostream>
+#include <fstream>
+
 using namespace std;
 
 extern LanguageBias* bias;
@@ -148,6 +151,12 @@ void write_global_file(const string& global_pipe, int head=-1) {
   global_file << ss.str();
   //cerr << ss.str() << endl;
   global_file.close();
+
+  if (FastLAS::debug_clingo) {
+    ofstream global_file_debug("global_opt.clingo");
+    global_file_debug << ss.str();
+    global_file_debug.close();
+  }
 }
 
 void FastLAS::optimise() {
@@ -193,6 +202,12 @@ void FastLAS::optimise() {
           //cerr << ss.str() << endl;
           //cerr << "%%%%%%%%%%%%%%" << endl;
           //exit(2);
+
+          if (FastLAS::debug_clingo) {
+            ofstream opt_file("optimize.clingo");
+            opt_file << ss.str() << endl;
+            opt_file.close();
+          }
 
           Clingo(ss.str(), global_pipe + " --heuristic=Domain ")
             ('i', [&](const string& atom) {

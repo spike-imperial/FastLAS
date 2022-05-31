@@ -125,7 +125,7 @@ class NAtom : public NRuleHead {
 
     std::string generalise(const std::string& var_name, const bool& rewrite) const;
 
-    std::string generalise_last_arg(const std::string& var_name, const bool& rewrite) const;
+    std::string generalise_some_args(const std::string& var_name, const std::vector<int> args, bool inc_index) const;
 
     std::vector<std::pair<std::string, std::string>> get_place_holders() const {
       std::vector<std::pair<std::string, std::string>> phs;

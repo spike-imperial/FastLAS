@@ -48,6 +48,78 @@ namespace {
   mutex mtx_ss;
 }
 
+vector<string> get_output_biases() {
+  vector<string> all_generalised_outputs = vector<string>();
+
+  for (auto& mh : bias->head_declarations) {
+    for (auto& output : mh.get_outputs()) {
+      string generalised_atom = mh.get_atom().generalise_some_args("ARG", {output}, false);
+      all_generalised_outputs.push_back("head(" + generalised_atom + ")");
+    }
+  }
+
+  for (auto& mb : bias->body_declarations) {
+    for (auto& output : mb.get_outputs()) {
+      string generalised_atom = mb.get_atom().generalise_some_args("ARG", {output}, false);
+      all_generalised_outputs.push_back("in(" + generalised_atom + ")");
+    }
+  }
+  
+  return all_generalised_outputs;
+}
+
+string turn_args_to_tuple(std::vector<string> args, string var_name) {
+  stringstream ss;
+  ss << "(";
+  for (int i = 0; i < args.size(); ++i) {
+    ss << var_name << args[i];
+    if (i < args.size() - 1) {
+      ss << ",";
+    }
+  }
+  ss << ")";
+
+  return ss.str();
+}
+
+string generate_self_conflicting_outputs_check(bool head) {
+  stringstream ss;
+
+  for (auto& mh : (head ? bias->head_declarations : bias->body_declarations)) {
+    int num_args = mh.get_atom().arguments.size();
+    if (num_args == 1) {
+      continue;
+    }
+
+    for (auto& output : mh.get_outputs()) {
+      std::vector<string> non_output_args;
+      for (int i = 0; i < num_args; ++i) {
+        if (i == output) {
+          continue;
+        }
+        non_output_args.push_back(std::to_string(i));
+      }
+
+      string gen1 = mh.get_atom().generalise("ARG1_", false);
+      string gen2 = mh.get_atom().generalise("ARG2_", false);
+
+      if (head) {
+        gen1 = "head(" + gen1 + ")";
+        gen2 = "head(" + gen2 + ")";
+      } else {
+        gen1 = "in(" + gen1 + ")";
+        gen2 = "in(" + gen2 + ")";
+      }
+
+      ss << ":- " << gen1 << "," << gen2 << ", " << turn_args_to_tuple(non_output_args, "ARG1_") 
+         << " != " << turn_args_to_tuple(non_output_args, "ARG2_") << ", "
+         << "ARG1_" << output << " = " <<  "ARG2_" << output << "." << endl;
+    }
+  }
+
+  return ss.str();
+} 
+
 void FastLAS::compute_sat_sufficient() {
   set<set<Example*>> grouped_possibilities;
 
@@ -119,6 +191,17 @@ void FastLAS::compute_sat_sufficient() {
     for(auto& mb : bias->body_declarations) {
       ss << mb.body_representation() << endl;
     }
+
+    vector<string> output_biases = get_output_biases();
+
+    for (int i = 0; i < output_biases.size(); ++i) {
+      for (int j = i + 1; j < output_biases.size(); ++j) {
+        ss << ":- " << output_biases[i] << ", " << output_biases[j] << "." << endl;
+      }
+    }
+
+    ss << generate_self_conflicting_outputs_check(true);
+    ss << generate_self_conflicting_outputs_check(false);
 
     if(!FastLAS::run_fast_las_2) {
       for(auto r : background)                ss << r.meta_representation();

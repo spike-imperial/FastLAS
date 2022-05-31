@@ -40,6 +40,7 @@ class NTerm : public Node {
 
     virtual std::string to_string() const;
     virtual std::string generalise(const std::string&, int&, const bool& rewrite) const;
+    virtual std::string generalise_some_args(const std::string&, int&, const std::vector<int>&, const bool) const;
     virtual std::set<std::string> get_type_atoms(const std::string&, int&, std::string prefix="ctx(_, ") const;
 
     std::shared_ptr<NTerm> get_argument(int i) {

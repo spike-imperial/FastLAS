@@ -41,7 +41,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 ADD_DEFINITIONS(
   -std=c++17
   -O3
-  -g
+  #-g
 )
 
 add_library(
