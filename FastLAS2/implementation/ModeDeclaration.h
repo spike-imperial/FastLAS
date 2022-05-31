@@ -54,7 +54,7 @@ class ModeDeclaration {
     std::string analyse_body_representation() const;
     std::string occurance_representation(bool head) const;
     std::string sym_representation(bool, bool) const;
-    std::string param_representation(bool) const;
+    std::string param_representation(bool, bool) const;
 
     std::string dependency_representation(const std::string&) const;
 

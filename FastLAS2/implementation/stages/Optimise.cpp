@@ -133,15 +133,22 @@ void write_global_file(const string& global_pipe, int head=-1) {
   for(auto& mb : bias->body_declarations) ss << mb.occurance_representation(false) << endl;
 
 
-  if(FastLAS::max_conditions > 0) {
+  if (FastLAS::max_conditions > 0) {
     ss << ":- #count { V : cond(V) } > " << FastLAS::max_conditions << "." << endl;
   }
 
-  // THEO TODO: do I need a force final arg safety constraint?
-  if(FastLAS::force_safety) {
+  if (FastLAS::force_safety) {
     ss << ":- occurs_head(V), not occurs_pos(V)." << endl;
     ss << ":- occurs_neg(V),  not occurs_pos(V)." << endl;
   }
+
+  if (FastLAS::must_consume_outputs) {
+    ss << ":- output_arg(ARG), not input_arg(ARG)." << endl;
+  }
+  
+
+
+
   //cout << ss.str() << endl;
   //exit(2);
 

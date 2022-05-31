@@ -68,7 +68,7 @@ string ModeDeclaration::head_representation() const {
 
   ss << sym_representation(false, false);
 
-  ss << param_representation(true);
+  ss << param_representation(true, false);
 
   return ss.str();
 }
@@ -187,12 +187,12 @@ string ModeDeclaration::body_representation() const {
     ss << "symmetric(" << ss2.str() << "," << symmetric_arg << ")." << endl;
   }
 
-  ss << param_representation(false);
+  ss << param_representation(false, false);
   
   return ss.str();
 }
 
-string ModeDeclaration::param_representation(bool head) const {
+string ModeDeclaration::param_representation(bool head, bool optimize) const {
   stringstream ss;
   string atom_gen = atom.generalise("ARG", true);
 
@@ -200,10 +200,10 @@ string ModeDeclaration::param_representation(bool head) const {
     atom_gen = "naf__" + atom_gen;
   }
 
-  if (head) {
-    atom_gen = "head(" + atom_gen + ")";
+  if (optimize) {
+    atom_gen = head ? "in_head(" + atom_gen + ")" : "in_body(" + atom_gen + ")";
   } else {
-    atom_gen = "in(" + atom_gen + ")";
+    atom_gen = head ? "head(" + atom_gen + ")" : "in(" + atom_gen + ")";
   }
 
   for (auto& output_arg : _params.outputs) {
@@ -222,9 +222,9 @@ string ModeDeclaration::param_representation(bool head) const {
   for (auto& output_arg : _params.outputs) {
     for (auto& input_arg : _params.inputs) {
       if (head) {
-        ss << ":- head(" << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
+        ss << (optimize ? ":- in_head(" : ":- head(") << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
       } else {
-        ss << ":- in(" << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
+        ss << (optimize ? ":- in_body(" : ":- in(") << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
       }
     }
   }
@@ -249,6 +249,8 @@ string ModeDeclaration::occurance_representation(bool head) const {
       }
     }
   }
+
+  ss << param_representation(head, true);
 
   return ss.str();
 }
