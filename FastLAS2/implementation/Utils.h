@@ -114,6 +114,7 @@ namespace FastLAS {
   extern int sample_size, max_conditions;
   extern bool sat_suff_only;
   extern bool must_consume_outputs;
+  extern bool choice_semantics;
   extern int score_precision;
 
   template<typename T, typename F> void parallel_exec(const T& jobs, int number_of_workers, F p) {

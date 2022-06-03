@@ -371,7 +371,8 @@ void FastLAS::compute_sat_sufficient() {
 
         if (partial_disjs[inc].size() == 0) {
           eg->is_valid = false;
-          degenerate_examples.insert(eg->id);
+          // TODO: Fix segfault
+          // degenerate_examples.insert(eg->id);
         }
       }
     }

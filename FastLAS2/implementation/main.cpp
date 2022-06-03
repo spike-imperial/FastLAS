@@ -72,6 +72,7 @@ int main(int argc, char **argv) {
     ("sat-suff-only", "compute the SAT sufficient possibilities only.")
     ("must-consume-outputs", "when generating SAT sufficient subsets, any output arg must also be consumed as an input arg")
     ("print-choices", "print the choices made by the solver for the optimal solutions")
+    ("choice-semantics", "use the choice semantics for ILP tasks")
     ("threads", po::value<int>(), "number of threads.");
 
   po::positional_options_description p;
@@ -124,6 +125,7 @@ int main(int argc, char **argv) {
   if(vm.count("score-only")) FastLAS::score_only = true;
   if(vm.count("sat-suff-only")) FastLAS::sat_suff_only = true;
   if(vm.count("must-consume-outputs")) FastLAS::must_consume_outputs = true;
+  if(vm.count("choice-semantics")) FastLAS::choice_semantics = true;
 
   // parse
 
@@ -239,8 +241,8 @@ int main(int argc, char **argv) {
       FastLAS::print_score();
     } else if(debug) {
       FastLAS::print_stats();
-    } else {
-      // FastLAS::print_solution();
+    } else if (!FastLAS::choice_semantics) {
+      FastLAS::print_solution();
     }
   }
 

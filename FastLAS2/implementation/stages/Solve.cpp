@@ -66,14 +66,16 @@ void FastLAS::solve() {
     ss << "% " << eg->id << endl;
     ss << "example(" << eg->id << ")." << endl;
     for(auto sub_eg : eg->get_possibilities()) {
-      int choice_penalty = 0;
-      for (string choice : sub_eg->get_choices()) {
-        choice_penalty += eg->get_choice_scores().at(choice);
-      }
       ss << "% " << eg->id << " : " << sub_eg->id << endl;
-      ss << "cov(" << sub_eg->id << ") :- not n_cov(" << sub_eg->id << ")." << endl;
-      ss << "sub(" << eg->id << "," << sub_eg->id << ")." << endl;
-      ss << "choice_penalty(" << sub_eg->id << "," << choice_penalty << ")." << endl;
+      if (FastLAS::choice_semantics) {
+        ss << "cov(" << sub_eg->id << ") :- not n_cov(" << sub_eg->id << ")." << endl;
+        ss << "sub(" << eg->id << "," << sub_eg->id << ")." << endl;
+        int choice_penalty = 0;
+        for (string choice : sub_eg->get_choices()) {
+          choice_penalty += eg->get_choice_scores().at(choice);
+        }
+        ss << "choice_penalty(" << sub_eg->id << "," << choice_penalty << ")." << endl;
+      }
       for(auto disj : sub_eg->get_optimised_rule_disjunctions()) {
         int index = cached_disjs.size();
         auto it = cached_disjs.find(disj);
@@ -133,11 +135,13 @@ void FastLAS::solve() {
     cout << "% SPACE SIZE: " << ds.size() << endl;
   }
 
-  int num_examples = examples.size();
-  ss << "eg_penalty(Eg, N / " << num_examples << ") :- example(Eg), N=#min{ P : choice_penalty(Subeg, P), sub(Eg, Subeg), cov(Subeg) }." << endl;
-  ss << "smallest_covered(Eg, Subeg) :- example(Eg), eg_penalty(Eg, P), choice_penalty(Subeg, P)." << endl;
-  ss << ":~ eg_penalty(_, P).[P@0]" << endl;
-  ss << ":~ #true.[54@0]" << endl;
+  if (FastLAS::choice_semantics) {
+    int num_examples = examples.size();
+    ss << "eg_penalty(Eg, N / " << num_examples << ") :- example(Eg), N=#min{ P : choice_penalty(Subeg, P), sub(Eg, Subeg), cov(Subeg) }." << endl;
+    ss << "smallest_covered(Eg, Subeg) :- example(Eg), eg_penalty(Eg, P), choice_penalty(Subeg, P)." << endl;
+    ss << ":~ eg_penalty(_, P).[P@0]" << endl;
+    ss << ":~ #true.[54@0]" << endl;
+  }
 
   if(prediction_task) {
     if(score_only) {
@@ -157,7 +161,11 @@ void FastLAS::solve() {
       print_stats();
     }
   } else {
-    FastLAS::solve_final_task_multiple_sols(ss.str());
+    if (FastLAS::choice_semantics) {
+      FastLAS::solve_final_task_multiple_sols(ss.str());
+    } else {
+      FastLAS::solve_final_task(ss.str());
+    }
   }
 }
 
