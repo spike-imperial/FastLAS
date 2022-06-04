@@ -23,11 +23,27 @@
  * IN THE SOFTWARE.
  */
 
-#include "ModeDeclaration.h"
 #include <sstream>
+#include <algorithm>
+
+#include "ModeDeclaration.h"
 #include "Utils.h"
 
 using namespace std;
+
+string _turn_args_to_tuple(std::vector<string> args, string var_name) {
+  stringstream ss;
+  ss << "(";
+  for (int i = 0; i < args.size(); ++i) {
+    ss << var_name << args[i];
+    if (i < args.size() - 1) {
+      ss << ",";
+    }
+  }
+  ss << ")";
+
+  return ss.str();
+}
 
 string ModeDeclaration::to_string() const {
   return atom.to_string();
@@ -227,6 +243,29 @@ string ModeDeclaration::param_representation(bool head, bool optimize) const {
         ss << (optimize ? ":- in_body(" : ":- in(") << atom.generalise_some_args("ARG", {output_arg, input_arg}, false) << ")." << endl;
       }
     }
+  }
+
+  if (!_params.uniques.empty()) {
+    if (head) {
+      ss << ":-" << (optimize ? "in_head(" : "head(") << atom.generalise("ARG1_", false) << "),"
+                 << (optimize ? "in_head(" : "head(") << atom.generalise("ARG2_", false) << "), ";
+    } else {
+      ss << ":-" << (optimize ? "in_body(" : "in(") << atom.generalise("ARG1_", false) << "),"
+                 << (optimize ? "in_body(" : "in(") << atom.generalise("ARG2_", false) << "), ";
+    }
+    std::vector<std::string> unique_args;
+    std::vector<std::string> non_unique_args;
+    for (int i = 0; i < atom.arguments.size(); ++i) {
+      if (std::find(_params.uniques.begin(), _params.uniques.end(), i) == _params.uniques.end()) {
+        non_unique_args.push_back(std::to_string(i));
+      } else {
+        unique_args.push_back(std::to_string(i));
+      }
+    }
+
+    ss << _turn_args_to_tuple(non_unique_args, "ARG1_") << " = " << _turn_args_to_tuple(non_unique_args, "ARG2_") << ", ";
+    ss << _turn_args_to_tuple(unique_args, "ARG1_") << " != " << _turn_args_to_tuple(unique_args, "ARG2_") << ".";
+    ss << endl;
   }
 
   return ss.str();
