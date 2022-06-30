@@ -31,6 +31,7 @@ IncrementalLAS is guaranteed to be optimal.
     1. [Sentence Chunking](sentence_chunking.md)
     2. [CAVIAR](caviar.md)
     3. [Policy Learning](policy_learning.md)
+3. [FastLOAS](fastloas.md)
 
 
 For the document with the proofs omitted from the AAAI 2020 paper, please see
