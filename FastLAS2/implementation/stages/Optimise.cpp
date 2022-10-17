@@ -204,12 +204,12 @@ void FastLAS::optimise() {
               head = stoi(atom);
             }) ('b', [&](const string& atom) {
               bound = stoi(atom);
-            //}) ('l', [&](const string& atom) {
-            //  auto it = atom.find(',');
-            //  rule_body.insert(get_language_index(atom.substr(0, it) + " >= " + FastLAS::remove_quotes(atom.substr(it+1, atom.size() - it - 1))));
-            //}) ('u', [&](const string& atom) {
-            //  auto it = atom.find(',');
-            //  rule_body.insert(get_language_index(atom.substr(0, it) + " <= " + FastLAS::remove_quotes(atom.substr(it+1, atom.size() - it - 1))));
+            }) ('l', [&](const string& atom) {
+              auto it = atom.find(',');
+              rule_body.insert(get_language_index(atom.substr(0, it) + " >= " + FastLAS::remove_quotes(atom.substr(it+1, atom.size() - it - 1))));
+            }) ('u', [&](const string& atom) {
+              auto it = atom.find(',');
+              rule_body.insert(get_language_index(atom.substr(0, it) + " <= " + FastLAS::remove_quotes(atom.substr(it+1, atom.size() - it - 1))));
             }) ('t', [&](const string& atom) {
               auto it = atom.find(',');
               types.insert(make_pair(atom.substr(0, it), atom.substr(it+1, atom.size() - it - 1)));
