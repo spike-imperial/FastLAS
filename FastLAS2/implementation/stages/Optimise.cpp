@@ -105,7 +105,7 @@ void write_global_file(const string& global_pipe, int head=-1) {
     if(eg->positive) {
       auto guar_eg_rvs = eg->get_guaranteed_rule_violations();
       for(Schema* s : guar_eg_rvs) {
-        // Put back for non-recursive tasks
+        v_ids.insert(s->id);
       }
     }
   }
@@ -145,7 +145,6 @@ void write_global_file(const string& global_pipe, int head=-1) {
 
   ofstream global_file(global_pipe);
   global_file << ss.str();
-  //cerr << ss.str() << endl;
   global_file.close();
 }
 
@@ -189,6 +188,7 @@ void FastLAS::optimise() {
           int head, bound = 0, numerator = -1;
           set<string> intermediate_sf_facts;
           map<string, string> types;
+          //cerr << "#include \"" << global_pipe << "\"." << endl;
           //cerr << ss.str() << endl;
           //cerr << "%%%%%%%%%%%%%%" << endl;
           //exit(2);
