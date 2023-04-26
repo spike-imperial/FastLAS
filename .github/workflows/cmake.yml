@@ -30,6 +30,10 @@ jobs:
         working-directory: FastLAS2/testing/clingo
         run: make -j
 
+      - name: Install Clingo
+        working-directory: FastLAS2/testing/clingo
+        run: sudo make install
+
       - name: Configure CMake
         working-directory: FastLAS2/implementation
         run: cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCLINGO_DIR=./clingo/ CMakeLists.txt
