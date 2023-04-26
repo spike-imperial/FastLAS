@@ -1,0 +1,3 @@
+[submodule "FastLAS2/testing/clingo"]
+	path = FastLAS2/testing/clingo
+	url = git@github.com:potassco/clingo.git
