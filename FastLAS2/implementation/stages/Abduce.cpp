@@ -352,6 +352,8 @@ void FastLAS::abduce() {
       int iterations = 0;
 
       while(!partial_possibilities.empty()) {
+        static mutex p_mtx;
+        p_mtx.lock();
         auto exceptions = anti_abduce(hyp_dependent_predictates, starting_point.first, partial_possibilities, eg);
         for(auto p : exceptions) {
           auto negated_exceptions = FastLAS::cnf_to_dnf(p.second);
@@ -375,6 +377,7 @@ void FastLAS::abduce() {
         if(iterations > 10) {
           cout << eg->id << ":" << iterations << endl;
         }
+        p_mtx.unlock();
       }
 
 
@@ -383,68 +386,6 @@ void FastLAS::abduce() {
       }
     }
 
-    //for(auto raw_ctx : raw_ctxs) {
-    //  map<set<int>, set<set<int>>> poss_disjs;
-    //  if(FastLAS::separate_abduction) {
-    //    poss_disjs.insert(make_pair(raw_ctx, set<set<int>>()));
-    //  }
-    //  set<int> ctx, disj;
-    //  bool null_sol = false;
-
-    //  //sc_mtx.lock();
-    //  cout << "----" << endl;
-    //  cout << get_sat_suff_representation(eg, raw_ctx) << endl;
-    //  //exit(2);
-
-    //  Clingo(get_sat_suff_representation(eg, raw_ctx), "--heuristic=Domain --enum-mode=domRec --dom-mod=5,16 -n 0")
-    //    ('i', [&](const string& atom) {
-    //      ctx.insert(get_language_index(atom));
-    //    })
-    //    ('t', [&](const string& atom) {
-    //      disj.insert(get_language_index(atom));
-    //    }) ('n', [&](const string& atom) {
-    //      disj.insert(-get_language_index(atom) - 1);
-    //    }) ('g', [&](const string&) {
-    //      null_sol = true;
-    //    }) ([&]() {
-    //      sc_mtx.lock();
-    //      if(FastLAS::separate_abduction) {
-    //        poss_disjs[raw_ctx].insert(disj);
-    //      } else if(null_sol) {
-    //        if(poss_disjs.find(ctx) == poss_disjs.end()) {
-    //          poss_disjs.insert(make_pair(ctx, set<set<int>>()));
-    //        }
-    //      } else {
-    //        poss_disjs[ctx].insert(disj);
-    //      }
-    //      null_sol = false;
-    //      ctx.clear();
-    //      disj.clear();
-    //      sc_mtx.unlock();
-    //    }
-    //  );
-
-    //  if(FastLAS::solver.compare("ILASP") == 0) {
-    //    for(auto p : poss_disjs) {
-    //      eg->add_possibility(p.first, p.second);
-    //    }
-    //  } else {
-    //    for(auto p : poss_disjs) {
-    //      auto dnf = FastLAS::cnf_to_dnf(p.second);
-    //      for(auto conj : dnf) {
-    //        set<int> incs, excs;
-    //        for(auto c : conj) {
-    //          if(c < 0) {
-    //            incs.insert(-c - 1);
-    //          } else {
-    //            excs.insert(c);
-    //          }
-    //        }
-    //        eg->add_possibility(incs, excs, p.first);
-    //      }
-    //    }
-    //  }
-    //}
   });
 
 

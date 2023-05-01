@@ -253,13 +253,13 @@ void FastLAS::compute_sat_sufficient() {
       }
     );
 
+    mtx_ss.lock();
     for(auto eg : eg_group) {
       for(auto inc : eg_incs[eg->id]) {
-        mtx_ss.lock();
         eg->add_rule_disjunction(partial_disjs[inc]);
-        mtx_ss.unlock();
       }
     }
+    mtx_ss.unlock();
 
 
   });

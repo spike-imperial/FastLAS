@@ -203,6 +203,8 @@ void FastLAS::Clingo::operator()(const std::function<void()>& final_fn) const {
   auto ret = system(string("clingo --outf=3 " + args + " " + inpipe + " > " + outpipe + " 2> /dev/null").c_str());
 #endif
 
+  mtx.lock();
+
   string buffer, incremental_buffer = "";
   ifstream proc(outpipe);
   stringstream full_string;
@@ -228,6 +230,9 @@ void FastLAS::Clingo::operator()(const std::function<void()>& final_fn) const {
       incremental_buffer = "";
     }
   }
+
+  mtx.unlock();
+
   //cout << full_string.str() << endl;
 
   proc.close();
@@ -270,7 +275,7 @@ void FastLAS::add_example(const string& id, set<NAtom*>*& incs, set<NAtom*>*& ex
 }
 
 
-void FastLAS::write_cache(const std::string& path) {
+void FastLAS::write_cache(const string& path) {
   stringstream ss;
 
   ss << "#cache {" << endl;

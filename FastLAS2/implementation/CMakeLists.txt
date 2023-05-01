@@ -8,6 +8,7 @@ include_directories(/usr/local/include)
 
 
 if(${APPLE})
+  set(BISON_EXECUTABLE "/opt/homebrew/opt/bison/bin/bison")
 else()
   set(THREADS_PREFER_PTHREAD_FLAG ON)
   set(CMAKE_CXX_FLAGS -pthread)
@@ -71,4 +72,5 @@ add_library(
 )
 
 add_executable(FastLAS main.cpp)
-target_link_libraries(FastLAS FastLAS_LIB ${Boost_LIBRARIES})
+#target_link_libraries(FastLAS FastLAS_LIB ${Boost_LIBRARIES})
+target_link_libraries(FastLAS FastLAS_LIB ${Boost_LIBRARIES} clingo)

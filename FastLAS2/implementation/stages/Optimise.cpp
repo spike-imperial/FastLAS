@@ -135,8 +135,9 @@ void write_global_file(const string& global_pipe, int head=-1) {
   }
 
   if(FastLAS::force_safety) {
-    ss << ":- occurs_head(V), not occurs_pos(V)." << endl;
-    ss << ":- occurs_neg(V),  not occurs_pos(V)." << endl;
+    ss << ":- var(V), occurs_head(V), not occurs_pos(V)." << endl;
+    ss << ":- var(V), occurs_neg(V),  not occurs_pos(V)." << endl;
+    for(int i = 0; i < bias->maxv; i++)       ss << "var(v_a_r" << i << ")." << endl;
   }
   //cout << ss.str() << endl;
   //exit(2);

@@ -61,6 +61,16 @@ void yyerror (std::string s) {
   exit(1);
 }
 
+void check(std::string id) {
+  static std::set<std::string> ids;
+  if(ids.find(id) == ids.end()) {
+    ids.insert(id);
+  } else {
+    std::cerr << "Duplicated example ID " << id << "." << std::endl;
+    exit(2);
+  }
+}
+
 
 %}
 %define parse.error verbose
@@ -149,8 +159,16 @@ task : task rule { background.push_back(*$2); delete $2;}
 ;
 
 
-identifier : atom T_COMMA { $$ = new std::pair<std::string, int>($1->to_string(), -1); delete $1; }
-           | atom T_AT T_INT[penalty] T_COMMA { $$ = new std::pair<std::string, int>($1->to_string(), std::stoi(*$penalty)); delete $1; }
+identifier : atom T_COMMA {
+               check($1->to_string());
+               $$ = new std::pair<std::string, int>($1->to_string(), -1);
+               delete $1;
+             }
+           | atom T_AT T_INT[penalty] T_COMMA {
+               check($1->to_string());
+               $$ = new std::pair<std::string, int>($1->to_string(), std::stoi(*$penalty));
+               delete $1;
+             }
            | { $$ = new std::pair<std::string, int>("eg___" + std::to_string(eg_count++), -1); }
 ;
 

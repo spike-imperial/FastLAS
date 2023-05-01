@@ -150,9 +150,9 @@ void FastLAS::print_solution() {
   cout << solution << flush;
 }
 
-void FastLAS::print_stats() {
-  set<string> uncovered_example_ids;
+pair<int, set<string>> get_total_penalty() {
   int total_penalty = 0;
+  set<string> uncovered_example_ids;
 
   for(auto eg : examples) {
     if(eg->get_penalty() > 0 && !eg->prediction()) {
@@ -160,14 +160,14 @@ void FastLAS::print_stats() {
       for(auto p_eg : eg->get_possibilities()) {
         covered = true;
         for(auto disj : p_eg->get_optimised_rule_disjunctions()) {
-          if(sat_disjs.find(disj) == sat_disjs.end()) {
+          if(FastLAS::sat_disjs.find(disj) == FastLAS::sat_disjs.end()) {
             covered = false;
             break;
           }
         }
 
         if(covered)
-          covered = sat_disjs.find(p_eg->get_optimised_rule_violations()) == sat_disjs.end();
+          covered = FastLAS::sat_disjs.find(p_eg->get_optimised_rule_violations()) == FastLAS::sat_disjs.end();
 
         if(covered)
           break;
@@ -178,6 +178,14 @@ void FastLAS::print_stats() {
       }
     }
   }
+
+  return make_pair(total_penalty, uncovered_example_ids);
+}
+
+void FastLAS::print_stats() {
+  auto tp = get_total_penalty();
+  int total_penalty = tp.first;
+  set<string> uncovered_example_ids = tp.second;
 
   cout << solution << endl << endl;
   cout << "{" << endl;
@@ -209,21 +217,5 @@ void FastLAS::print_stats() {
 }
 
 void FastLAS::print_score() {
-  int total_penalty = hypothesis_length;
-  for(auto eg : examples) {
-    if(eg->get_penalty() > 0 && !eg->prediction()) {
-      if(sat_disjs.find(eg->get_optimised_rule_violations()) != sat_disjs.end()) {
-        total_penalty += eg->get_penalty();
-      } else {
-        for(auto disj : eg->get_optimised_rule_disjunctions()) {
-          if(sat_disjs.find(disj) == sat_disjs.end()) {
-            total_penalty += eg->get_penalty();
-            break;
-          }
-        }
-      }
-    }
-  }
-  cout << total_penalty;
-  cout << flush;
+  cout << hypothesis_length + get_total_penalty().first << flush;
 }

@@ -63,6 +63,8 @@ void FastLAS::optimise_sym() {
   for(auto head : heads) {
     stringstream ss;
 
+    set<set<set<int>>> processed_cnfs, processed_n_cnfs;
+
     ss << "in_head(" << FastLAS::language[head] << ")." << endl;
     set<int> body_literals;
     for(auto eg : examples) {
@@ -114,15 +116,18 @@ void FastLAS::optimise_sym() {
             }
           }
           auto cnf = cnf_to_dnf(dnf);
-          for(auto c : cnf) {
-            ss << "disj_n_satisfied(" << disj_id << ") :- #true";
-            for(int bl : c) {
-              ss << ", in(" << bl << ")";
+          if(processed_cnfs.find(cnf) == processed_cnfs.end()) {
+            processed_cnfs.insert(cnf);
+            for(auto c : cnf) {
+              ss << "disj_n_satisfied(" << disj_id << ") :- #true";
+              for(int bl : c) {
+                ss << ", in(" << bl << ")";
+              }
+              ss << "." << endl;
             }
-            ss << "." << endl;
+            ss << "disj_satisfied(" << disj_id << ") :- not disj_n_satisfied(" << disj_id << ")." << endl;
+            disj_id++;
           }
-          ss << "disj_satisfied(" << disj_id << ") :- not disj_n_satisfied(" << disj_id << ")." << endl;
-          disj_id++;
         }
         set<set<int>> dnf;
         for(auto schema : sub_eg->get_rule_violations()) {
@@ -137,18 +142,20 @@ void FastLAS::optimise_sym() {
           }
         }
         auto cnf = cnf_to_dnf(dnf);
-        for(auto c : cnf) {
-          ss << "eg_cov(" << eg->id << ", " << disj_id << ") :- #true";
-          for(int bl : c) {
-            ss << ", in(" << bl << ")";
+        if(processed_n_cnfs.find(cnf) == processed_n_cnfs.end()) {
+          processed_n_cnfs.insert(cnf);
+          for(auto c : cnf) {
+            //ss << "sub_eg_cov(" << sub_eg->id << ", " << disj_id << ") :- ab_rep(" << sub_eg->id << ")";
+            ss << "sub_eg_cov(" << sub_eg->id << ", " << disj_id << ") :- #true";
+            for(int bl : c) {
+              ss << ", in(" << bl << ")";
+            }
+            ss << "." << endl;
           }
-          ss << "." << endl;
+          ss << "eg_uncov(" << sub_eg->id << ") ";
+          ss << ":- not sub_eg_cov(" << sub_eg->id << ", " << disj_id << ")." << endl;
+          disj_id++;
         }
-        if(eg->get_penalty() > 0) {
-          ss << "eg_uncov(" << eg->id << ")";
-        }
-        ss << ":- not eg_cov(" << eg->id << ", " << disj_id << ")." << endl;
-        disj_id++;
       }
     }
     for(int i = 0; i < bias->maxv; i++)     ss << "var(v_a_r" << i << ")." << endl;
@@ -159,11 +166,13 @@ void FastLAS::optimise_sym() {
 
     ss << R"ESC(
       :- not disj_satisfied(_).
-      :- occurs_pos(V), var(V2), not occurs_pos(V2), V > V2.
+      :- var(V), occurs_pos(V), var(V2), not occurs_pos(V2), V > V2.
     )ESC" << endl;
     ss << optimise_sym_meta_prg;
     ss << bias->bias_constraints << endl << endl;
 
+    //static mutex mtx;
+    //mtx.lock();
     //cerr << ss.str() << endl;
     //exit(2);
 
@@ -172,7 +181,7 @@ void FastLAS::optimise_sym() {
     set<string> intermediate_sf_facts;
     map<string, string> types;
 
-    Clingo(ss.str(), "")
+    Clingo(ss.str(), "--enum=domrec --heuristic=domain  -n0")
       ('i', [&](const string& atom) {
         rule_body.insert(stoi(atom));
       }) ('n', [&](const string& atom) {

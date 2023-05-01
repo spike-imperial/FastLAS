@@ -55,6 +55,7 @@ int main(int argc, char **argv) {
     ("version", "output version information.")
     ("categorical-contexts", "speeds up abduction if the \"bottom\" parts of all programs are known to have exactly one answer set.")
     ("debug", "verbose output.")
+    ("delay-generalisation", "experimental optimisation approach.")
     ("nopl", "run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("opl", "do not run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("output-solve-program", "perform the main steps of the FastLAS algorithm, then write out the final ASP program used to search for an optimal solution.")
@@ -168,6 +169,9 @@ int main(int argc, char **argv) {
     FastLAS::print_c_minus();
   }
 
+  if (vm.count("write-cache")) {
+    FastLAS::write_cache(vm["write-cache"].as<string>());
+  }
 
   if (vm.count("delay-generalisation")) {
     if(debug) cout << "Computing opt-sufficient subset..." << endl << endl;
@@ -180,6 +184,11 @@ int main(int argc, char **argv) {
       cout << "G^+(T):" << endl;
       FastLAS::print_c_plus();
     }
+
+    if (vm.count("write-cache")) {
+      FastLAS::write_cache(vm["write-cache"].as<string>());
+    }
+
     if(debug) cout << "Computing opt-sufficient subset..." << endl << endl;
 
     FastLAS::optimise();

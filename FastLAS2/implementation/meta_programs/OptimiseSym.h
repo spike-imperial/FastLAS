@@ -70,6 +70,7 @@ function onModel(m)
     bound = 0
   end
   mp = new_model.." b"..tostring(bound).."| ;|"
+  print(mp)
 end
 
 function main(prg)
@@ -78,22 +79,20 @@ function main(prg)
   violating = true
   constraint = ""
   prg:ground({{"base", {}}})
-
-  while violating do
-    violating = false
-    sat = false
-    prg:add("cons".."_"..index, {}, constraint)
-    prg:ground({{"cons".."_"..index, {}}})
-    prg:solve{on_model=onModel}
-    if sat then
-      print(mp)
-    end
-  end
+  prg:solve{on_model=onModel}
 end
+
 #end.
 
-:~ penalty(P, ARGS), not invert(_).[P@1, ARGS]
-:~ penalty(P, ARGS), invert(_).[-P@1, ARGS]
+#show in/1.
+#show len/1.
+#show eg_uncov/1.
+#show disj_satisfied/1.
+
+pen(1..L) :- #sum { A, T : penalty(T, A) } = L, L < 10.
+#heuristic len(A).[1@1, false]
+#heuristic eg_uncov(A).[1@1, false]
+#heuristic disj_satisfied(A).[1@1, true]
 
 :- var(V), type(V, T1), type(V, T2), T1 < T2.
 :- var(V), #count { N : type(V, N) } > 1.
