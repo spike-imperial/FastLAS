@@ -41,6 +41,7 @@ namespace FastLAS {
   int thread_num = 8;
   int sample_size = 0;
   int max_conditions = 1;
+  int timeout = -1;
   bool output_solve_program = false;
   bool run_fast_las_2 = false;
   bool limit_rules = false;

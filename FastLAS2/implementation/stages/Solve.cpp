@@ -155,7 +155,9 @@ void FastLAS::solve_final_task(string program) {
     exit(0);
   }
 
-  Clingo(ss.str(), "--opt-strat=usc,stratify")
+  Clingo(ss.str(),
+    ((FastLAS::timeout < 0) ? " " : "--time=" + std::to_string(FastLAS::timeout) + " ")
+      + "--opt-strat=usc,stratify")
     ('i', [&](const string& atom) {
       auto rule = Schema::RuleSchema::get_schema(stoi(atom));
       hypothesis_length += rule->get_score();

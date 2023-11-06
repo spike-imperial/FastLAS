@@ -65,6 +65,7 @@ int main(int argc, char **argv) {
     ("score-only", "only output the score of the solution.")
     ("force-safety", "enforce safety constraint on learned rules.")
     ("space-size", "output final s_m size.")
+    ("timeout", po::value<int>(), "time limit for the final solving stage.")
     ("threads", po::value<int>(), "number of threads.");
 
   po::positional_options_description p;
@@ -109,6 +110,7 @@ int main(int argc, char **argv) {
   if(vm.count("output-solve-program")) FastLAS::output_solve_program = true;
   if(vm.count("debug")) debug = true;
   if(vm.count("threads")) FastLAS::thread_num = vm["threads"].as<int>();
+  if(vm.count("timeout")) FastLAS::timeout = vm["timeout"].as<int>();
   if(vm.count("nopl")) FastLAS::run_fast_las_2 = true;
   if(vm.count("opl")) FastLAS::run_fast_las_2 = false;
   if(vm.count("force-safety")) FastLAS::force_safety = true;
