@@ -51,13 +51,13 @@ function onModel(m)
     end
   end
   new_model = new_model.." b"..tostring(intermediate_penalty).."| ;|"
+  print(new_model)
 end
 
 function main(prg)
   new_model = ""
   prg:ground({{"base", {}}})
   prg:solve{on_model=onModel}
-  print(new_model)
 end
 #end.
 )";

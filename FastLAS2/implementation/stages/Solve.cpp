@@ -155,28 +155,42 @@ void FastLAS::solve_final_task(string program) {
     exit(0);
   }
 
+
+  set<set<Schema::RuleSchema*>> i_sat_disjs;
+  set<string> i_sat_intermediate_facts;
+  int i_hypothesis_length = 0;
+
   Clingo(ss.str(),
     ((FastLAS::timeout < 0) ? " " : "--time=" + std::to_string(FastLAS::timeout) + " ")
       + "--opt-strat=usc,stratify")
     ('i', [&](const string& atom) {
       auto rule = Schema::RuleSchema::get_schema(stoi(atom));
-      hypothesis_length += rule->get_score();
+      i_hypothesis_length += rule->get_score();
       solution_ss << rule->print() << endl;
     }) ('b', [&](const string& atom) {
-      hypothesis_length += stoi(atom);
+      i_hypothesis_length += stoi(atom);
     }) ('d', [&](const string& atom) {
-      sat_disjs.insert(int_to_disj[stoi(atom)]);
+      i_sat_disjs.insert(int_to_disj[stoi(atom)]);
     }) ('p', [&](const string& atom) {
-      sat_intermediate_facts.insert(atom);
+      i_sat_intermediate_facts.insert(atom);
     }) ([&]() {
       sat = true;
+
+      sat_intermediate_facts = i_sat_intermediate_facts;
+      sat_disjs = i_sat_disjs;
+      solution = solution_ss.str();
+      hypothesis_length = i_hypothesis_length;
+
+      solution_ss.str("");
+      i_sat_intermediate_facts.clear();
+      i_sat_disjs.clear();
+      i_hypothesis_length = 0;
     }
   );
 
   if(!sat) {
     solution = "UNSATISFIABLE";
   } else {
-    solution = solution_ss.str();
     boost::replace_all(solution, "n_v_a_r", "V");
     boost::replace_all(solution, "v_a_r", "V");
     boost::replace_all(solution, "naf__", "not ");
