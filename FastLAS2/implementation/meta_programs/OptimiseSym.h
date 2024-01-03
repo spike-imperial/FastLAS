@@ -85,12 +85,13 @@ end
 #end.
 
 #show in/1.
-#show len/1.
+#show pen/1.
+#show penalty/2.
 #show eg_uncov/1.
 #show disj_satisfied/1.
 
 pen(1..L) :- #sum { A, T : penalty(T, A) } = L, L < 10.
-#heuristic len(A).[1@1, false]
+#heuristic pen(A).[1@1, false]
 #heuristic eg_uncov(A).[1@1, false]
 #heuristic disj_satisfied(A).[1@1, true]
 
