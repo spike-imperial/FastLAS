@@ -120,7 +120,11 @@ void FastLAS::compute_sat_sufficient() {
     for(int i = 0; i < bias->maxv; i++)       ss << "var(v_a_r" << i << ")." << endl;
 
     ss << meta_sat_suff;
-    ss << "numeric_var(n_v_a_r_0)." << endl;
+
+    for(int i = 0; i<FastLAS::num_var_count; i++){
+      ss << "numeric_var(n_v_a_r_"<< i <<")." << endl;
+    }
+
 
     if(bias->gwr) {
       ss << R"(
