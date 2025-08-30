@@ -60,6 +60,7 @@ int main(int argc, char **argv) {
     ("opl", "do not run the new phases of the FastNonOPL algorithm, needed for non-observational predicate learning.")
     ("output-solve-program", "perform the main steps of the FastLAS algorithm, then write out the final ASP program used to search for an optimal solution.")
     ("num-var-count", po::value<int>(), "number of numeric variable assignments allowed in search space.")
+    ("max-conditions", po::value<int>(), "maximum number of numeric conditions.")
     ("file_names", po::value<vector<string>>(), "input files.")
     ("read-cache", po::value<string>(), "location to read cached data from.")
     ("write-cache", po::value<string>(), "location to write cached data to.")
@@ -112,6 +113,7 @@ int main(int argc, char **argv) {
   if(vm.count("debug")) debug = true;
   if(vm.count("threads")) FastLAS::thread_num = vm["threads"].as<int>();
   if(vm.count("timeout")) FastLAS::timeout = vm["timeout"].as<int>();
+  if(vm.count("max-conditions")) FastLAS::max_conditions = vm["max-conditions"].as<int>();
   if(vm.count("nopl")) FastLAS::run_fast_las_2 = true;
   if(vm.count("opl")) FastLAS::run_fast_las_2 = false;
   if(vm.count("force-safety")) FastLAS::force_safety = true;
