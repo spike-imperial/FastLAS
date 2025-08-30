@@ -116,7 +116,7 @@ type(Var, Type) :- eq(Var, Type, _), var(Var).
 :- not head_var(V1), not head_var(V2), var(V1), var(V2), V1 > V2, type(V1, T1), type(V2, T2), T1 < T2.
 :- var(V1), var(V2), V1 < V2, eq(V2, _, _), not eq(V1, _, _).
 
-%:- numeric_assignment(V, V1), numeric_assignment(V, V2), V1 < V2.
+:- numeric_assignment(V, V1), numeric_assignment(V, V2), V1 < V2.
 
 head_var(V) :- var(V), var_in_head(V, H, _), head(H).
 
