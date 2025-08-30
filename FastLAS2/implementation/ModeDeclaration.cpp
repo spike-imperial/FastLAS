@@ -29,6 +29,9 @@
 
 using namespace std;
 
+
+std::set<std::string> ModeDeclaration::num_types;
+
 string ModeDeclaration::to_string() const {
   return atom.to_string();
   //return atom.generalise("arg");
@@ -57,6 +60,7 @@ string ModeDeclaration::head_representation() const {
         ss << "eq(ARG" << i << ", " << vars[i].second << ", ARG_VAL" << i << ") :- pos(EG), eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << ")." << endl;
       }
     } else if(vars[i].first.compare("num_var") == 0) {
+      ModeDeclaration::num_types.insert(vars[i].second);
       ss << "numeric_assignment(@concat(ARG" << i << ", " << vars[i].second << "), ARG_VAL" << i << ") :- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << ")." << endl;
     } else {
       ss << ":- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << "), ARG" << i << " != ARG_VAL" << i << "." << endl;
@@ -156,6 +160,7 @@ string ModeDeclaration::body_representation() const {
         ss << ":- not eq(ARG" << i << ", " << vars[i].second << ", ARG_VAL" << i << "), pos(EG), eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << ")." << endl;
       }
     } else if(vars[i].first.compare("num_var") == 0) {
+      ModeDeclaration::num_types.insert(vars[i].second);
       ss << "numeric_assignment(ARG" << i << ", ARG_VAL" << i << ") :- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << ")." << endl;
     } else {
       ss << ":- eq(" << atom.generalise("ARG", true) << ", " << atom.generalise("ARG_VAL", true) << "), ARG" << i << " != ARG_VAL" << i << ", not var(ARG" << i << ")." << endl;

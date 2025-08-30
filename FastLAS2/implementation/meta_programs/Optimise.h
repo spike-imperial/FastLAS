@@ -51,10 +51,11 @@ occurs(X) :- occurs_pos(X).
 occurs(X) :- occurs_neg(X).
 occurs(X) :- occurs_head(X).
 
-{ lb(Var, F*(Val / F)) } :- r_assign(ID, Var, Val), fidelity(F).
-{ ub(Var, F*((Val + (F - 1)) / F)) } :- r_assign(ID, Var, Val), fidelity(F).
+{ lb(Var, F*(Val / F)) } :- r_assign(ID, Var, Val), num_var_type(Var, T), fidelity(F, T).
+{ ub(Var, F*((Val + (F - 1)) / F)) } :- r_assign(ID, Var, Val), num_var_type(Var, T), fidelity(F, T).
 
-fidelity(1) :- #false : fidelity(F), F != 1.
+fidelity(1, T) :- num_var_type(_, T), #false : fidelity(F, T), F != 1.
+fidelity(F, T) :- num_var_type(_, T), fidelity(F).
 
 :- V1 < V2, lb(V1, LB1), lb(V2, LB2), LB1 >= LB2.
 :- V1 < V2, ub(V1, UB1), ub(V2, UB2), UB1 >= UB2.

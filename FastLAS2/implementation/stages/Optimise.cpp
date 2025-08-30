@@ -139,6 +139,14 @@ void write_global_file(const string& global_pipe, int head=-1) {
     ss << ":- var(V), occurs_neg(V),  not occurs_pos(V)." << endl;
     for(int i = 0; i < bias->maxv; i++)       ss << "var(v_a_r" << i << ")." << endl;
   }
+
+
+  for(int i = 0; i < bias->maxv; i++) {
+    for(const auto& num_type : ModeDeclaration::num_types) {
+      ss << "num_var_type(n_v_a_r_" << i << "_" << num_type << ", " << num_type << ")." << endl;
+    }
+  }
+
   //cout << ss.str() << endl;
   //exit(2);
 

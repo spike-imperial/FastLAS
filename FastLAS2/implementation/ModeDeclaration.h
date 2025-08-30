@@ -54,6 +54,8 @@ class ModeDeclaration {
     const int recall;
     const bool positive;
 
+    static std::set<std::string> num_types;
+
   private:
 
     NAtom atom;
