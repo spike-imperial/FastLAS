@@ -90,18 +90,20 @@ end
 #show eg_uncov/1.
 #show disj_satisfied/1.
 
-pen(1..L) :- #sum { A, T : penalty(T, A) } = L, L < 10.
+pen(1..L) :- #sum { A, T : penalty(A, T) } = L, L <= 10.
+:- #sum { A, T : penalty(A, T) } > 10.
+
 #heuristic pen(A).[1@1, false]
 #heuristic eg_uncov(A).[1@1, false]
 #heuristic disj_satisfied(A).[1@1, true]
 
 :- var(V), type(V, T1), type(V, T2), T1 < T2.
-:- var(V), #count { N : type(V, N) } > 1.
+%:- var(V), #count { N : type(V, N) } > 1.
 
-:- not head_var(V1), not head_var(V2), var(V1), var(V2), V1 > V2, type(V1, T1), type(V2, T2), T1 < T2.
+%:- not head_var(V1), not head_var(V2), var(V1), var(V2), V1 > V2, type(V1, T1), type(V2, T2), T1 < T2.
 
-:- sym(V1, Pos1, Pred1, Ar1, VarNo1, Atom1), var(V2), V1 > V2, type(V1, T), type(V2, T),
-  #false : sym(V2, Pos2, Pred2, Ar2, VarNo2, Atom2), (Pos1, Pred1, Ar1, VarNo1, Atom1) > (Pos2, Pred2, Ar2, VarNo2, Atom2).
+%:- sym(V1, Pos1, Pred1, Ar1, VarNo1, Atom1), var(V2), V1 > V2, type(V1, T), type(V2, T),
+%  #false : sym(V2, Pos2, Pred2, Ar2, VarNo2, Atom2), (Pos1, Pred1, Ar1, VarNo1, Atom1) > (Pos2, Pred2, Ar2, VarNo2, Atom2).
 
 %:-
 %  sym(V1, Pos1, Pred1, Ar1, VarNo1, Atom1), var(V2), V1 > V2, type(V1, T), type(V2, T),
