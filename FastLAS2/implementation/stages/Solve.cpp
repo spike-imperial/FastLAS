@@ -110,7 +110,9 @@ void FastLAS::solve() {
   }
 
   for(auto d : ds) {
-    ss << "0 {in_h(" << d->id << ")} 1. :~ in_h(" << d->id << ").[" << d->get_score() << "@0, hyp(" << d->id << ")]" << endl;
+    ss << "0 {in_h(" << d->id << ")} 1." << endl;
+    ss << "rule_score(" << d->id << ", " << d->get_score() << ")." << endl;
+    ss << ":~ in_h(" << d->id << ").[" << d->get_score() << "@0, hyp(" << d->id << ")]" << endl;
     ss << d->intermediate_meta_representation();
   }
   if(FastLAS::space_size) {
@@ -162,7 +164,9 @@ void FastLAS::solve_final_task(string program) {
 
   Clingo(ss.str(),
     ((FastLAS::timeout < 0) ? " " : "--time=" + std::to_string(FastLAS::timeout) + " ")
-      + "--opt-strat=usc,stratify -t" + std::to_string(thread_num))
+      + "--opt-strat=usc,stratify -t" + std::to_string(thread_num) + " "
+      + (bias->max_penalty == -1 ? "" : "--opt-mode=optN," + std::to_string(bias->max_penalty))
+    )
     ('i', [&](const string& atom) {
       auto rule = Schema::RuleSchema::get_schema(stoi(atom));
       i_hypothesis_length += rule->get_score();

@@ -28,6 +28,7 @@
 
 std::string final_solving_program = R"(
 :~ penalty(P, T).[P@0, intermediate, T]
+:- #sum { L, R : rule_score(R, L), in_h(R) } > MP, max_penalty(MP).
 
 #show in_h/1.
 #show penalty/2.

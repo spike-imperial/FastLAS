@@ -109,7 +109,7 @@ void check(std::string id) {
 %token <string> T_BASIC_SYMBOL T_VAR_NAME T_INT T_NUM T_STRING T_UNDERSCORE T_AT
 %token <token> T_L_BRACK T_L_BRACE T_L_PAREN T_R_BRACK T_R_BRACE T_R_PAREN T_IF T_DOT T_NAF T_COMMA T_SEMI_COLON T_COLON T_DOUBLE_DOT
 %token <token> T_MODEH T_MODEB T_POS T_NEG T_BIAS T_FINAL_BIAS T_PLUS T_MINUS T_MULT T_DIV T_MOD T_POW T_PREDICT T_V_BAR
-%token <token> T_MAXV T_GWR
+%token <token> T_MAXV T_GWR T_MAX_PENALTY
 %token <token> T_EQUAL T_NEQ T_LEQ T_GEQ T_GT T_LT
 %token <token> T_CACHE T_HEAD T_BODY T_RULE T_ASSIGNMENT T_LANGUAGE T_EXAMPLES T_EXTENDS T_OPTIMISATIONS T_SCORE T_INTERMEDIATE_REPRESENTATION T_PENALTY T_TYPES
 %token <token> T_ID T_VIO T_DISJ T_OPT_VIO T_OPT_DISJ T_IDENTITY T_POSSIBILITY T_SCHEMA T_SCHEMAS T_ARROW
@@ -351,6 +351,11 @@ mode : T_MODEB inner_mode_dec {
 
 mode : T_MAXV T_L_PAREN T_INT T_R_PAREN T_DOT {
          bias->maxv = std::stoi(*$3); delete $3;
+       }
+     ;
+
+mode : T_MAX_PENALTY T_L_PAREN T_INT T_R_PAREN T_DOT {
+         bias->max_penalty = std::stoi(*$3); delete $3;
        }
      ;
 
