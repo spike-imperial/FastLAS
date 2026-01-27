@@ -144,7 +144,9 @@ void FastLAS::compute_sat_sufficient() {
     //static mutex mtx;
     //mtx.lock();
     //cerr << ss.str() << endl;
-    //exit(2);
+    //cerr << "--------------" << endl;
+    //mtx.unlock();
+    ////exit(2);
 
     Clingo(ss.str(), "--project --enum-mode=domRec --heuristic=domain -n 0")
       ('i', [&](const std::string& atom) {

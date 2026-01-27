@@ -23,6 +23,9 @@
  */
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <iterator>
 #include <vector>
 #include <boost/program_options.hpp>
 #include "Utils.h"
@@ -35,10 +38,14 @@
 #include "stages/Printing.h"
 #include "Example.h"
 
+
 extern int yyparse();
 extern FILE* yyin;
 extern bool prediction_task, cache;
 extern std::set<Example*> examples;
+extern std::string meta_sat_suff;
+extern std::string optimise_meta_prg;
+extern std::string optimise_sym_meta_prg;
 
 std::string usage_str = "ERROR: usage:  FastLAS [ --opl | --nopl ] file_name";
 std::string version_info = "FastLAS version 2.1.0 (release built on " + std::string(__DATE__) + ")." + R"ESC(
@@ -64,6 +71,8 @@ int main(int argc, char **argv) {
     ("file_names", po::value<vector<string>>(), "input files.")
     ("read-cache", po::value<string>(), "location to read cached data from.")
     ("write-cache", po::value<string>(), "location to write cached data to.")
+    ("override-sat-suff", po::value<string>(), "location of file to override the sat sufficient program.")
+    ("override-opt-suff", po::value<string>(), "location of file to override the opt sufficient program.")
     ("score-only", "only output the score of the solution.")
     ("force-safety", "enforce safety constraint on learned rules.")
     ("space-size", "output final s_m size.")
@@ -119,6 +128,16 @@ int main(int argc, char **argv) {
   if(vm.count("force-safety")) FastLAS::force_safety = true;
   if(vm.count("score-only")) FastLAS::score_only = true;
   if(vm.count("num-var-count")) FastLAS::num_var_count = vm["num-var-count"].as<int>();
+
+  if(vm.count("override-sat-suff")) {
+    ifstream f(vm["override-sat-suff"].as<string>().c_str());
+    meta_sat_suff = string((std::istreambuf_iterator<char>(f)), {});
+  }
+  if(vm.count("override-opt-suff")) {
+    ifstream f(vm["override-opt-suff"].as<string>().c_str());
+    optimise_sym_meta_prg = string((std::istreambuf_iterator<char>(f)), {});
+    optimise_meta_prg = optimise_sym_meta_prg;
+  }
 
   // parse
 

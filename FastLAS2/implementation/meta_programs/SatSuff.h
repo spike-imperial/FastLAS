@@ -43,6 +43,7 @@ example_exclusion(EG, A) :- example_in_group(EG), ctx(_, exclusion(A)).
 
 in(binop(OP, A1, A2)) :- binop(OP, A1, A2).
 
+
 includes(EG) :- example_inclusion(EG, EXC), target_inc(EXC).
 excludes(EG) :- example_exclusion(EG, EXC), target_exc(EXC).
 
@@ -111,7 +112,9 @@ type(Var, Type) :- eq(Var, Type, _), var(Var).
 :- var(V), type(V, T1), type(V, T2), T1 < T2.
 
 :- var(V), #count { N : type(V, N) } > 1.
+
 :- #count { Val : eq(V, N, Val) } > 1, type(V, N).
+
 
 :- not head_var(V1), not head_var(V2), var(V1), var(V2), V1 > V2, type(V1, T1), type(V2, T2), T1 < T2.
 :- var(V1), var(V2), V1 < V2, eq(V2, _, _), not eq(V1, _, _).
