@@ -232,6 +232,6 @@ void FastLAS::print_stats() {
 
 void FastLAS::print_score() {
   if(FastLAS::solutions.size()>0){
-    cout << FastLAS::solutions[0].hypothesis_length + get_total_penalty(FastLAS::solutions[0]).first << flush;g
+    cout << FastLAS::solutions[0].hypothesis_length + get_total_penalty(FastLAS::solutions[0]).first << flush;
   }
 }
