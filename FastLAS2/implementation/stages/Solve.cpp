@@ -40,13 +40,16 @@ extern set<Example*> examples;
 extern vector<NRule> background;
 
 
+
+
 namespace FastLAS {
   void solve_final_task(string);
 
   int hypothesis_length = 0;
   int penalty_paid = 0;
   set<set<Schema::RuleSchema*>> sat_disjs;
-  string solution;
+  vector<Solution> solutions;
+
   bool sat;
   set<string> sat_intermediate_facts;
 
@@ -161,12 +164,15 @@ void FastLAS::solve_final_task(string program) {
   set<set<Schema::RuleSchema*>> i_sat_disjs;
   set<string> i_sat_intermediate_facts;
   int i_hypothesis_length = 0;
-
   Clingo(ss.str(),
     ((FastLAS::timeout < 0) ? " " : "--time=" + std::to_string(FastLAS::timeout) + " ")
       + "--opt-strat=usc,stratify -t" + std::to_string(thread_num) + " "
-      + (bias->max_penalty == -1 ? "" : "--opt-mode=optN," + std::to_string(bias->max_penalty))
-    )
+      + ((bias->max_penalty == -1 && FastLAS::multiple_solutions_count == 1)
+          ? ""
+          : "--opt-mode=optN"
+            + (bias->max_penalty == -1 ? "" : "," + std::to_string(bias->max_penalty))
+            + " ")
+      + "-n" + std::to_string(FastLAS::multiple_solutions_count) + " ")
     ('i', [&](const string& atom) {
       auto rule = Schema::RuleSchema::get_schema(stoi(atom));
       i_hypothesis_length += rule->get_score();
@@ -180,23 +186,36 @@ void FastLAS::solve_final_task(string program) {
     }) ([&]() {
       sat = true;
 
-      sat_intermediate_facts = i_sat_intermediate_facts;
-      sat_disjs = i_sat_disjs;
-      solution = solution_ss.str();
-      hypothesis_length = i_hypothesis_length;
+      std::string hypothesis = solution_ss.str();
+      boost::replace_all(hypothesis, "n_v_a_r", "V");
+      boost::replace_all(hypothesis, "v_a_r", "V");
+      boost::replace_all(hypothesis, "naf__", "not ");
+
+      solutions.push_back({
+      hypothesis,
+      i_hypothesis_length,
+      i_sat_intermediate_facts,
+      i_sat_disjs
+      });
+
+      
 
       solution_ss.str("");
+      solution_ss.clear();
       i_sat_intermediate_facts.clear();
       i_sat_disjs.clear();
       i_hypothesis_length = 0;
+      
     }
   );
+  
 
-  if(!sat) {
-    solution = "UNSATISFIABLE";
-  } else {
-    boost::replace_all(solution, "n_v_a_r", "V");
-    boost::replace_all(solution, "v_a_r", "V");
-    boost::replace_all(solution, "naf__", "not ");
-  }
+  // if(!sat) {
+  //   solution = "UNSATISFIABLE";
+  // } else {
+  //   boost::replace_all(solution, "n_v_a_r", "V");
+  //   boost::replace_all(solution, "v_a_r", "V");
+  //   boost::replace_all(solution, "naf__", "not ");
+  // }
+  // cout << solutions.size() << endl;
 }

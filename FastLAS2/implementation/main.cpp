@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
     ("output-solve-program", "perform the main steps of the FastLAS algorithm, then write out the final ASP program used to search for an optimal solution.")
     ("num-var-count", po::value<int>(), "number of numeric variable assignments allowed in search space.")
     ("max-conditions", po::value<int>(), "maximum number of numeric conditions.")
+    ("multiple-solutions-count", po::value<int>(), "maximum number of solutions to put from solving stafe.")
     ("file_names", po::value<vector<string>>(), "input files.")
     ("read-cache", po::value<string>(), "location to read cached data from.")
     ("write-cache", po::value<string>(), "location to write cached data to.")
@@ -128,6 +129,7 @@ int main(int argc, char **argv) {
   if(vm.count("force-safety")) FastLAS::force_safety = true;
   if(vm.count("score-only")) FastLAS::score_only = true;
   if(vm.count("num-var-count")) FastLAS::num_var_count = vm["num-var-count"].as<int>();
+  if(vm.count("multiple-solutions-count")) FastLAS::multiple_solutions_count = vm["multiple-solutions-count"].as<int>();
 
   if(vm.count("override-sat-suff")) {
     ifstream f(vm["override-sat-suff"].as<string>().c_str());

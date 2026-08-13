@@ -52,6 +52,7 @@ namespace FastLAS {
   bool categorical_contexts = false;
   bool any_cache = false;
   int num_var_count = 1;
+  int multiple_solutions_count = 1;
 
   vector<string> language({"f_triv___"});
 
