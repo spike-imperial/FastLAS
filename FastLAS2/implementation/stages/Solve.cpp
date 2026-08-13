@@ -208,14 +208,4 @@ void FastLAS::solve_final_task(string program) {
       
     }
   );
-  
-
-  // if(!sat) {
-  //   solution = "UNSATISFIABLE";
-  // } else {
-  //   boost::replace_all(solution, "n_v_a_r", "V");
-  //   boost::replace_all(solution, "v_a_r", "V");
-  //   boost::replace_all(solution, "naf__", "not ");
-  // }
-  // cout << solutions.size() << endl;
 }
