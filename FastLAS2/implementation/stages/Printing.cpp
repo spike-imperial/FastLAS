@@ -147,10 +147,17 @@ void FastLAS::print_s_m() {
 
 
 void FastLAS::print_solution() {
-  cout << solution << flush;
+  if(FastLAS::solutions.size()<1){
+    cout << "UNSATISFIABLE" << endl;
+  }
+
+  for(auto solution : FastLAS::solutions){
+    cout << solution.hypothesis << endl;
+    cout << "c-------" << endl;
+  }
 }
 
-pair<int, set<string>> get_total_penalty() {
+pair<int, set<string>> get_total_penalty(Solution solution) {
   int total_penalty = 0;
   set<string> uncovered_example_ids;
 
@@ -160,14 +167,14 @@ pair<int, set<string>> get_total_penalty() {
       for(auto p_eg : eg->get_possibilities()) {
         covered = true;
         for(auto disj : p_eg->get_optimised_rule_disjunctions()) {
-          if(FastLAS::sat_disjs.find(disj) == FastLAS::sat_disjs.end()) {
+          if(solution.sat_disjs.find(disj) == solution.sat_disjs.end()) {
             covered = false;
             break;
           }
         }
 
         if(covered)
-          covered = FastLAS::sat_disjs.find(p_eg->get_optimised_rule_violations()) == FastLAS::sat_disjs.end();
+          covered = solution.sat_disjs.find(p_eg->get_optimised_rule_violations()) == solution.sat_disjs.end();
 
         if(covered)
           break;
@@ -183,39 +190,48 @@ pair<int, set<string>> get_total_penalty() {
 }
 
 void FastLAS::print_stats() {
-  auto tp = get_total_penalty();
-  int total_penalty = tp.first;
-  set<string> uncovered_example_ids = tp.second;
+  if(FastLAS::solutions.size()<1){
+    cout << "UNSATISFIABLE" << endl;
+  }
 
-  cout << solution << endl << endl;
-  cout << "{" << endl;
-  cout << "  \"Length\": " << hypothesis_length << "," << endl;
-  cout << "  \"Noisy Example Penalty\": " << total_penalty << "," << endl;
-  cout << "  \"Uncovered Examples\": [";
-  bool first = true;
-  for(auto uce : uncovered_example_ids) {
-    if(first) {
-      first = false;
-    } else {
-      cout << ", ";
+  for (auto solution : FastLAS::solutions){
+    auto tp = get_total_penalty(solution);
+    int total_penalty = tp.first;
+
+    set<string> uncovered_example_ids = tp.second;
+    cout << solution.hypothesis << endl << endl;
+    cout << "{" << endl;
+    cout << "  \"Length\": " << solution.hypothesis_length << "," << endl;
+    cout << "  \"Noisy Example Penalty\": " << total_penalty << "," << endl;
+    cout << "  \"Uncovered Examples\": [";
+    bool first = true;
+    for(auto uce : uncovered_example_ids) {
+      if(first) {
+        first = false;
+      } else {
+        cout << ", ";
+      }
+      cout << uce;
     }
-    cout << uce;
-  }
-  cout << " ]," << endl;
-  cout << "  \"Final Semi-decomposable Representation\": [";
-  first = true;
-  for(auto sdcf : sat_intermediate_facts) {
-    if(first) {
-      first = false;
-    } else {
-      cout << ", ";
+    cout << " ]," << endl;
+    cout << "  \"Final Semi-decomposable Representation\": [";
+    first = true;
+    for(auto sdcf : solution.sat_intermediate_facts) {
+      if(first) {
+        first = false;
+      } else {
+        cout << ", ";
+      }
+      cout << sdcf;
     }
-    cout << sdcf;
+    cout << " ]" << endl;
+    cout << "}" << endl;
+    cout << "c-----" << endl;
   }
-  cout << " ]" << endl;
-  cout << "}" << endl;
 }
 
 void FastLAS::print_score() {
-  cout << hypothesis_length + get_total_penalty().first << flush;
+  if(FastLAS::solutions.size()>0){
+    cout << FastLAS::solutions[0].hypothesis_length + get_total_penalty(FastLAS::solutions[0]).first << flush;
+  }
 }

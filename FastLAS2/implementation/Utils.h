@@ -92,6 +92,7 @@ namespace FastLAS {
   extern bool score_only;
   extern bool space_size;
   extern int num_var_count;
+  extern int multiple_solutions_count;
   extern bool separate_abduction;
   extern bool any_cache;
   extern bool categorical_contexts;

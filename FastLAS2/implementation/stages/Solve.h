@@ -28,6 +28,13 @@
 #include <set>
 #include "../RuleSchema.h"
 
+struct Solution {
+    std::string hypothesis;
+    int hypothesis_length;
+    std::set<std::string> sat_intermediate_facts;
+    std::set<std::set<Schema::RuleSchema*>> sat_disjs;
+};
+
 namespace FastLAS {
 
   void solve();
@@ -38,6 +45,7 @@ namespace FastLAS {
   extern std::set<std::string> sat_intermediate_facts;
   extern std::string solution;
   extern bool sat;
+  extern std::vector<Solution> solutions;
 
 };
 
